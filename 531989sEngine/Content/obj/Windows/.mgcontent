@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/joshuaempyre__arcade_music_loop.wav</File>
+    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/BB_Block.png</File>
+    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/MessageFont.spritefont</File>
+    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/UssDallas.spritefont</File>
+  </SourceFiles>
+</SourceFileCollection>
