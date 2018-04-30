@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Camera2d.cs" />
+    <Compile Include="Camera3d.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Mover.cs" />
     <Compile Include="Program.cs" />

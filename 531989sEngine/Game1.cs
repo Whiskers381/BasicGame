@@ -16,7 +16,8 @@ namespace BasicEngine
     {
         GraphicsDeviceManager _Graphics;
         SpriteBatch _SpriteBatch;
-        Camera2d _Camera = new Camera2d();
+        Camera2d _Camera2d = new Camera2d();
+        Camera3d _Camera3d;
 
         public static int _ScreenWidth = 800;
         public static int _ScreenHeight = 480;
@@ -34,6 +35,7 @@ namespace BasicEngine
         public Game1()
         {
             _Graphics = new GraphicsDeviceManager(this);
+            _Camera3d = new Camera3d(new Vector3(400, 240,10),new Vector3(400,240,10), new Vector3(0,0,0));
             Content.RootDirectory = "Content";
         }
 
@@ -212,9 +214,12 @@ namespace BasicEngine
         {
             GraphicsDevice.Clear(new Color(0, 50, 50));
 
-            _Camera.Pos = new Vector2(400, 240);
+            _Camera2d.Pos = new Vector2(400, 240);
+            this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
 
-            this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera.get_transformation(GraphicsDevice));
+            //_Camera3d.Roll(10f);
+            //_Camera3d.Pitch(10f);
+            //this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera3d.ViewMatrix);
 
             foreach (Text text in SplashScreenText)
             {

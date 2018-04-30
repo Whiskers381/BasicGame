@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/joshuaempyre__arcade_music_loop.wav</File>
-    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/BB_Block.png</File>
-    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/MessageFont.spritefont</File>
-    <File>D:/Documents/Uni/Goof/531989sEngine/531989sEngine/Content/UssDallas.spritefont</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/joshuaempyre__arcade_music_loop.wav</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/BB_Block.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/MessageFont.spritefont</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/UssDallas.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>
