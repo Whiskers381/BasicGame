@@ -97,6 +97,8 @@ namespace BasicEngine
             _CurrentCoordinates = _DefaultCoordinates;
         }
 
+        public virtual void UpdateCameraPosition(Vector2 NoneCares) { }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_CurrentTexture, _CurrentTexture.Bounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0);

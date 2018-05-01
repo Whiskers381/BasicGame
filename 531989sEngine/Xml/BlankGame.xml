@@ -44,4 +44,9 @@
 			</Coordinates>
 		</TextObj>
 	</StartScreen>
+	<Levels>
+		<Level>
+			<Name>TestOne</Name>
+		</Level>
+	</Levels>
 </Game>

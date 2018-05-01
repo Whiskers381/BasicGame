@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Xml;
 
 namespace BasicEngine
 {
@@ -14,8 +15,12 @@ namespace BasicEngine
     /// </summary>
     public class Game1 : Game
     {
+        float _SplashScreenDurationLimit = 4f;
+        float _CurrentSplashScreenDuration = 0f;
+
         GraphicsDeviceManager _Graphics;
         SpriteBatch _SpriteBatch;
+
         Camera2d _Camera2d = new Camera2d();
         Camera3d _Camera3d;
 
@@ -25,7 +30,10 @@ namespace BasicEngine
         public static int _HalfScreenWidth = 400;
         public static int _HalfScreenHeight = 240;
 
+        List<Sprite> _Sprites = new List<Sprite>();
+
         List<Text> SplashScreenText = new List<Text>();
+        List<Text> StartScreenText = new List<Text>();
 
         enum GameStates { SplashScreen, StartScreen, GamePlaying, GamePaused, GameOver, GameWin };
         int _CurrentGameState;
@@ -70,6 +78,23 @@ namespace BasicEngine
             SplashScreenText.Add(new Text(_MessageFont, "Made By:", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0,50)));
             SplashScreenText.Add(new Text(_MessageFont, "James Williams and Josh Cantwell", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
             SplashScreenText.Add(new Text(_MessageFont, "at the University of Hull", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
+
+            StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));
+            StartScreenText.Add(new Text(_MessageFont, "Press SPACEBAR to continue to simulation", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
+            StartScreenText.Add(new Text(_MessageFont, "........", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
+            StartScreenText.Add(new Text(_MessageFont, ".......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -100)));
+            StartScreenText.Add(new Text(_MessageFont, "......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -150)));
+            StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
+            StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
+            StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
+        }
+        protected void LoadXmlContent()
+        {
+            XmlDocument mXmlDocument = new XmlDocument();
+            mXmlDocument.Load("TestOne.xml");
+            XmlNode LevelNode = mXmlDocument.FirstChild.NextSibling;
+
+            List<Sprite> mSprites = new List<Sprite>();
         }
 
         /// <summary>
@@ -115,7 +140,6 @@ namespace BasicEngine
                     UpdateGameWin(gameTime);
                     break;
             }
-
             base.Update(gameTime);
         }
 
@@ -141,12 +165,64 @@ namespace BasicEngine
 
         private void UpdateStartScreen(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            KeyboardState keys = Keyboard.GetState();
+            if (keys.IsKeyDown(Keys.Space))
+            {
+                _CurrentGameState = (int)GameStates.GamePlaying;
+                //mCurrentLevel.mPlayerCharacter.Reset();
+            }
+            //if (keys.IsKeyDown(Keys.D0))
+            //{
+            //    SetCurrentLevelTo(0);
+            //}
+            //else if (keys.IsKeyDown(Keys.D1))
+            //{
+            //    SetCurrentLevelTo(1);
+            //}
+            //else if (keys.IsKeyDown(Keys.D2))
+            //{
+            //    SetCurrentLevelTo(2);
+            //}
+            //else if (keys.IsKeyDown(Keys.D3))
+            //{
+            //    SetCurrentLevelTo(3);
+            //}
+            //else if (keys.IsKeyDown(Keys.D4))
+            //{
+            //    SetCurrentLevelTo(4);
+            //}
+            //else if (keys.IsKeyDown(Keys.D5))
+            //{
+            //    SetCurrentLevelTo(5);
+            //}
+            //else if (keys.IsKeyDown(Keys.D6))
+            //{
+            //    SetCurrentLevelTo(6);
+            //}
+            //else if (keys.IsKeyDown(Keys.D7))
+            //{
+            //    SetCurrentLevelTo(7);
+            //}
+            //else if (keys.IsKeyDown(Keys.D8))
+            //{
+            //    SetCurrentLevelTo(8);
+            //}
+            //else if (keys.IsKeyDown(Keys.D9))
+            //{
+            //    SetCurrentLevelTo(9);
+            //}
         }
 
         private void UpdateSplashScreen(GameTime gameTime)
         {
-            
+            if (_CurrentSplashScreenDuration >= _SplashScreenDurationLimit)
+            {
+                _CurrentGameState = (int)GameStates.StartScreen;
+            }
+            else
+            {
+                _CurrentSplashScreenDuration += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
         }
         #endregion
 
@@ -202,12 +278,35 @@ namespace BasicEngine
 
         private void DrawGamePlay(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            GraphicsDevice.Clear(new Color(0, 50, 50));
+            //_Camera2d.Pos = new Vector2(_PlayerCharacter._X, 240);
+            _SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
+
+            foreach (Sprite sprite in _Sprites)
+            {
+                //sprite.UpdateCameraPosition(_Camera2d.Pos);
+                sprite.Draw(_SpriteBatch);
+            }
+            _SpriteBatch.End();
         }
 
         private void DrawStartScreen(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            GraphicsDevice.Clear(new Color(0, 50, 50));
+
+            _Camera2d.Pos = new Vector2(400, 240);
+            this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
+
+            //_Camera3d.Roll(10f);
+            //_Camera3d.Pitch(10f);
+            //this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera3d.ViewMatrix);
+
+            foreach (Text text in StartScreenText)
+            {
+                text.Draw(_SpriteBatch);
+            }
+
+            _SpriteBatch.End();
         }
 
         private void DrawSplashScreen(GameTime gameTime)
