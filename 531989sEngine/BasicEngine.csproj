@@ -41,14 +41,19 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Block.cs" />
     <Compile Include="Camera2d.cs" />
     <Compile Include="Camera3d.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="LoadXml.cs" />
     <Compile Include="Mover.cs" />
+    <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="Text.cs" />
+    <Compile Include="XmlTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

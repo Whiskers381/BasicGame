@@ -32,8 +32,9 @@ namespace BasicEngine
 
         List<Sprite> _Sprites = new List<Sprite>();
 
-        List<Text> SplashScreenText = new List<Text>();
-        List<Text> StartScreenText = new List<Text>();
+        List<Text> _SplashScreenText = new List<Text>();
+        List<Text> _StartScreenText = new List<Text>();
+        List<Sprite> _GamePlayingSprites = new List<Sprite>();
 
         enum GameStates { SplashScreen, StartScreen, GamePlaying, GamePaused, GameOver, GameWin };
         int _CurrentGameState;
@@ -43,6 +44,7 @@ namespace BasicEngine
         public Game1()
         {
             _Graphics = new GraphicsDeviceManager(this);
+            _Graphics.ToggleFullScreen();
             _Camera3d = new Camera3d(new Vector3(400, 240,10),new Vector3(400,240,10), new Vector3(0,0,0));
             Content.RootDirectory = "Content";
         }
@@ -75,18 +77,22 @@ namespace BasicEngine
 
             // TODO: use this.Content to load your game content here
 
-            SplashScreenText.Add(new Text(_MessageFont, "Made By:", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0,50)));
-            SplashScreenText.Add(new Text(_MessageFont, "James Williams and Josh Cantwell", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
-            SplashScreenText.Add(new Text(_MessageFont, "at the University of Hull", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
+            _SplashScreenText.Add(new Text(_MessageFont, "Made By:", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0,50)));
+            _SplashScreenText.Add(new Text(_MessageFont, "James Williams and Josh Cantwell", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
+            _SplashScreenText.Add(new Text(_MessageFont, "at the University of Hull", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
 
-            StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));
-            StartScreenText.Add(new Text(_MessageFont, "Press SPACEBAR to continue to simulation", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
-            StartScreenText.Add(new Text(_MessageFont, "........", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
-            StartScreenText.Add(new Text(_MessageFont, ".......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -100)));
-            StartScreenText.Add(new Text(_MessageFont, "......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -150)));
-            StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
-            StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
-            StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
+            _StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));
+            _StartScreenText.Add(new Text(_MessageFont, "Press SPACEBAR to continue to simulation", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
+            _StartScreenText.Add(new Text(_MessageFont, "........", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
+            _StartScreenText.Add(new Text(_MessageFont, ".......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -100)));
+            _StartScreenText.Add(new Text(_MessageFont, "......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -150)));
+            _StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
+            _StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
+            _StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
+
+            Texture2D Block = Content.Load<Texture2D>("BB_Block");
+
+            _GamePlayingSprites.Add(new Sprite(Block,new Vector2(0,0)));
         }
         protected void LoadXmlContent()
         {
@@ -160,7 +166,7 @@ namespace BasicEngine
 
         private void UpdateGamePlay(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void UpdateStartScreen(GameTime gameTime)
@@ -282,7 +288,7 @@ namespace BasicEngine
             //_Camera2d.Pos = new Vector2(_PlayerCharacter._X, 240);
             _SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
 
-            foreach (Sprite sprite in _Sprites)
+            foreach (Sprite sprite in _GamePlayingSprites)
             {
                 //sprite.UpdateCameraPosition(_Camera2d.Pos);
                 sprite.Draw(_SpriteBatch);
@@ -301,7 +307,7 @@ namespace BasicEngine
             //_Camera3d.Pitch(10f);
             //this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera3d.ViewMatrix);
 
-            foreach (Text text in StartScreenText)
+            foreach (Text text in _StartScreenText)
             {
                 text.Draw(_SpriteBatch);
             }
@@ -320,7 +326,7 @@ namespace BasicEngine
             //_Camera3d.Pitch(10f);
             //this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera3d.ViewMatrix);
 
-            foreach (Text text in SplashScreenText)
+            foreach (Text text in _SplashScreenText)
             {
                 text.Draw(_SpriteBatch);
             }
