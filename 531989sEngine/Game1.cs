@@ -85,7 +85,7 @@ namespace BasicEngine
             // TODO: use this.Content to load your game content here
 
             _SplashScreenText.Add(new Text(_MessageFont, "Made By:", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0,50)));
-            _SplashScreenText.Add(new Text(_MessageFont, "James Williams and Josh Cantwell", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
+            _SplashScreenText.Add(new Text(_MessageFont, "James Williams, Josh Cantwell and Will Cass", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
             _SplashScreenText.Add(new Text(_MessageFont, "at the University of Hull", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
 
             _StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));

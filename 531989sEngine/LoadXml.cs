@@ -15,10 +15,15 @@ namespace BasicEngine
     class LoadXml : ContentManager
     {
         protected Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
+        private IServiceProvider _ServiceProvider;
+        private string _RootDirectory;
 
 
         public LoadXml(IServiceProvider serviceProvider, string rootDirectory, out Dictionary<int, Level> Levels ) : base(serviceProvider, rootDirectory)
         {
+            _ServiceProvider = serviceProvider;
+            _RootDirectory = rootDirectory;
+
             Levels = new Dictionary<int, Level>();
 
             LoadBaseFile();
@@ -32,7 +37,7 @@ namespace BasicEngine
 
             foreach (XmlNode level in RootNode.SelectSingleNode("Levels"))
             {
-                _Levels.Add(int.Parse(level.SelectSingleNode("Name").FirstChild.Value), new Level(GetRootNode(level.SelectSingleNode("Name").FirstChild.Value)));
+                _Levels.Add(int.Parse(level.SelectSingleNode("Name").FirstChild.Value), new Level(_ServiceProvider, _RootDirectory, GetRootNode(level.SelectSingleNode("Name").FirstChild.Value)));
             }
         }
         private XmlNode GetRootNode(string name)

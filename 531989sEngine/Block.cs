@@ -9,16 +9,14 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    class Block
+    class Block : Sprite
     {
-        private Vector2 _DefaultCoordinates;
-        public Vector2 DefaultCoordinates { get { return _DefaultCoordinates; } set { } }
         private int _Width;
         public int Width { get { return _Width; } set { } }
         private int _Height;
         public int Height { get { return _Width; } set { } }
 
-        public Block(Vector2 defaultCoordinates, int width, int height)
+        public Block(Texture2D texture, Vector2 defaultCoordinates, int width, int height) : base(texture, defaultCoordinates)
         {
             _DefaultCoordinates = defaultCoordinates;
             _Width = width;

@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 using System.Xml;
 
 namespace BasicEngine
 {
-    class Level
+    class Level : ContentManager
     {
         #region Member Variables
         protected string _Name;
@@ -32,7 +35,7 @@ namespace BasicEngine
         #endregion Getters
 
 
-        public Level(XmlNode rootNode)
+        public Level(IServiceProvider serviceProvider, string rootDirectory, XmlNode rootNode) : base(serviceProvider, rootDirectory)
         {
             _Name = rootNode.SelectSingleNode("Name").FirstChild.Value;
 
@@ -50,13 +53,18 @@ namespace BasicEngine
             #region Blocks
             foreach (XmlNode block in rootNode.SelectSingleNode("Blocks").SelectNodes("Blocks"))
             {
+                /*
                 _Blocks.Add(new Block(
+                    //TBC
                     new Vector2(
                         Int32.Parse(block.SelectSingleNode("X").FirstChild.Value),
                         Int32.Parse(block.SelectSingleNode("Y").FirstChild.Value)),
                     Int32.Parse(block.SelectSingleNode("Width").FirstChild.Value),
                     Int32.Parse(block.SelectSingleNode("Height").FirstChild.Value)));
+                    */
             }
+
+            
             #endregion Blocks
         }
     }
