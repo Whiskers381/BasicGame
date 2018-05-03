@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Game>
+	<SplashScreen>
+		<TextObj>
+			<Text>Made By:</Text>
+			<Font>UssDallas</Font>
+			<XAdjust>Centre</XAdjust>
+			<YAdjust>Centre</YAdjust>
+			<Coordinates>
+				<X>0</X>
+				<Y>50</Y>
+			</Coordinates>
+		</TextObj>
+		<TextObj>
+			<Text>James Williams, Josh Cantwell and Will Cass</Text>
+			<Font>UssDallas</Font>
+			<XAdjust>Centre</XAdjust>
+			<YAdjust>Centre</YAdjust>
+			<Coordinates>
+				<X>0</X>
+				<Y>0</Y>
+			</Coordinates>
+		</TextObj>
+		<TextObj>
+			<Text>at the University of Hull</Text>
+			<Font>UssDallas</Font>
+			<XAdjust>Centre</XAdjust>
+			<YAdjust>Centre</YAdjust>
+			<Coordinates>
+				<X>0</X>
+				<Y>-50</Y>
+			</Coordinates>
+		</TextObj>
+	</SplashScreen>
+	<StartScreen>
+		<TextObj>
+			<Text>at the University of Hull</Text>
+			<Font>UssDallas</Font>
+			<XAdjust>Centre</XAdjust>
+			<YAdjust>Centre</YAdjust>
+			<Coordinates>
+				<X>0</X>
+				<Y>-80</Y>
+			</Coordinates>
+		</TextObj>
+	</StartScreen>
+	<Levels>
+		<Level>
+			<Name>0001</Name>
+		</Level>
+	</Levels>
+</Game>

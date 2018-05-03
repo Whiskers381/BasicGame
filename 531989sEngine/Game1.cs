@@ -31,6 +31,8 @@ namespace BasicEngine
         public static int _HalfScreenWidth = 400;
         public static int _HalfScreenHeight = 240;
 
+        private Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
+
         List<Sprite> _Sprites = new List<Sprite>();
 
         List<Text> _SplashScreenText = new List<Text>();
@@ -47,7 +49,9 @@ namespace BasicEngine
         public Game1()
         {
             _Graphics = new GraphicsDeviceManager(this);
-            _Graphics.ToggleFullScreen();
+
+            //_Graphics.ToggleFullScreen();
+
             _Camera3d = new Camera3d(new Vector3(400, 240,10),new Vector3(400,240,10), new Vector3(0,0,0));
             Content.RootDirectory = "Content";
         }
@@ -98,14 +102,7 @@ namespace BasicEngine
             Texture2D Block = Content.Load<Texture2D>("BB_Block");
 
             _GamePlayingSprites.Add(new Sprite(Block,new Vector2(0,0)));
-        }
-        protected void LoadXmlContent()
-        {
-            XmlDocument mXmlDocument = new XmlDocument();
-            mXmlDocument.Load("TestOne.xml");
-            XmlNode LevelNode = mXmlDocument.FirstChild.NextSibling;
-
-            List<Sprite> mSprites = new List<Sprite>();
+            LoadXml loadXml = new LoadXml(Content.ServiceProvider, Content.RootDirectory, out _Levels);
         }
 
         /// <summary>
