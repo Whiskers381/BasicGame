@@ -15,6 +15,7 @@ namespace BasicEngine
     /// </summary>
     public class Game1 : Game
     {
+        #region Member Variables
         float _SplashScreenDurationLimit = 4f;
         float _CurrentSplashScreenDuration = 0f;
 
@@ -40,6 +41,8 @@ namespace BasicEngine
         int _CurrentGameState;
 
         SpriteFont _MessageFont;
+
+        #endregion Member Variables
 
         public Game1()
         {
@@ -89,6 +92,8 @@ namespace BasicEngine
             _StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
             _StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
             _StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
+
+
 
             Texture2D Block = Content.Load<Texture2D>("BB_Block");
 

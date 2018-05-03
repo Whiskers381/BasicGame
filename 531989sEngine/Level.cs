@@ -11,12 +11,18 @@ namespace BasicEngine
 {
     class Level
     {
+        #region Member Variables
         protected string _Name;
-        public string Name { get { return _Name; } set { } }
         protected Vector2 _PlayerCharacterDefaultCoordinates;
-        public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } set { } }
         protected List<Block> _Blocks = new List<Block>();
+        #endregion Member Variables
+
+        #region Getters
+        public string Name { get { return _Name; } set { } }
+        public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } set { } }
         public List<Block> Blocks { get { return _Blocks; } set { } }
+        #endregion Getters
+
 
         public Level(XmlNode rootNode)
         {
