@@ -15,8 +15,7 @@ namespace BasicEngine
 
         public LoadXml()
         {
-            
-            
+            LoadBaseFile();
         }
         private void LoadBaseFile()
         {
