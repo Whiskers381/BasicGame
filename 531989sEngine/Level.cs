@@ -22,6 +22,7 @@ namespace BasicEngine
         protected string _NextLevelName;
 
         protected List<Block> _Blocks = new List<Block>();
+        protected Texture2D _BlockTexture;
         #endregion Member Variables
 
         #region Getters
@@ -53,15 +54,13 @@ namespace BasicEngine
             #region Blocks
             foreach (XmlNode block in rootNode.SelectSingleNode("Blocks").SelectNodes("Blocks"))
             {
-                /*
                 _Blocks.Add(new Block(
-                    //TBC
+                    _BlockTexture,
                     new Vector2(
                         Int32.Parse(block.SelectSingleNode("X").FirstChild.Value),
                         Int32.Parse(block.SelectSingleNode("Y").FirstChild.Value)),
                     Int32.Parse(block.SelectSingleNode("Width").FirstChild.Value),
                     Int32.Parse(block.SelectSingleNode("Height").FirstChild.Value)));
-                    */
             }
 
             

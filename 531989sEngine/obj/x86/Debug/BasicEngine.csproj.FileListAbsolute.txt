@@ -56,3 +56,6 @@ D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngin
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csproj.CopyComplete
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\531989sEngine.exe
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\531989sEngine.pdb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BadGuyOne.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BlockOne.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\PlayerCharacter.xnb
