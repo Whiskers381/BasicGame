@@ -36,7 +36,7 @@ namespace BasicEngine
         #endregion Getters
 
 
-        public Level(IServiceProvider serviceProvider, string rootDirectory, XmlNode rootNode) : base(serviceProvider, rootDirectory)
+        public Level(IServiceProvider serviceProvider, string rootDirectory, XmlNode rootNode, Texture2D blockTexture) : base(serviceProvider, rootDirectory)
         {
             _Name = rootNode.SelectSingleNode("Name").FirstChild.Value;
 
@@ -52,6 +52,16 @@ namespace BasicEngine
             #endregion Next Level
 
             #region Blocks
+
+            _BlockTexture = blockTexture;
+            _Blocks = GetBlocks(rootNode);
+            
+            #endregion Blocks
+        }
+        private List<Block> GetBlocks(XmlNode rootNode)
+        {
+            List<Block> result = new List<Block>();
+
             foreach (XmlNode block in rootNode.SelectSingleNode("Blocks").SelectNodes("Blocks"))
             {
                 _Blocks.Add(new Block(
@@ -63,8 +73,7 @@ namespace BasicEngine
                     Int32.Parse(block.SelectSingleNode("Height").FirstChild.Value)));
             }
 
-            
-            #endregion Blocks
+            return result;
         }
     }
 }

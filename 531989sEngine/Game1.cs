@@ -32,6 +32,10 @@ namespace BasicEngine
         public static int _HalfScreenHeight = 240;
 
         private Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
+        private int _CurrentLevelId = 1;
+        private Level _CurrentLevel { get { return _Levels[_CurrentLevelId]; } set { } }
+
+
 
         List<Sprite> _Sprites = new List<Sprite>();
 
@@ -84,25 +88,25 @@ namespace BasicEngine
 
             // TODO: use this.Content to load your game content here
 
-            _SplashScreenText.Add(new Text(_MessageFont, "Made By:", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0,50)));
-            _SplashScreenText.Add(new Text(_MessageFont, "James Williams, Josh Cantwell and Will Cass", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
-            _SplashScreenText.Add(new Text(_MessageFont, "at the University of Hull", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
-
-            _StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));
-            _StartScreenText.Add(new Text(_MessageFont, "Press SPACEBAR to continue to simulation", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
-            _StartScreenText.Add(new Text(_MessageFont, "........", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
-            _StartScreenText.Add(new Text(_MessageFont, ".......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -100)));
-            _StartScreenText.Add(new Text(_MessageFont, "......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -150)));
-            _StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
-            _StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
-            _StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
-
-
-
-            Texture2D Block = Content.Load<Texture2D>("BB_Block");
-
-            _GamePlayingSprites.Add(new Sprite(Block,new Vector2(0,0)));
             LoadXml loadXml = new LoadXml(Content.ServiceProvider, Content.RootDirectory, out _Levels);
+
+            //_SplashScreenText.Add(new Text(_MessageFont, "Made By:", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0,50)));
+            //_SplashScreenText.Add(new Text(_MessageFont, "James Williams, Josh Cantwell and Will Cass", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
+            //_SplashScreenText.Add(new Text(_MessageFont, "at the University of Hull", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
+
+            //_StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));
+            //_StartScreenText.Add(new Text(_MessageFont, "Press SPACEBAR to continue to simulation", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
+            //_StartScreenText.Add(new Text(_MessageFont, "........", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
+            //_StartScreenText.Add(new Text(_MessageFont, ".......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -100)));
+            //_StartScreenText.Add(new Text(_MessageFont, "......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -150)));
+            //_StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
+            //_StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
+            //_StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
+
+
+
+            //Texture2D Block = Content.Load<Texture2D>("BB_Block");
+            //_GamePlayingSprites.Add(new Sprite(Block,new Vector2(0,0)));
         }
 
         /// <summary>

@@ -11,6 +11,9 @@ namespace BasicEngine
 {
     class Text
     {
+
+        #region MemberVariables
+
         SpriteFont _Font;
         string _Text;
         Color _Color;
@@ -18,8 +21,11 @@ namespace BasicEngine
         public enum XAdjust { Left, Right, Centre }
         public enum YAdjust { Top, Bottem, Centre }
 
+        #endregion MemberVariables
+
         #region Coordinates
-        public Vector2 _CurrentCoordinates = new Vector2(0,0);
+
+        public Vector2 _CurrentCoordinates = new Vector2(0, 0);
         public float _CurrentX
         {
             get
@@ -65,14 +71,13 @@ namespace BasicEngine
                 this._DefaultCoordinates.Y = value;
             }
         }
+
         #endregion
 
-        public Text(SpriteFont font, string text, int xAdjust, int yAdjust, Vector2 coordinates)
-        {
-            _Font = font;
-            _Text = text;
-            _Color = Color.Red;
+        #region Constructors
 
+        public Text(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates) : this(text, font, coordinates)
+        {
             switch (xAdjust)
             {
                 case (int)XAdjust.Left:
@@ -99,10 +104,53 @@ namespace BasicEngine
             }
             Reset();
         }
-        public Text(SpriteFont font, string text, int xAdjust, int yAdjust, Vector2 coordinates, Color color) : this(font, text, xAdjust, yAdjust, coordinates)
+        public Text(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
         {
             _Color = color;
         }
+        public Text(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates)
+        {
+            _Font = font;
+            _Text = text;
+            _Color = Color.Red;
+
+            switch (xAdjust)
+            {
+                case "Left":
+                    _DefaultCoordinates.X = coordinates.X;
+                    break;
+                case "Right":
+                    _DefaultCoordinates.X = Game1._ScreenWidth - _Font.MeasureString(_Text).X + coordinates.X;
+                    break;
+                case "Centre":
+                    _DefaultCoordinates.X = (Game1._HalfScreenWidth) - (_Font.MeasureString(_Text).X + coordinates.X / 2);
+                    break;
+            }
+            switch (yAdjust)
+            {
+                case "Top":
+                    _DefaultCoordinates.Y = coordinates.Y;
+                    break;
+                case "Bottem":
+                    _DefaultCoordinates.Y = Game1._ScreenWidth - _Font.MeasureString(_Text).Y + coordinates.Y;
+                    break;
+                case "Centre":
+                    _DefaultCoordinates.Y = (Game1._HalfScreenHeight) - (_Font.MeasureString(_Text).Y + coordinates.Y / 2);
+                    break;
+            }
+        }
+        public Text(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
+        {
+            _Color = color;
+        }
+        private Text(string text, SpriteFont font, Vector2 coordinates)
+        {
+            _Font = font;
+            _Text = text;
+            _Color = Color.Red;
+        }
+
+        #endregion Constructors
 
         public void Reset()
         {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Useing
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +12,22 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 
+#endregion Useing
+
 namespace BasicEngine
 {
     class LoadXml : ContentManager
     {
+        #region MemberVariables
+
         private IServiceProvider _ServiceProvider;
         private string _RootDirectory;
 
         protected Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
+
+        protected Dictionary<string, SpriteFont> _Fonts = new Dictionary<string, SpriteFont>();
+
+        protected List<Text> _Texts = new List<Text>();
 
         protected List<Texture2D> _PlayerCharacterUpTextures = new List<Texture2D>();
         protected List<Texture2D> _PlayerCharacterDownTextures = new List<Texture2D>();
@@ -31,6 +41,14 @@ namespace BasicEngine
 
         protected Texture2D _BlockTexture;
 
+        #endregion MemberVariables
+        /// <summary>
+        /// Handles All xml loading starting with the base file
+        /// also has getters for all the information loaded.
+        /// </summary>
+        /// <param name="serviceProvider">Pass in Content.ServiceProvider from Game1</param>
+        /// <param name="rootDirectory">Pass in Content.RootDirectory from Game1</param>
+        /// <param name="Levels"></param>
         public LoadXml(IServiceProvider serviceProvider, string rootDirectory, out Dictionary<int, Level> Levels ) : base(serviceProvider, rootDirectory)
         {
             _ServiceProvider = serviceProvider;
@@ -54,6 +72,22 @@ namespace BasicEngine
             //var Dank = new ChangMyMind.meme("This is human readable");
 
             XmlNode RootNode = GetRootNode(baseGameFile);
+
+            foreach(XmlNode state in RootNode.SelectSingleNode("States").ChildNodes)
+            {
+                switch(state.Name)
+                {
+                    case "SplashScreen":
+                        //GetTextObjsFromXml(state.SelectSingleNode("SplashScreen"));
+                        break;
+                    case "StartScreen":
+                        //GetTextObjsFromXml(state.SelectSingleNode("StartScreen"));
+                        break;
+                    default:
+                        Trace.WriteLine("***" + "No texture loading code for: " + state.Name + "***");
+                        break;
+                }
+            }
 
             foreach(XmlNode spriteType in RootNode.SelectSingleNode("Textures").ChildNodes)
             {
@@ -118,7 +152,11 @@ namespace BasicEngine
 
             foreach (XmlNode level in RootNode.SelectSingleNode("Levels"))
             {
-                _Levels.Add(int.Parse(level.SelectSingleNode("Name").FirstChild.Value), new Level(_ServiceProvider, _RootDirectory, GetRootNode(level.SelectSingleNode("Name").FirstChild.Value)));
+                _Levels.Add(
+                    int.Parse(level.SelectSingleNode("Name").FirstChild.Value),
+                    new Level(_ServiceProvider, _RootDirectory,
+                    GetRootNode(level.SelectSingleNode("Name").FirstChild.Value),
+                    _BlockTexture));
             }
         }
         private List<Texture2D> GetTexture2Ds(XmlNode textureGroup)
@@ -130,12 +168,40 @@ namespace BasicEngine
             }
             return result;
         }
-
         private XmlNode GetRootNode(string name)
         {
             XmlDocument document = new XmlDocument();
             document.Load(System.IO.Path.Combine("Xml", name + ".xml"));
             return document.FirstChild.NextSibling;
+        }
+        /// <summary>
+        /// Gets a list of all text objects stored in xml
+        /// </summary>
+        /// <param name="ParentNode">The parent to all the TextObj nodes</param>
+        /// <returns></returns>
+        private List<Text> GetTextObjsFromXml(XmlNode ParentNode)
+        {
+            List<Text> result = new List<Text>();
+
+            foreach (XmlNode textObj in ParentNode.ChildNodes)
+            {
+                _Texts.Add(new Text(
+                    textObj.SelectSingleNode("Text").FirstChild.Value,
+                    _Fonts[textObj.SelectSingleNode("Font").FirstChild.Value],
+                    textObj.SelectSingleNode("XAdjust").FirstChild.Value,
+                    textObj.SelectSingleNode("XAdjust").FirstChild.Value,
+                    GetXmlCoordinates(textObj)));
+            }
+            return result;
+        }
+        /// <summary>
+        /// Gets Coordinates from "Coordinates" node
+        /// </summary>
+        /// <param name="ParentNode">Parent of "Coordinates" node</param>
+        /// <returns></returns>
+        private Vector2 GetXmlCoordinates(XmlNode ParentNode)
+        {
+            return new Vector2(int.Parse(ParentNode.SelectSingleNode("Coordinates/X").FirstChild.Value), int.Parse(ParentNode.SelectSingleNode("Coordinates/Y").FirstChild.Value));
         }
     }
 }
