@@ -88,13 +88,6 @@ namespace BasicEngine
 
         public override void Update(float deltaTime)
         {
-            _CurrentTextureChangeCounter += 1;
-            UpdateLogic(deltaTime);
-            //UpdateCurrentTexture();//Calls the update methods of it's children as this class isn't meant to be used on its own because anything that moves would require its own update logic to actualy move 
-            base.Update(deltaTime);
-        }
-        public virtual void UpdateLogic(float deltaTime)
-        {
 
         }
     }

@@ -102,9 +102,14 @@ namespace BasicEngine
 
         #endregion Constructors
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(_Font, _Text, new Vector2(_CurrentX, _CurrentY), _Color);
+        }
+
+        public override void Update(float deltaTime)
+        {
+            throw new NotImplementedException();
         }
     }
 }

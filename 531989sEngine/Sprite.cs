@@ -71,12 +71,22 @@ namespace BasicEngine
             _DefaultCoordinates = defaultCoordinates;
             Reset();
 
-            _Color = Color.Red;
+            _Color = Color.White;
         }
 
         public void Reset()
         {
             _CurrentCoordinates = _DefaultCoordinates;
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void Update(float deltaTime)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Methods

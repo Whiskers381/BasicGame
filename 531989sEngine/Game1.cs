@@ -27,7 +27,7 @@ namespace BasicEngine
 
         private State _CurrentState;
         private State _NextState;
-        public void ChangeState(State state)
+        public void ChangeState(State state) 
         {
             _NextState = state;
         }
@@ -43,8 +43,7 @@ namespace BasicEngine
         public Game1()
         {
             _Graphics = new GraphicsDeviceManager(this);
-
-            //_Graphics.ToggleFullScreen();
+            _Graphics.ToggleFullScreen();
 
             Content.RootDirectory = "Content";
         }

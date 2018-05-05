@@ -17,6 +17,9 @@ namespace BasicEngine
 
         protected Level _CurrentLevel;
         protected Level _NextLevel;
+
+        protected List<Sprite> _Sprites;
+
         public void ChangeLevel(Level level)
         {
             _NextLevel = level;
@@ -24,6 +27,8 @@ namespace BasicEngine
 
         public GamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
+            _Sprites = new List<Sprite>();
+
             _Levels = _Game.XmlContent.Levels;
 
             _CurrentLevel = _Levels[_Game.XmlContent.FirstLevel];
@@ -34,6 +39,16 @@ namespace BasicEngine
                 _Game.XmlContent.PlayerCharacterLeftTextures,
                 _Game.XmlContent.PlayerCharacterRightTextures,
                 _CurrentLevel.PlayerCharacterDefaultCoordinates);
+
+            foreach(Sprite text in _Texts)
+            {
+                _Sprites.Add(text);
+            }
+            foreach (Sprite block in _CurrentLevel.Blocks)
+            {
+                _Sprites.Add(block);
+            }
+            _Sprites.Add(_PlayerCharacter);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -42,13 +57,9 @@ namespace BasicEngine
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
-            foreach (TextSprite text in _Texts)
+            foreach (Sprite sprite in _Sprites)
             {
-                text.Draw(spriteBatch);
-            }
-            foreach (Block block in _CurrentLevel.Blocks)
-            {
-                block.Draw(spriteBatch);
+                sprite.Draw(spriteBatch);
             }
 
             spriteBatch.End();

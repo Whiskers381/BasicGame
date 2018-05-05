@@ -20,12 +20,14 @@ namespace BasicEngine
         {
             _Width = width;
             _Height = height;
+
+            _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width * _Width, texture.Width * _Height);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
             _Rectangle.X = (int)Math.Round(_CurrentX);
             _Rectangle.Y = (int)Math.Round(_CurrentY);
-            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0);
+            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 1f);
         }
     }
 }

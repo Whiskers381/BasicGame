@@ -30,10 +30,11 @@ namespace BasicEngine
         #endregion
 
         
-        public virtual void Update(float deltaTime)
+        public override void Update(float deltaTime)
         {
 
         }
+
         public bool IntersectsWith(TextureSprite pSprite)
         {
             return _Rectangle.Intersects(pSprite._Rectangle);
@@ -41,7 +42,7 @@ namespace BasicEngine
 
         public virtual void UpdateCameraPosition(Vector2 NoneCares) { }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             _Rectangle.X = (int)Math.Round(_CurrentX);
             _Rectangle.Y = (int)Math.Round(_CurrentY);
