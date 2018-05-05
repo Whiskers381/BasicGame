@@ -38,8 +38,8 @@ namespace BasicEngine
         protected List<Texture2D> _BadGuyOneLeftTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneRightTextures = new List<Texture2D>();
 
-        protected List<Text> _SplashScreenText = new List<Text>();
-        protected List<Text> _StartScreenText = new List<Text>();
+        protected List<TextSprite> _SplashScreenText = new List<TextSprite>();
+        protected List<TextSprite> _StartScreenText = new List<TextSprite>();
 
         protected Texture2D _BlockTexture;
 
@@ -62,8 +62,8 @@ namespace BasicEngine
         public List<Texture2D> BadGuyOneLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
         public List<Texture2D> BadGuyOneRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
 
-        public List<Text> SplashScreenText { get { return _SplashScreenText; } set { } }
-        public List<Text> StartScreenText { get { return _StartScreenText; } set { } }
+        public List<TextSprite> SplashScreenText { get { return _SplashScreenText; } set { } }
+        public List<TextSprite> StartScreenText { get { return _StartScreenText; } set { } }
 
         public Texture2D BlockTexture { get { return _BlockTexture; } set { } }
 
@@ -215,13 +215,13 @@ namespace BasicEngine
         /// </summary>
         /// <param name="ParentNode">The parent to all the TextObj nodes</param>
         /// <returns></returns>
-        private List<Text> GetTextObjsFromXml(XmlNode ParentNode)
+        private List<TextSprite> GetTextObjsFromXml(XmlNode ParentNode)
         {
-            List<Text> result = new List<Text>();
+            List<TextSprite> result = new List<TextSprite>();
 
             foreach (XmlNode textObj in ParentNode.ChildNodes)
             {
-                result.Add(new Text(
+                result.Add(new TextSprite(
                     textObj.SelectSingleNode("Text").FirstChild.Value,
                     _Fonts[textObj.SelectSingleNode("Font").FirstChild.Value],
                     textObj.SelectSingleNode("XAdjust").FirstChild.Value,

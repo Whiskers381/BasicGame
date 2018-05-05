@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Xml;
+
+namespace BasicEngine
+{
+    public class TextureSprite : Sprite
+    {
+        #region MemberVariables
+
+        #region Texture Stuff
+        protected Texture2D _CurrentTexture;
+        protected Rectangle _Rectangle;
+        #endregion
+
+        #endregion
+
+        #region Constructors
+        public TextureSprite(Texture2D texture, Vector2 defaultCoordinates) : base(defaultCoordinates)
+        {
+            _CurrentTexture = texture;
+
+            _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
+        }
+        #endregion
+
+        
+        public virtual void Update(float deltaTime)
+        {
+
+        }
+        public bool IntersectsWith(TextureSprite pSprite)
+        {
+            return _Rectangle.Intersects(pSprite._Rectangle);
+        }
+
+        public virtual void UpdateCameraPosition(Vector2 NoneCares) { }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            _Rectangle.X = (int)Math.Round(_CurrentX);
+            _Rectangle.Y = (int)Math.Round(_CurrentY);
+            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Color, 0f, new Vector2(0, 0), SpriteEffects.None, 0);
+        }
+    }
+}

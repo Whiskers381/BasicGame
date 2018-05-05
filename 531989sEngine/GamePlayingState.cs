@@ -42,11 +42,11 @@ namespace BasicEngine
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
-            foreach(Text text in _Texts)
+            foreach (TextSprite text in _Texts)
             {
                 text.Draw(spriteBatch);
             }
-            foreach(Block block in _CurrentLevel.Blocks)
+            foreach (Block block in _CurrentLevel.Blocks)
             {
                 block.Draw(spriteBatch);
             }

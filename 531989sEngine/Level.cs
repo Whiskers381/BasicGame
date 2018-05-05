@@ -62,13 +62,13 @@ namespace BasicEngine
         {
             List<Block> result = new List<Block>();
 
-            foreach (XmlNode block in rootNode.SelectSingleNode("Blocks").SelectNodes("Blocks"))
+            foreach (XmlNode block in rootNode.SelectSingleNode("Blocks").SelectNodes("Block"))
             {
-                _Blocks.Add(new Block(
+                result.Add(new Block(
                     _BlockTexture,
                     new Vector2(
-                        Int32.Parse(block.SelectSingleNode("X").FirstChild.Value),
-                        Int32.Parse(block.SelectSingleNode("Y").FirstChild.Value)),
+                        Int32.Parse(block.SelectSingleNode("DefaultCoordinates/X").FirstChild.Value),
+                        Int32.Parse(block.SelectSingleNode("DefaultCoordinates/Y").FirstChild.Value)),
                     Int32.Parse(block.SelectSingleNode("Width").FirstChild.Value),
                     Int32.Parse(block.SelectSingleNode("Height").FirstChild.Value)));
             }

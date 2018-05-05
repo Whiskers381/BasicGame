@@ -21,7 +21,7 @@ namespace BasicEngine
 
         protected Camera2d _Camera2D;
 
-        protected List<Text> _Texts;
+        protected List<TextSprite> _Texts;
 
 
 
@@ -35,7 +35,7 @@ namespace BasicEngine
             _Content = content;
             _Game = game;
             _GraphicsDevice = graphicsDevice;
-            _Texts = new List<Text>();
+            _Texts = new List<TextSprite>();
         }
 
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);

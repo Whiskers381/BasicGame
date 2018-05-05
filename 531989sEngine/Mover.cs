@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    public class Mover : Sprite
+    public class Mover : TextureSprite
     {
         #region MemberVariables
         protected enum _TextureOptions { Up, Down, Left, Right };

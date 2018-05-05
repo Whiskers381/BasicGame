@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    public class Block : Sprite
+    public class Block : TextureSprite
     {
         private int _Width;
         public int Width { get { return _Width; } set { } }
@@ -20,6 +20,12 @@ namespace BasicEngine
         {
             _Width = width;
             _Height = height;
+        }
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            _Rectangle.X = (int)Math.Round(_CurrentX);
+            _Rectangle.Y = (int)Math.Round(_CurrentY);
+            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0);
         }
     }
 }

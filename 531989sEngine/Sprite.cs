@@ -6,20 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Xml;
+using System.Diagnostics;
 
 namespace BasicEngine
 {
-    public class Sprite
+    public abstract class Sprite
     {
-        #region MemberVariables
+        #region Fields
+        protected Color _Color;
 
-        #region Texture Stuff
-        protected Texture2D _CurrentTexture;
-        protected Rectangle _Rectangle;
-        #endregion
-
-        #region Coordinates
-        public Vector2 _CurrentCoordinates;
+        public Vector2 _CurrentCoordinates = new Vector2(0, 0);
         public float _CurrentX
         {
             get
@@ -42,7 +38,7 @@ namespace BasicEngine
                 this._CurrentCoordinates.Y = value;
             }
         }
-        public Vector2 _DefaultCoordinates;
+        public Vector2 _DefaultCoordinates = new Vector2(0, 0);
         public float _DefaultX
         {
             get
@@ -65,43 +61,24 @@ namespace BasicEngine
                 this._DefaultCoordinates.Y = value;
             }
         }
-        #endregion
 
-        #endregion
+        #endregion Fields
 
-        #region Constructors
-        public Sprite()
+        #region Methods
+
+        public Sprite(Vector2 defaultCoordinates)
         {
-
-        }
-        public Sprite(Texture2D texture, Vector2 defaultCoordinates)
-        {
-            _CurrentTexture = texture;
             _DefaultCoordinates = defaultCoordinates;
             Reset();
-            _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
-        }
-        #endregion
 
-        
-        public virtual void Update(float deltaTime)
-        {
+            _Color = Color.Red;
+        }
 
-        }
-        public bool IntersectsWith(Sprite pSprite)
-        {
-            return _Rectangle.Intersects(pSprite._Rectangle);
-        }
         public void Reset()
         {
             _CurrentCoordinates = _DefaultCoordinates;
         }
 
-        public virtual void UpdateCameraPosition(Vector2 NoneCares) { }
-
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(_CurrentTexture, _CurrentTexture.Bounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0);
-        }
+        #endregion Methods
     }
 }
