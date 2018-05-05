@@ -14,9 +14,21 @@ namespace BasicEngine
 
         protected PlayerCharacter _PlayerCharacter;
 
+        protected Dictionary<int, Level> _Levels;
+
+        protected int _CurrentLevel;
+
         public GamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
-            //_PlayerCharacter = new PlayerCharacter();
+            _Levels = _Game.XmlContent.Levels;
+            _CurrentLevel = _Game.XmlContent.FirstLevel;
+
+            _PlayerCharacter = new PlayerCharacter(
+                _Game.XmlContent.PlayerCharacterUpTextures,
+                _Game.XmlContent.PlayerCharacterDownTextures,
+                _Game.XmlContent.PlayerCharacterLeftTextures,
+                _Game.XmlContent.PlayerCharacterRightTextures,
+                _Levels[_CurrentLevel].PlayerCharacterDefaultCoordinates);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

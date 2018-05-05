@@ -24,6 +24,7 @@ namespace BasicEngine
         private string _RootDirectory;
 
         protected Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
+        protected int _FirstLevel;
 
         protected Dictionary<string, SpriteFont> _Fonts = new Dictionary<string, SpriteFont>();
 
@@ -47,6 +48,7 @@ namespace BasicEngine
         #region Getters
 
         public Dictionary<int, Level> Levels { get { return _Levels; } set { } }
+        public int FirstLevel { get { return _FirstLevel; } set { } }
 
         public Dictionary<string, SpriteFont> Fonts { get { return _Fonts; } set { } }
 
@@ -73,7 +75,6 @@ namespace BasicEngine
         /// </summary>
         /// <param name="serviceProvider">Pass in Content.ServiceProvider from Game1</param>
         /// <param name="rootDirectory">Pass in Content.RootDirectory from Game1</param>
-        /// <param name="Levels"></param>
         public LoadXml(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
         {
             _ServiceProvider = serviceProvider;
@@ -178,8 +179,15 @@ namespace BasicEngine
 
             }
 
+            bool FirstPass = true;
             foreach (XmlNode level in RootNode.SelectSingleNode("Levels"))
             {
+                if(FirstPass)
+                {
+                    _FirstLevel = int.Parse(level.SelectSingleNode("Name").FirstChild.Value);
+                    FirstPass = false;
+                }
+
                 _Levels.Add(
                     int.Parse(level.SelectSingleNode("Name").FirstChild.Value),
                     new Level(_ServiceProvider, _RootDirectory,
