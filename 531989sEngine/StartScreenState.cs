@@ -17,7 +17,7 @@ namespace BasicEngine
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            
+            _GraphicsDevice.Clear(new Color(0, 50, 50));
         }
 
         public override void PostUpdate(GameTime gameTime)

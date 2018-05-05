@@ -17,15 +17,17 @@ namespace BasicEngine
         public SplashScreenState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
             _Texts = _Game.XmlContent.SplashScreenText;
+            _Camera2D.Pos = new Vector2(400, 240);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            _GraphicsDevice.Clear(new Color(0, 50, 50));
+
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
             foreach (Text text in _Texts)
             {
-                //sprite.UpdateCameraPosition(_Camera2d.Pos);
                 text.Draw(spriteBatch);
             }
             spriteBatch.End();

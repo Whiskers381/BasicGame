@@ -138,6 +138,7 @@ namespace BasicEngine
                     _DefaultCoordinates.Y = (Game1._HalfScreenHeight) - (_Font.MeasureString(_Text).Y + coordinates.Y / 2);
                     break;
             }
+            Reset();
         }
         public Text(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
         {

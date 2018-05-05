@@ -206,7 +206,7 @@ namespace BasicEngine
                     textObj.SelectSingleNode("Text").FirstChild.Value,
                     _Fonts[textObj.SelectSingleNode("Font").FirstChild.Value],
                     textObj.SelectSingleNode("XAdjust").FirstChild.Value,
-                    textObj.SelectSingleNode("XAdjust").FirstChild.Value,
+                    textObj.SelectSingleNode("YAdjust").FirstChild.Value,
                     GetXmlCoordinates(textObj)));
             }
             return result;
@@ -218,6 +218,9 @@ namespace BasicEngine
         /// <returns></returns>
         private Vector2 GetXmlCoordinates(XmlNode ParentNode)
         {
+            Trace.Indent();
+            Trace.WriteLine(ParentNode.Name + " " + ParentNode.SelectSingleNode("Coordinates/X").FirstChild.Value + " " + ParentNode.SelectSingleNode("Coordinates/Y").FirstChild.Value);
+            Trace.Unindent();
             return new Vector2(int.Parse(ParentNode.SelectSingleNode("Coordinates/X").FirstChild.Value), int.Parse(ParentNode.SelectSingleNode("Coordinates/Y").FirstChild.Value));
         }
     }
