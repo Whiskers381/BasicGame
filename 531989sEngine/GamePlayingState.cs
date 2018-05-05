@@ -13,6 +13,7 @@ namespace BasicEngine
     {
         public GamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
+
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -22,12 +23,12 @@ namespace BasicEngine
 
         public override void PostUpdate(GameTime gameTime)
         {
-            throw new NotImplementedException();
+
         }
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

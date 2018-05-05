@@ -9,7 +9,7 @@
 				<YAdjust>Centre</YAdjust>
 				<Coordinates>
 					<X>0</X>
-					<Y>50</Y>
+					<Y>-50</Y>
 				</Coordinates>
 			</TextObj>
 			<TextObj>
@@ -29,19 +29,49 @@
 				<YAdjust>Centre</YAdjust>
 				<Coordinates>
 					<X>0</X>
-					<Y>-50</Y>
+					<Y>50</Y>
+				</Coordinates>
+			</TextObj>
+			<TextObj>
+				<Text>Press ENTER to skip</Text>
+				<Font>UssDallas</Font>
+				<XAdjust>Left</XAdjust>
+				<YAdjust>Bottem</YAdjust>
+				<Coordinates>
+					<X>0</X>
+					<Y>0</Y>
 				</Coordinates>
 			</TextObj>
 		</SplashScreen>
 		<StartScreen>
 			<TextObj>
-				<Text>at the University of Hull</Text>
+				<Text>Welcome</Text>
 				<Font>UssDallas</Font>
 				<XAdjust>Centre</XAdjust>
 				<YAdjust>Centre</YAdjust>
 				<Coordinates>
 					<X>0</X>
-					<Y>-80</Y>
+					<Y>-50</Y>
+				</Coordinates>
+			</TextObj>
+			<TextObj>
+				<Text>Press SPACEBAR to play</Text>
+				<Font>UssDallas</Font>
+				<XAdjust>Centre</XAdjust>
+				<YAdjust>Centre</YAdjust>
+				<Coordinates>
+					<X>0</X>
+					<Y>0</Y>
+				</Coordinates>
+			</TextObj>
+			<TextObj>
+				<Text>...</Text>
+				<Font>UssDallas</Font>
+				<XAdjust>Centre</XAdjust>
+				<YAdjust>Centre</YAdjust>
+				<Coordinates>
+					<X>0</X>
+					<Y>50</Y>
 				</Coordinates>
 			</TextObj>
 		</StartScreen>

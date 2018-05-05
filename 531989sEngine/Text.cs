@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Xml;
+using System.Diagnostics;
 
 namespace BasicEngine
 {
@@ -123,7 +124,7 @@ namespace BasicEngine
                     _DefaultCoordinates.X = Game1._ScreenWidth - _Font.MeasureString(_Text).X + coordinates.X;
                     break;
                 case "Centre":
-                    _DefaultCoordinates.X = (Game1._HalfScreenWidth) - (_Font.MeasureString(_Text).X + coordinates.X / 2);
+                    _DefaultCoordinates.X = (Game1._HalfScreenWidth) - (_Font.MeasureString(_Text).X  / 2) + coordinates.X;
                     break;
             }
             switch (yAdjust)
@@ -132,10 +133,10 @@ namespace BasicEngine
                     _DefaultCoordinates.Y = coordinates.Y;
                     break;
                 case "Bottem":
-                    _DefaultCoordinates.Y = Game1._ScreenWidth - _Font.MeasureString(_Text).Y + coordinates.Y;
+                    _DefaultCoordinates.Y = Game1._ScreenHeight - _Font.MeasureString(_Text).Y + coordinates.Y;
                     break;
                 case "Centre":
-                    _DefaultCoordinates.Y = (Game1._HalfScreenHeight) - (_Font.MeasureString(_Text).Y + coordinates.Y / 2);
+                    _DefaultCoordinates.Y = (Game1._HalfScreenHeight) - (_Font.MeasureString(_Text).Y / 2) + coordinates.Y;
                     break;
             }
             Reset();
@@ -160,7 +161,7 @@ namespace BasicEngine
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(_Font, _Text, new Vector2((Game1._ScreenWidth / 2) - (_Font.MeasureString(_Text).X / 2), _CurrentY), Color.Red);
+            spriteBatch.DrawString(_Font, _Text, new Vector2(_CurrentX, _CurrentY), _Color);
         }
     }
 }
