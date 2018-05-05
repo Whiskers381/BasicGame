@@ -18,7 +18,6 @@ namespace BasicEngine
 
         public Block(Texture2D texture, Vector2 defaultCoordinates, int width, int height) : base(texture, defaultCoordinates)
         {
-            _DefaultCoordinates = defaultCoordinates;
             _Width = width;
             _Height = height;
         }

@@ -16,8 +16,6 @@ namespace BasicEngine
     public class Game1 : Game
     {
         #region Member Variables
-        //float _SplashScreenDurationLimit = 4f;
-        //float _CurrentSplashScreenDuration = 0f;
 
         GraphicsDeviceManager _Graphics;
         SpriteBatch _SpriteBatch;
@@ -40,17 +38,6 @@ namespace BasicEngine
         public static int _HalfScreenWidth = 400;
         public static int _HalfScreenHeight = 240;
 
-        private Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
-        private int _CurrentLevelId = 1;
-        private Level _CurrentLevel { get { return _Levels[_CurrentLevelId]; } set { } }
-
-
-
-        List<Sprite> _Sprites = new List<Sprite>();
-
-        //enum GameStates { SplashScreen, StartScreen, GamePlaying, GamePaused, GameOver, GameWin };
-        //int _CurrentGameState;
-
         #endregion Member Variables
 
         public Game1()
@@ -59,7 +46,6 @@ namespace BasicEngine
 
             //_Graphics.ToggleFullScreen();
 
-            //_Camera3d = new Camera3d(new Vector3(400, 240,10),new Vector3(400,240,10), new Vector3(0,0,0));
             Content.RootDirectory = "Content";
         }
 
@@ -82,27 +68,11 @@ namespace BasicEngine
         /// </summary>
         protected override void LoadContent()
         {
-
-            //_CurrentGameState = (int)GameStates.SplashScreen;
             _SpriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
 
             _XmlContent = new LoadXml(Content.ServiceProvider, Content.RootDirectory);
 
-            //_StartScreenText.Add(new Text(_MessageFont, "Welcome", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, 50)));
-            //_StartScreenText.Add(new Text(_MessageFont, "Press SPACEBAR to continue to simulation", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -0)));
-            //_StartScreenText.Add(new Text(_MessageFont, "........", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -50)));
-            //_StartScreenText.Add(new Text(_MessageFont, ".......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -100)));
-            //_StartScreenText.Add(new Text(_MessageFont, "......", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -150)));
-            //_StartScreenText.Add(new Text(_MessageFont, ".....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -200)));
-            //_StartScreenText.Add(new Text(_MessageFont, "....", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -250)));
-            //_StartScreenText.Add(new Text(_MessageFont, "...", (int)Text.XAdjust.Centre, (int)Text.YAdjust.Centre, new Vector2(0, -300)));
-
-            _CurrentState = new SplashScreenState(Content, this, GraphicsDevice, _Camera2D );
-
-            //Texture2D Block = Content.Load<Texture2D>("BB_Block");
-            //_GamePlayingSprites.Add(new Sprite(Block,new Vector2(0,0)));
+            _CurrentState = new SplashScreenState(Content, this, GraphicsDevice, _Camera2D);
         }
 
         /// <summary>
@@ -138,111 +108,9 @@ namespace BasicEngine
             _CurrentState.Update(gameTime);
             _CurrentState.PostUpdate(gameTime);
 
-            //switch (_CurrentGameState)
-            //{
-            //    case (int)GameStates.SplashScreen:
-            //        UpdateSplashScreen(gameTime);
-            //        break;
-            //    case (int)GameStates.StartScreen:
-            //        UpdateStartScreen(gameTime);
-            //        break;
-            //    case (int)GameStates.GamePlaying:
-            //        UpdateGamePlay(gameTime);
-            //        break;
-            //    case (int)GameStates.GamePaused:
-            //        UpdateGamePaused(gameTime);
-            //        break;
-            //    case (int)GameStates.GameOver:
-            //        UpdateGameOver(gameTime);
-            //        break;
-            //    case (int)GameStates.GameWin:
-            //        UpdateGameWin(gameTime);
-            //        break;
-            //}
             base.Update(gameTime);
         }
 
-        //private void UpdateGameWin(GameTime gameTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void UpdateGameOver(GameTime gameTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void UpdateGamePaused(GameTime gameTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void UpdateGamePlay(GameTime gameTime)
-        //{
-            
-        //}
-
-        //private void UpdateStartScreen(GameTime gameTime)
-        //{
-        //    KeyboardState keys = Keyboard.GetState();
-        //    if (keys.IsKeyDown(Keys.Space))
-        //    {
-        //        //_CurrentGameState = (int)GameStates.GamePlaying;
-        //        //mCurrentLevel.mPlayerCharacter.Reset();
-        //    }
-        //    if (keys.IsKeyDown(Keys.D0))
-        //    {
-        //        SetCurrentLevelTo(0);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D1))
-        //    {
-        //        SetCurrentLevelTo(1);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D2))
-        //    {
-        //        SetCurrentLevelTo(2);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D3))
-        //    {
-        //        SetCurrentLevelTo(3);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D4))
-        //    {
-        //        SetCurrentLevelTo(4);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D5))
-        //    {
-        //        SetCurrentLevelTo(5);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D6))
-        //    {
-        //        SetCurrentLevelTo(6);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D7))
-        //    {
-        //        SetCurrentLevelTo(7);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D8))
-        //    {
-        //        SetCurrentLevelTo(8);
-        //    }
-        //    else if (keys.IsKeyDown(Keys.D9))
-        //    {
-        //        SetCurrentLevelTo(9);
-        //    }
-        //}
-
-        //private void UpdateSplashScreen(GameTime gameTime)
-        //{
-        //    if (_CurrentSplashScreenDuration >= _SplashScreenDurationLimit)
-        //    {
-        //        _CurrentGameState = (int)GameStates.StartScreen;
-        //    }
-        //    else
-        //    {
-        //        _CurrentSplashScreenDuration += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        //    }
-        //}
         #endregion
 
         #region Draw
@@ -257,98 +125,9 @@ namespace BasicEngine
 
             _CurrentState.Draw(gameTime, _SpriteBatch);
 
-            //switch (_CurrentGameState)
-            //{
-            //    case (int)GameStates.SplashScreen:
-            //        DrawSplashScreen(gameTime);
-            //        break;
-            //    case (int)GameStates.StartScreen:
-            //        DrawStartScreen(gameTime);
-            //        break;
-            //    case (int)GameStates.GamePlaying:
-            //        DrawGamePlay(gameTime);
-            //        break;
-            //    case (int)GameStates.GamePaused:
-            //        DrawPaused(gameTime);
-            //        break;
-            //    case (int)GameStates.GameOver:
-            //        DrawGameOver(gameTime);
-            //        break;
-            //    case (int)GameStates.GameWin:
-            //        DrawGameWin(gameTime);
-            //        break;
-            //}
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
 
-        //private void DrawGameWin(GameTime gameTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void DrawGameOver(GameTime gameTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void DrawPaused(GameTime gameTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void DrawGamePlay(GameTime gameTime)
-        //{
-        //    GraphicsDevice.Clear(new Color(0, 50, 50));
-        //    //_Camera2d.Pos = new Vector2(_PlayerCharacter._X, 240);
-        //    _SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
-
-        //    foreach (Sprite sprite in _GamePlayingSprites)
-        //    {
-        //        //sprite.UpdateCameraPosition(_Camera2d.Pos);
-        //        sprite.Draw(_SpriteBatch);
-        //    }
-        //    _SpriteBatch.End();
-        //}
-
-        //private void DrawStartScreen(GameTime gameTime)
-        //{
-        //    GraphicsDevice.Clear(new Color(0, 50, 50));
-
-        //    _Camera2d.Pos = new Vector2(400, 240);
-        //    this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
-
-        //    //_Camera3d.Roll(10f);
-        //    //_Camera3d.Pitch(10f);
-        //    //this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera3d.ViewMatrix);
-
-        //    foreach (Text text in _StartScreenText)
-        //    {
-        //        text.Draw(_SpriteBatch);
-        //    }
-
-        //    _SpriteBatch.End();
-        //}
-
-        //private void DrawSplashScreen(GameTime gameTime)
-        //{
-        //    GraphicsDevice.Clear(new Color(0, 50, 50));
-
-        //    _Camera2d.Pos = new Vector2(400, 240);
-        //    this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2d.get_transformation(GraphicsDevice));
-
-        //    //_Camera3d.Roll(10f);
-        //    //_Camera3d.Pitch(10f);
-        //    //this._SpriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera3d.ViewMatrix);
-
-        //    foreach (Text text in _SplashScreenText)
-        //    {
-        //        text.Draw(_SpriteBatch);
-        //    }
-
-        //    _SpriteBatch.End();
-        //}
         #endregion
     }
 }
