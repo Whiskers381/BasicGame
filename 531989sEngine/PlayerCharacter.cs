@@ -8,9 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    class PlayerCharacter : Mover
+    public class PlayerCharacter : Mover
     {
-        public PlayerCharacter(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
+        public PlayerCharacter(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates):
+            base(uptextures, downtextures, lefttextures, righttextures, defaultCoordinates)
         {
 
         }

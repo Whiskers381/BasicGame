@@ -11,9 +11,12 @@ namespace BasicEngine
 {
     public class GamePlaying : State
     {
+
+        protected PlayerCharacter _PlayerCharacter;
+
         public GamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
-
+            //_PlayerCharacter = new PlayerCharacter();
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

@@ -32,30 +32,41 @@ namespace BasicEngine
         protected List<Texture2D> _PlayerCharacterLeftTextures = new List<Texture2D>();
         protected List<Texture2D> _PlayerCharacterRightTextures = new List<Texture2D>();
 
-        public List<Texture2D> PlayerCharacterUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
-        public List<Texture2D> PlayerCharacterDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
-        public List<Texture2D> PlayerCharacterLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
-        public List<Texture2D> PlayerCharacterRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
-
         protected List<Texture2D> _BadGuyOneUpTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneDownTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneLeftTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneRightTextures = new List<Texture2D>();
+
+        protected List<Text> _SplashScreenText = new List<Text>();
+        protected List<Text> _StartScreenText = new List<Text>();
+
+        protected Texture2D _BlockTexture;
+
+        #endregion MemberVariables
+
+        #region Getters
+
+        public Dictionary<int, Level> Levels { get { return _Levels; } set { } }
+
+        public Dictionary<string, SpriteFont> Fonts { get { return _Fonts; } set { } }
+
+        public List<Texture2D> PlayerCharacterUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
+        public List<Texture2D> PlayerCharacterDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
+        public List<Texture2D> PlayerCharacterLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
+        public List<Texture2D> PlayerCharacterRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
 
         public List<Texture2D> BadGuyOneUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
         public List<Texture2D> BadGuyOneDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
         public List<Texture2D> BadGuyOneLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
         public List<Texture2D> BadGuyOneRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
 
-        protected List<Text> _SplashScreenText = new List<Text>();
-        protected List<Text> _StartScreenText = new List<Text>();
-
         public List<Text> SplashScreenText { get { return _SplashScreenText; } set { } }
         public List<Text> StartScreenText { get { return _StartScreenText; } set { } }
 
-        protected Texture2D _BlockTexture;
+        public Texture2D BlockTexture { get { return _BlockTexture; } set { } }
 
-        #endregion MemberVariables
+        #endregion Getters
+
         /// <summary>
         /// Handles All xml loading starting with the base file
         /// also has getters for all the information loaded.
