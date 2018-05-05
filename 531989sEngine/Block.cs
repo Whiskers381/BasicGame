@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    class Block : Sprite
+    public class Block : Sprite
     {
         private int _Width;
         public int Width { get { return _Width; } set { } }

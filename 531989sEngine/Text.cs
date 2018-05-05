@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    class Text
+    public class Text
     {
 
         #region MemberVariables

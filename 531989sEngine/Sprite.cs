@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    class Sprite
+    public class Sprite
     {
         #region MemberVariables
 

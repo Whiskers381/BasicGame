@@ -12,7 +12,7 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    class Level : ContentManager
+    public class Level : ContentManager
     {
         #region Member Variables
         protected string _Name;

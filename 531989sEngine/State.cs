@@ -19,19 +19,23 @@ namespace BasicEngine
 
         protected GraphicsDevice _GraphicsDevice;
 
+        protected Camera2d _Camera2D;
+
+        protected List<Text> _Texts;
+
 
 
         #endregion Fields
 
         #region Methods
 
-        public State(ContentManager content, Game1 game, GraphicsDevice graphicsDevice)
+        public State(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D)
         {
+            _Camera2D = camera2D;
             _Content = content;
-
             _Game = game;
-
             _GraphicsDevice = graphicsDevice;
+            _Texts = new List<Text>();
         }
 
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);

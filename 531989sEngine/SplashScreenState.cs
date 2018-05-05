@@ -11,23 +11,41 @@ namespace BasicEngine
 {
     public class SplashScreenState : State
     {
-        public SplashScreenState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice) : base(content, game, graphicsDevice)
+        float _DurationLimit = 4f;
+        float _Duration = 0f;
+
+        public SplashScreenState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
+            _Texts = _Game.XmlContent.SplashScreenText;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
+
+            foreach (Text text in _Texts)
+            {
+                //sprite.UpdateCameraPosition(_Camera2d.Pos);
+                text.Draw(spriteBatch);
+            }
+            spriteBatch.End();
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
-            throw new NotImplementedException();
+
         }
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            if (_Duration >= _DurationLimit)
+            {
+                _Game.ChangeState(new StartScreenState(_Content, _Game, _GraphicsDevice, _Camera2D));
+            }
+            else
+            {
+                _Duration += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
         }
     }
 }

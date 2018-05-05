@@ -16,7 +16,7 @@ using System.Diagnostics;
 
 namespace BasicEngine
 {
-    class LoadXml : ContentManager
+    public class LoadXml : ContentManager
     {
         #region MemberVariables
 
@@ -27,17 +27,31 @@ namespace BasicEngine
 
         protected Dictionary<string, SpriteFont> _Fonts = new Dictionary<string, SpriteFont>();
 
-        protected List<Text> _Texts = new List<Text>();
-
         protected List<Texture2D> _PlayerCharacterUpTextures = new List<Texture2D>();
         protected List<Texture2D> _PlayerCharacterDownTextures = new List<Texture2D>();
         protected List<Texture2D> _PlayerCharacterLeftTextures = new List<Texture2D>();
         protected List<Texture2D> _PlayerCharacterRightTextures = new List<Texture2D>();
 
+        public List<Texture2D> PlayerCharacterUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
+        public List<Texture2D> PlayerCharacterDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
+        public List<Texture2D> PlayerCharacterLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
+        public List<Texture2D> PlayerCharacterRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
+
         protected List<Texture2D> _BadGuyOneUpTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneDownTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneLeftTextures = new List<Texture2D>();
         protected List<Texture2D> _BadGuyOneRightTextures = new List<Texture2D>();
+
+        public List<Texture2D> BadGuyOneUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
+        public List<Texture2D> BadGuyOneDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
+        public List<Texture2D> BadGuyOneLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
+        public List<Texture2D> BadGuyOneRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
+
+        protected List<Text> _SplashScreenText = new List<Text>();
+        protected List<Text> _StartScreenText = new List<Text>();
+
+        public List<Text> SplashScreenText { get { return _SplashScreenText; } set { } }
+        public List<Text> StartScreenText { get { return _StartScreenText; } set { } }
 
         protected Texture2D _BlockTexture;
 
@@ -49,19 +63,17 @@ namespace BasicEngine
         /// <param name="serviceProvider">Pass in Content.ServiceProvider from Game1</param>
         /// <param name="rootDirectory">Pass in Content.RootDirectory from Game1</param>
         /// <param name="Levels"></param>
-        public LoadXml(IServiceProvider serviceProvider, string rootDirectory, out Dictionary<int, Level> Levels ) : base(serviceProvider, rootDirectory)
+        public LoadXml(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
         {
             _ServiceProvider = serviceProvider;
             _RootDirectory = rootDirectory;
 
-            Levels = new Dictionary<int, Level>();
+            _Levels = new Dictionary<int, Level>();
 
             Trace.Indent();
             Trace.WriteLine("Loading Textures from: " + "BlankGame" + ".xml");
             LoadBaseFile("BlankGame");
             Trace.Unindent();
-
-            Levels = _Levels;
         }
         /// <summary>
         /// Loads the base game file from Xml
@@ -73,15 +85,20 @@ namespace BasicEngine
 
             XmlNode RootNode = GetRootNode(baseGameFile);
 
+            foreach(XmlNode font in RootNode.SelectSingleNode("Fonts").SelectNodes("Font"))
+            {
+                _Fonts.Add(font.FirstChild.Value, Load<SpriteFont>(font.FirstChild.Value));
+            }
+
             foreach(XmlNode state in RootNode.SelectSingleNode("States").ChildNodes)
             {
                 switch(state.Name)
                 {
                     case "SplashScreen":
-                        //GetTextObjsFromXml(state.SelectSingleNode("SplashScreen"));
+                        _SplashScreenText = GetTextObjsFromXml(state);
                         break;
                     case "StartScreen":
-                        //GetTextObjsFromXml(state.SelectSingleNode("StartScreen"));
+                        _StartScreenText = GetTextObjsFromXml(state);
                         break;
                     default:
                         Trace.WriteLine("***" + "No texture loading code for: " + state.Name + "***");
@@ -185,7 +202,7 @@ namespace BasicEngine
 
             foreach (XmlNode textObj in ParentNode.ChildNodes)
             {
-                _Texts.Add(new Text(
+                result.Add(new Text(
                     textObj.SelectSingleNode("Text").FirstChild.Value,
                     _Fonts[textObj.SelectSingleNode("Font").FirstChild.Value],
                     textObj.SelectSingleNode("XAdjust").FirstChild.Value,
