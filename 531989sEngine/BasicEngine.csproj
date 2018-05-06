@@ -7,10 +7,10 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FCAA793F-E628-48D9-B265-B6618213F9D2}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_531989sEngine</RootNamespace>
-    <AssemblyName>531989sEngine</AssemblyName>
+    <RootNamespace>BasicEngine</RootNamespace>
+    <AssemblyName>BasicEngine</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -40,6 +40,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
     <Compile Include="Camera2d.cs" />
@@ -58,7 +61,10 @@
     <Compile Include="StartScreenState.cs" />
     <Compile Include="State.cs" />
     <Compile Include="TextSprite.cs" />
+    <Compile Include="WormKing.cs" />
+    <Compile Include="WormKingPart.cs" />
     <Compile Include="XmlTool.cs" />
+    <Compile Include="ZombieLikeMover.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
