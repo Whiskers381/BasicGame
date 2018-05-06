@@ -42,7 +42,7 @@ namespace BasicEngine
                 _Game.XmlContent.PlayerCharacterRightTextures,
                 _CurrentLevel.PlayerCharacterDefaultCoordinates);
 
-            _WormKing = new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200));
+            _WormKing = new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200), 20);
             _Sprites.Add(_WormKing);
 
             foreach(Sprite text in _Texts)
@@ -84,7 +84,7 @@ namespace BasicEngine
                 _NextLevel = null;
             }
 
-            _Camera2D.Pos = new Vector2(_WormKing._CurrentX, _WormKing._CurrentY);
+            _Camera2D.Pos = new Vector2(_WormKing._Parts[19]._CurrentX, _WormKing._Parts[19]._CurrentY);
 
             _PlayerCharacter.Update(1.0f / 60.0f);
             _WormKing.Update(1.0f / 60.0f);

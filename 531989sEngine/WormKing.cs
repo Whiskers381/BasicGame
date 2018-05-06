@@ -17,10 +17,13 @@ namespace BasicEngine
     {
         #region Member Variables
 
-        protected List<WormKingPart> _Parts = new List<WormKingPart>();
+        public List<WormKingPart> _Parts = new List<WormKingPart>();//this isn't meant to be public but i wanted the camra to folow the worm for now and cba making a temp getter
+        protected List<WormKingMovment> _Movements = new List<WormKingMovment>();
+        protected int _length;
+        //protected int _partDelay;
 
         protected int _MovmentSpeed = 200;//200-300 is a good idea
-        public float _RotationAngle;
+        public float _RotationAngle = 0;
 
         protected Vector2 _PlayerCharacterCoordinates;
 
@@ -37,11 +40,18 @@ namespace BasicEngine
 
         #region Constructors
 
-        public WormKing(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
+        public WormKing(Texture2D texture, Vector2 defaultCoordinates, int Length) : base(texture, defaultCoordinates)//, int partDelay
         {
-            _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y + 32)));
-            _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y + 64)));
-            _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y + 96)));
+            _length = Length;
+            for(int i = 1; i <= _length; i++)
+            {
+                _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y)));
+
+                for(int j = 0; j < _length; j++)
+                {
+                    _Movements.Add(new WormKingMovment(_RotationAngle, defaultCoordinates));
+                }
+            }
         }
 
         #endregion Constructors
@@ -50,7 +60,7 @@ namespace BasicEngine
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Color, _RotationAngle, new Vector2(16, 24), SpriteEffects.None, 0);
+            //spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Color, _RotationAngle, new Vector2(16, 24), SpriteEffects.None, 0);
 
             foreach (WormKingPart part in _Parts)
             {
@@ -79,11 +89,22 @@ namespace BasicEngine
             {
                 part.Update(deltaTime);
             }
+            UpdateMovmentOfParts();
         }
 
         #endregion Draw and Update
 
         #region Protected Methods
+
+        protected void UpdateMovmentOfParts()
+        {
+            for (int i = 0; i < _length; i++)
+            {
+                _Parts[i].UpdateMovement(_Movements[i * 8]);
+            }
+            _Movements.RemoveAt(0);
+            _Movements.Add(new WormKingMovment(_RotationAngle, _CurrentCoordinates));
+        }
 
         //https://gamedev.stackexchange.com/questions/50793/moving-a-sprite-in-the-direction-its-facing-xna
         protected void Move(float speed)

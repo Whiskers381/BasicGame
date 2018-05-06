@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FCAA793F-E628-48D9-B265-B6618213F9D2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BasicEngine</RootNamespace>
     <AssemblyName>BasicEngine</AssemblyName>
@@ -62,6 +62,7 @@
     <Compile Include="State.cs" />
     <Compile Include="TextSprite.cs" />
     <Compile Include="WormKing.cs" />
+    <Compile Include="WormKingMovment.cs" />
     <Compile Include="WormKingPart.cs" />
     <Compile Include="XmlTool.cs" />
     <Compile Include="ZombieLikeMover.cs" />
