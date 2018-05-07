@@ -9,25 +9,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    public class DevEnvironmentState : State
+    public class DevEnvironmentState : GamePlayingState
     {
+        protected DevGuy _DevGuy;
+
         public DevEnvironmentState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
-        }
-
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void PostUpdate(GameTime gameTime)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            throw new NotImplementedException();
+            _DevGuy = new DevGuy(content.Load<Texture2D>("DevGuy"), new Vector2(0,0)); 
         }
     }
 }

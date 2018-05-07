@@ -9,13 +9,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEngine
 {
-    public class DevGuy : TexturedMover
+    public class DevGuy : Mover
     {
-        public DevGuy(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates) :
-            base(uptextures, downtextures, lefttextures, righttextures, defaultCoordinates)
+        public DevGuy(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
         {
 
         }
+
         public override void Update(float deltaTime)
         {
             KeyboardState keys = Keyboard.GetState();

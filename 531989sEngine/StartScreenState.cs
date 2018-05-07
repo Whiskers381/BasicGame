@@ -39,7 +39,7 @@ namespace BasicEngine
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             {
-                _Game.ChangeState(new GamePlaying(_Content, _Game, _GraphicsDevice, _Camera2D));
+                _Game.ChangeState(new GamePlayingState(_Content, _Game, _GraphicsDevice, _Camera2D));
             }
         }
     }
