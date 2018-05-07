@@ -47,11 +47,15 @@
     <Compile Include="Block.cs" />
     <Compile Include="Camera2d.cs" />
     <Compile Include="Camera3d.cs" />
+    <Compile Include="DevEnvironmentState.cs" />
+    <Compile Include="DevGuy.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GamePlayingState.cs" />
+    <Compile Include="HUD.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LoadXml.cs" />
     <Compile Include="Mover.cs" />
+    <Compile Include="TexturedMover.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

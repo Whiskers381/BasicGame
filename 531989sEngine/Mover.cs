@@ -11,76 +11,67 @@ namespace BasicEngine
     public class Mover : TextureSprite
     {
         #region MemberVariables
-        protected enum _TextureOptions { Up, Down, Left, Right };
-        //protected int CurrentTextureOption;
-
-        protected int _CurrentTextureChangeFrequency = 3;// 3 is pretty smooth but a little fast 4 is too slow ¯\_(ツ)_/¯
-        protected int _CurrentTextureChangeCounter = 0;// Incresed every update cycle resets at mTextureChangeFrequency
-
-        protected List<Texture2D> _UpTextures = new List<Texture2D>();
-        protected List<Texture2D> _DownTextures = new List<Texture2D>();
-        protected List<Texture2D> _LeftTextures = new List<Texture2D>();
-        protected List<Texture2D> _RightTextures = new List<Texture2D>();
 
         protected int _MovmentSpeed = 250;//200-300 is a good idea
+
         #endregion
 
         #region Constructors
-        public Mover(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates) : base(righttextures[0], defaultCoordinates)
+
+        public Mover(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
         {
-            _UpTextures = uptextures;
-            _DownTextures = downtextures;
-            _LeftTextures = lefttextures;
-            _RightTextures = righttextures;
+
         }
+
         #endregion
+
         #region Event handlers
 
-        public void StopMoveing()
+        public virtual void StopMoveing()
         {
 
         }
-        public void StopMoveingX()
+        public virtual void StopMoveingX()
         {
 
         }
-        public void StopMoveingY()
-        {
-
-        }
-
-        public void StartMoveingUp()
-        {
-
-        }
-        public void StopMoveingUp()
+        public virtual void StopMoveingY()
         {
 
         }
 
-        public void StartMoveingDown()
+        public virtual void StartMoveingUp()
         {
 
         }
-        public void StopMoveingDown()
-        {
-
-        }
-
-        public void StartMoveingLeft()
-        {
-
-        }
-        public void StopMoveingLeft()
+        public virtual void StopMoveingUp()
         {
 
         }
 
-        public void StartMoveingRight()
+        public virtual void StartMoveingDown()
         {
 
         }
-        public void StopMoveingRight()
+        public virtual void StopMoveingDown()
+        {
+
+        }
+
+        public virtual void StartMoveingLeft()
+        {
+
+        }
+        public virtual void StopMoveingLeft()
+        {
+
+        }
+
+        public virtual void StartMoveingRight()
+        {
+
+        }
+        public virtual void StopMoveingRight()
         {
 
         }
