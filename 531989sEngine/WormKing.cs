@@ -33,7 +33,7 @@ namespace BasicEngine
 
         public void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
         {
-            _PlayerCharacterCoordinates = playerCharacterCoordinates;
+            _PlayerCharacterCoordinates = new Vector2(playerCharacterCoordinates.X + 8,playerCharacterCoordinates.Y + 16);
         }
 
         #endregion Setters
@@ -74,12 +74,12 @@ namespace BasicEngine
 
             if(_CurrentY > 0 && _CurrentY < 480)
             {
-                UpdateRotation(deltaTime, 0.5);
+                UpdateRotation(deltaTime, 1);
                 
             }
             else
             {
-                UpdateRotation(deltaTime, -20);
+                UpdateRotation(deltaTime, -2);
                 //RotationAngle -= 0.5f;
 
             }
