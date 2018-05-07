@@ -15,8 +15,8 @@ namespace BasicEngine//531989sEngine
         #region Fields
         protected Color _Color;
 
-        public Vector2 _CurrentCoordinates = new Vector2(0, 0);
-        public float _CurrentX
+        protected Vector2 _CurrentCoordinates = new Vector2(0, 0);
+        protected float _CurrentX
         {
             get
             {
@@ -27,7 +27,7 @@ namespace BasicEngine//531989sEngine
                 this._CurrentCoordinates.X = value;
             }
         }
-        public float _CurrentY
+        protected float _CurrentY
         {
             get
             {
@@ -38,8 +38,8 @@ namespace BasicEngine//531989sEngine
                 this._CurrentCoordinates.Y = value;
             }
         }
-        public Vector2 _DefaultCoordinates = new Vector2(0, 0);
-        public float _DefaultX
+        protected Vector2 _DefaultCoordinates = new Vector2(0, 0);
+        protected float _DefaultX
         {
             get
             {
@@ -50,7 +50,7 @@ namespace BasicEngine//531989sEngine
                 this._DefaultCoordinates.X = value;
             }
         }
-        public float _DefaultY
+        protected float _DefaultY
         {
             get
             {
@@ -61,6 +61,10 @@ namespace BasicEngine//531989sEngine
                 this._DefaultCoordinates.Y = value;
             }
         }
+
+        public Vector2 CurrentCoordinates { get { return _CurrentCoordinates; } set { } }
+        public float CurrentX { get { return _CurrentX; } set { } }
+        public float CurrentY { get { return _CurrentY; } set { } }
 
         #endregion Fields
 

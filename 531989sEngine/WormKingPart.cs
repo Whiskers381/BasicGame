@@ -16,6 +16,10 @@ namespace BasicEngine
         {
 
         }
+        public WormKingPart(Texture2D texture, Vector2 defaultCoordinates, Color color) : base(texture, defaultCoordinates)
+        {
+            _Color = color;
+        }
 
         public void UpdateMovement(WormKingMovment movment)
         {

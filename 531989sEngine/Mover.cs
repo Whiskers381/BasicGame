@@ -90,5 +90,21 @@ namespace BasicEngine
         {
 
         }
+        public virtual void MoveUp(float deltaTime)
+        {
+            _CurrentY -= _MovmentSpeed * deltaTime;
+        }
+        public virtual void MoveDown(float deltaTime)
+        {
+            _CurrentY += _MovmentSpeed * deltaTime;
+        }
+        public virtual void MoveLeft(float deltaTime)
+        {
+            _CurrentX -= _MovmentSpeed * deltaTime;
+        }
+        public virtual void MoveRight(float deltaTime)
+        {
+            _CurrentX += _MovmentSpeed * deltaTime;
+        }
     }
 }

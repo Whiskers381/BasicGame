@@ -20,7 +20,7 @@ namespace BasicEngine
         public List<WormKingPart> _Parts = new List<WormKingPart>();//this isn't meant to be public but i wanted the camra to folow the worm for now and cba making a temp getter
         protected List<WormKingMovment> _Movements = new List<WormKingMovment>();
         protected int _length;
-        //protected int _partDelay;
+        protected int _partDelay;
 
         protected int _MovmentSpeed = 200;//200-300 is a good idea
         public float _RotationAngle = 0;
@@ -40,14 +40,18 @@ namespace BasicEngine
 
         #region Constructors
 
-        public WormKing(Texture2D texture, Vector2 defaultCoordinates, int Length) : base(texture, defaultCoordinates)//, int partDelay
+        public WormKing(Texture2D texture, Vector2 defaultCoordinates, int Length, int partDelay, Color color) : base(texture, defaultCoordinates)//, int partDelay
         {
             _length = Length;
-            for(int i = 1; i <= _length; i++)
-            {
-                _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y)));
+            _partDelay = partDelay;
 
-                for(int j = 0; j < _length; j++)
+            _Color = color;
+
+            for (int i = 1; i <= _length; i++)
+            {
+                _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y), _Color));
+
+                for(int j = 0; j < _partDelay; j++)
                 {
                     _Movements.Add(new WormKingMovment(_RotationAngle, defaultCoordinates));
                 }
@@ -60,7 +64,7 @@ namespace BasicEngine
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Color, _RotationAngle, new Vector2(16, 24), SpriteEffects.None, 0);
+            //spriteBatch.Draw(_CurrentTexture, _Rectangle, null, Color.Green, _RotationAngle, new Vector2(16, 24), SpriteEffects.None, 0);
 
             foreach (WormKingPart part in _Parts)
             {
@@ -79,7 +83,8 @@ namespace BasicEngine
             }
             else
             {
-                UpdateRotation(deltaTime, -2);
+                UpdateRotation(deltaTime, 1);
+                //UpdateRotation(deltaTime, -2);
                 //RotationAngle -= 0.5f;
 
             }
@@ -100,7 +105,7 @@ namespace BasicEngine
         {
             for (int i = 0; i < _length; i++)
             {
-                _Parts[i].UpdateMovement(_Movements[i * 8]);
+                _Parts[i].UpdateMovement(_Movements[i * _partDelay]);
             }
             _Movements.RemoveAt(0);
             _Movements.Add(new WormKingMovment(_RotationAngle, _CurrentCoordinates));

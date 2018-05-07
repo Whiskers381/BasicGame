@@ -20,7 +20,7 @@ namespace BasicEngine
 
         protected List<Sprite> _Sprites;
 
-        protected WormKing _WormKing;
+        protected List<WormKing> _WormKings = new List<WormKing>();
 
         public void ChangeLevel(Level level)
         {
@@ -42,10 +42,16 @@ namespace BasicEngine
                 _Game.XmlContent.PlayerCharacterRightTextures,
                 _CurrentLevel.PlayerCharacterDefaultCoordinates);
 
-            _WormKing = new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200), 20);
-            _Sprites.Add(_WormKing);
+            //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200), 20, 8));
+            //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(300, 300), 40, 8, Color.Green));
+            _WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(400, 400), 500, 8, Color.GreenYellow));
 
-            foreach(Sprite text in _Texts)
+            foreach(WormKing wormKing in _WormKings)
+            {
+                _Sprites.Add(wormKing);
+            }
+
+            foreach (Sprite text in _Texts)
             {
                 _Sprites.Add(text);
             }
@@ -84,10 +90,15 @@ namespace BasicEngine
                 _NextLevel = null;
             }
 
-            _Camera2D.Pos = new Vector2(_WormKing._Parts[19]._CurrentX, _WormKing._Parts[19]._CurrentY);
+            _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;//new Vector2(_WormKing._Parts[19].CurrentX, _WormKing._Parts[19].CurrentY)
 
             _PlayerCharacter.Update(1.0f / 60.0f);
-            _WormKing.Update(1.0f / 60.0f);
+
+            foreach(WormKing wormKing in _WormKings)
+            {
+                wormKing.Update(1.0f / 60.0f);
+                wormKing.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);
+            }
         }
     }
 }

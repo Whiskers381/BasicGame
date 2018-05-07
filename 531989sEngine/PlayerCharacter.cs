@@ -18,7 +18,23 @@ namespace BasicEngine
         }
         public override void Update(float deltaTime)
         {
-
+            KeyboardState keys = Keyboard.GetState();
+            if(keys.IsKeyDown(Keys.W))
+            {
+                MoveUp(deltaTime);
+            }
+            if (keys.IsKeyDown(Keys.S))
+            {
+                MoveDown(deltaTime);
+            }
+            if (keys.IsKeyDown(Keys.A))
+            {
+                MoveLeft(deltaTime);
+            }
+            if (keys.IsKeyDown(Keys.D))
+            {
+                MoveRight(deltaTime);
+            }
         }
     }
 }
