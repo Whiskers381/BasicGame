@@ -10,12 +10,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEngine
 {
-    public class SplashScreenState : State
+    public class StateSplashScreen : State
     {
         float _DurationLimit = 4f;
         float _Duration = 0f;
 
-        public SplashScreenState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
+        public StateSplashScreen(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
             _Texts = _Game.XmlContent.SplashScreenText;
             _Camera2D.Pos = new Vector2(400, 240);
@@ -27,7 +27,7 @@ namespace BasicEngine
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
-            foreach (TextSprite text in _Texts)
+            foreach (SpriteText text in _Texts)
             {
                 text.Draw(spriteBatch);
             }
@@ -43,7 +43,7 @@ namespace BasicEngine
         {
             if (_Duration >= _DurationLimit || Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                _Game.ChangeState(new StartScreenState(_Content, _Game, _GraphicsDevice, _Camera2D));
+                _Game.ChangeState(new StateStartScreen(_Content, _Game, _GraphicsDevice, _Camera2D));
             }
             else
             {

@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    public class GamePlayingState : State
+    public class StateGamePlaying : State
     {
         protected PlayerCharacter _PlayerCharacter;
 
@@ -27,7 +27,7 @@ namespace BasicEngine
             _NextLevel = level;
         }
 
-        public GamePlayingState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
+        public StateGamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
             _Sprites = new List<Sprite>();
 

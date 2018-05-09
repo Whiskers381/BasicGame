@@ -10,9 +10,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEngine
 {
-    public class StartScreenState : State
+    public class StateStartScreen : State
     {
-        public StartScreenState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
+        public StateStartScreen(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
             _Texts = _Game.XmlContent.StartScreenText;
         }
@@ -23,7 +23,7 @@ namespace BasicEngine
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
-            foreach (TextSprite text in _Texts)
+            foreach (SpriteText text in _Texts)
             {
                 text.Draw(spriteBatch);
             }
@@ -40,11 +40,11 @@ namespace BasicEngine
             KeyboardState keyboard = Keyboard.GetState();
             if (keyboard.IsKeyDown(Keys.D1) || keyboard.IsKeyDown(Keys.Space))
             {
-                _Game.ChangeState(new GamePlayingState(_Content, _Game, _GraphicsDevice, _Camera2D));
+                _Game.ChangeState(new StateGamePlaying(_Content, _Game, _GraphicsDevice, _Camera2D));
             }
             if (keyboard.IsKeyDown(Keys.D2))
             {
-                _Game.ChangeState(new DevEnvironmentState(_Content, _Game, _GraphicsDevice, _Camera2D));
+                _Game.ChangeState(new StateDevEnvironment(_Content, _Game, _GraphicsDevice, _Camera2D));
             }
         }
     }

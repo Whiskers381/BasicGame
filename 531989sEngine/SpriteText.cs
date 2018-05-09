@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace BasicEngine
 {
-    public class TextSprite : Sprite
+    public class SpriteText : Sprite
     {
 
         #region MemberVariables
@@ -25,7 +25,7 @@ namespace BasicEngine
 
         #region Constructors
 
-        public TextSprite(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates) : this(text, font, coordinates)
+        public SpriteText(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates) : this(text, font, coordinates)
         {
             switch (xAdjust)
             {
@@ -53,11 +53,11 @@ namespace BasicEngine
             }
             Reset();
         }
-        public TextSprite(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
+        public SpriteText(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
         {
             _Color = color;
         }
-        public TextSprite(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates) : base(coordinates)
+        public SpriteText(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates) : base(coordinates)
         {
             _Font = font;
             _Text = text;
@@ -89,11 +89,11 @@ namespace BasicEngine
             }
             Reset();
         }
-        public TextSprite(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
+        public SpriteText(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
         {
             _Color = color;
         }
-        private TextSprite(string text, SpriteFont font, Vector2 coordinates) : base(coordinates)
+        private SpriteText(string text, SpriteFont font, Vector2 coordinates) : base(coordinates)
         {
             _Font = font;
             _Text = text;

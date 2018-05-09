@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    public class DevEnvironmentState : GamePlayingState
+    public class StateDevEnvironment : StateGamePlaying
     {
         protected DevGuy _DevGuy;
 
-        public DevEnvironmentState(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
+        public StateDevEnvironment(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
             _DevGuy = new DevGuy(content.Load<Texture2D>("DevGuy"), new Vector2(0,0));
             _Sprites.Add(_DevGuy);
