@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FCAA793F-E628-48D9-B265-B6618213F9D2}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BasicEngine</RootNamespace>
     <AssemblyName>BasicEngine</AssemblyName>
@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Block.cs" />
     <Compile Include="Camera2d.cs" />
-    <Compile Include="Camera3d.cs" />
     <Compile Include="DevEnvironmentState.cs" />
     <Compile Include="DevGuy.cs" />
     <Compile Include="Game1.cs" />

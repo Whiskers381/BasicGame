@@ -55,7 +55,7 @@
 				</Coordinates>
 			</TextObj>
 			<TextObj>
-				<Text>Press SPACEBAR to play</Text>
+				<Text>Press 1/SPACEBAR to playGame</Text>
 				<Font>UssDallas</Font>
 				<XAdjust>Centre</XAdjust>
 				<YAdjust>Centre</YAdjust>
@@ -65,7 +65,7 @@
 				</Coordinates>
 			</TextObj>
 			<TextObj>
-				<Text>...</Text>
+				<Text>Press 2 to playGame with devTools</Text>
 				<Font>UssDallas</Font>
 				<XAdjust>Centre</XAdjust>
 				<YAdjust>Centre</YAdjust>

@@ -97,81 +97,102 @@ namespace BasicEngine
 
             XmlNode RootNode = GetRootNode(baseGameFile);
 
-            foreach(XmlNode font in RootNode.SelectSingleNode("Fonts").SelectNodes("Font"))
+            //foreach font in BlankGame.xml/Game/Fonts.SelectNodes(Font)
+            foreach (XmlNode font in RootNode.SelectSingleNode("Fonts").SelectNodes("Font"))
             {
                 _Fonts.Add(font.FirstChild.Value, Load<SpriteFont>(font.FirstChild.Value));
             }
 
-            foreach(XmlNode state in RootNode.SelectSingleNode("States").ChildNodes)
+            //foreach state in BlankGame.xml/Game/States.ChildNodes
+            foreach (XmlNode state in RootNode.SelectSingleNode("States").ChildNodes)
             {
                 switch(state.Name)
                 {
+                    //BlankGame.xml/Game/States/SplashScreen
                     case "SplashScreen":
                         _SplashScreenText = GetTextObjsFromXml(state);
                         break;
+                    //BlankGame.xml/Game/States/SplashScreen
                     case "StartScreen":
                         _StartScreenText = GetTextObjsFromXml(state);
                         break;
+                    //BlankGame.xml/Game/States/???
                     default:
                         Trace.WriteLine("***" + "No texture loading code for: " + state.Name + "***");
                         break;
                 }
             }
-
-            foreach(XmlNode spriteType in RootNode.SelectSingleNode("Textures").ChildNodes)
+            //foreach spriteType in BlankGame.xml/Game/Textures.ChildNodes
+            foreach (XmlNode spriteType in RootNode.SelectSingleNode("Textures").ChildNodes)
             {
                 switch (spriteType.Name)
                 {
+                    //BlankGame.xml/Game/Textures/PlayerCharacter
                     case "PlayerCharacter":
                         foreach(XmlNode textureGroup in spriteType.ChildNodes)
                         {
-                            switch(textureGroup.Name)
+                            //foreach textureGroup in BlankGame.xml/Game/Textures/PlayerCharacter.ChildNodes
+                            switch (textureGroup.Name)
                             {
+                                //BlankGame.xml/Game/Textures/PlayerCharacter/Up
                                 case "Up":
                                     _PlayerCharacterUpTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/PlayerCharacter/Down
                                 case "Down":
                                     _PlayerCharacterDownTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/PlayerCharacter/Left
                                 case "Left":
                                     _PlayerCharacterLeftTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/PlayerCharacter/Right
                                 case "Right":
                                     _PlayerCharacterRightTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/PlayerCharacter/???
                                 default:
                                     Trace.WriteLine("***" + "No texture loading code for: " + spriteType.Name + "/" +  textureGroup.Name + "***");
                                     break;
                             }
                         }
                         break;
+                    //BlankGame.xml/Game/Textures/BadGuyOne
                     case "BadGuyOne":
+                        //foreach textureGroup in BlankGame.xml/Game/Textures/BadGuyOne.ChildNodes
                         foreach (XmlNode textureGroup in spriteType.ChildNodes)
                         {
                             //there will be tones of diffrent bad guy types all with diffrent loading reqirments so to keep it simple the loading code will not be refactored.
                             switch (textureGroup.Name)
                             {
+                                //BlankGame.xml/Game/Textures/BadGuyOne/Up
                                 case "Up":
                                     _BadGuyOneUpTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/BadGuyOne/Down
                                 case "Down":
                                     _BadGuyOneDownTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/BadGuyOne/Left
                                 case "Left":
                                     _BadGuyOneLeftTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/BadGuyOne/Right
                                 case "Right":
                                     _BadGuyOneRightTextures = GetTexture2Ds(textureGroup);
                                     break;
+                                //BlankGame.xml/Game/Textures/BadGuyOne/???
                                 default:
                                     Trace.WriteLine("***" + "No texture loading code for: " + spriteType.Name + "/" + textureGroup.Name + "***");
                                     break;
                             }
                         }
                         break;
+                    //BlankGame.xml/Game/Textures/Block
                     case "Block":
                         _BlockTexture = Load<Texture2D>(spriteType.FirstChild.FirstChild.Value);
                         break;
+                    //BlankGame.xml/Game/Textures/???
                     default:
                         Trace.WriteLine("***" + "No texture loading code for: " + spriteType.Name + "***");
                         break;

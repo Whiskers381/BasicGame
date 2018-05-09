@@ -77,10 +77,10 @@ namespace BasicEngine
         }
         #endregion
 
-        public override void Update(float deltaTime)
-        {
+        //public override void Update(float deltaTime)
+        //{
 
-        }
+        //}
         public virtual void MoveUp(float deltaTime)
         {
             _CurrentY -= _MovmentSpeed * deltaTime;

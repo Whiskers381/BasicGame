@@ -37,9 +37,14 @@ namespace BasicEngine
 
         public override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            KeyboardState keyboard = Keyboard.GetState();
+            if (keyboard.IsKeyDown(Keys.D1) || keyboard.IsKeyDown(Keys.Space))
             {
                 _Game.ChangeState(new GamePlayingState(_Content, _Game, _GraphicsDevice, _Camera2D));
+            }
+            if (keyboard.IsKeyDown(Keys.D2))
+            {
+                _Game.ChangeState(new DevEnvironmentState(_Content, _Game, _GraphicsDevice, _Camera2D));
             }
         }
     }
