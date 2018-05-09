@@ -62,3 +62,4 @@ D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngin
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojResolveAssemblyReference.cache
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuy.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuyTrans.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\PortalOne.xnb

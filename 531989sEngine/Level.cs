@@ -18,8 +18,9 @@ namespace BasicEngine
         protected string _Name;
         protected Vector2 _PlayerCharacterDefaultCoordinates;
 
-        protected Vector2 _NextLevelCoordinates;
-        protected string _NextLevelName;
+        protected List<Vector2> _LinkedLevels = new List<Vector2>();
+        protected List<TextureSprite> _Portals = new List<TextureSprite>();
+        //protected string _NextLevelName;
 
         protected List<Block> _Blocks = new List<Block>();
         protected Texture2D _BlockTexture;
@@ -29,8 +30,8 @@ namespace BasicEngine
         public string Name { get { return _Name; } set { } }
         public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } set { } }
 
-        public Vector2 NextLevelCoordinates { get { return _NextLevelCoordinates; } set { } }
-        public string NextLevelName { get { return _NextLevelName; } set { } }
+        public List<Vector2> NextLevelCoordinates { get { return _LinkedLevels; } set { } }
+        //public string NextLevelName { get { return _NextLevelName; } set { } }
 
         public List<Block> Blocks { get { return _Blocks; } set { } }
         #endregion Getters
@@ -45,10 +46,17 @@ namespace BasicEngine
                 Int32.Parse(rootNode.SelectSingleNode("PlayerDefaultCoordinates").SelectSingleNode("Y").FirstChild.Value));
 
             #region Next Level
-            _NextLevelName = rootNode.SelectSingleNode("NextLevel").SelectSingleNode("Name").FirstChild.Value;
-            _NextLevelCoordinates = new Vector2(
-                Int32.Parse(rootNode.SelectSingleNode("NextLevel").SelectSingleNode("Coordinates").SelectSingleNode("X").FirstChild.Value),
-                Int32.Parse(rootNode.SelectSingleNode("NextLevel").SelectSingleNode("Coordinates").SelectSingleNode("Y").FirstChild.Value));
+
+            //_NextLevelName = rootNode.SelectSingleNode("NextLevel").SelectSingleNode("Name").FirstChild.Value;
+            foreach(XmlNode linkedlevel in rootNode.SelectSingleNode("LinkedLevels").ChildNodes)
+            {
+                _LinkedLevels.Add(new Vector2(
+                Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("X").FirstChild.Value),
+                Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("Y").FirstChild.Value)));
+
+                _Portals.Add(new TextureSprite(Load<Texture2D>(linkedlevel.SelectSingleNode("PortalTexture").FirstChild.Value), _LinkedLevels[_LinkedLevels.Count - 1]));
+            }
+            
             #endregion Next Level
 
             #region Blocks
