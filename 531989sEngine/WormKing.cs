@@ -78,12 +78,12 @@ namespace BasicEngine
 
             if(_CurrentY > 0 && _CurrentY < 480)
             {
-                UpdateRotation(deltaTime, 1);
+                UpdateRotation(deltaTime, 2);
                 
             }
             else
             {
-                UpdateRotation(deltaTime, 1);
+                UpdateRotation(deltaTime, 2);
                 //UpdateRotation(deltaTime, -2);
                 //RotationAngle -= 0.5f;
 

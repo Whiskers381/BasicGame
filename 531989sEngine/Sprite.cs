@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Xml;
 using System.Diagnostics;
 
-namespace BasicEngine//531989sEngine
+namespace BasicEngine
 {
     public abstract class Sprite
     {

@@ -25,11 +25,11 @@ namespace BasicEngine
         public XmlWriting()
         {
             _Document = new XmlDocument();
-            _Document.InsertBefore(_Document.CreateXmlDeclaration("1.0", "iso-8859-1", null), _Document.DocumentElement);
+            _Document.InsertBefore(_Document.CreateXmlDeclaration("1.0", "utf-8", null), _Document.DocumentElement);
 
-            _Document.AppendChild(_Document.CreateElement(string.Empty, "HipReplacement_Results", string.Empty));//RootNode
+            _Document.AppendChild(_Document.CreateElement(string.Empty, "Level", string.Empty));//RootNode
             _RootNode = _Document.FirstChild.NextSibling;
-            _RootNode.AppendChild(_Document.CreateElement(string.Empty, "FaultTrees", string.Empty));
+            _RootNode.AppendChild(_Document.CreateElement(string.Empty, "FaultTrees", string.Empty));///////////////////////////////////
 
             //XmlLoading.fMEA.ToXml(_Document, _RootNode.SelectSingleNode("FaultTrees"));
 
