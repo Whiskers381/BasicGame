@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/DevGuy.png</SourceFile>
-  <SourceTime>2018-05-25T19:33:08.5621529+01:00</SourceTime>
-  <DestFile>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/bin/Windows/DevGuy.xnb</DestFile>
-  <DestTime>2018-05-26T04:20:52.0742512+01:00</DestTime>
+  <SourceFile>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/DevGuy.png</SourceFile>
+  <SourceTime>2018-05-07T13:41:48.7189117+01:00</SourceTime>
+  <DestFile>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/bin/Windows/DevGuy.xnb</DestFile>
+  <DestTime>2018-05-26T19:35:11.9246074+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

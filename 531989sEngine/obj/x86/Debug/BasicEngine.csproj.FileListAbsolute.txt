@@ -59,7 +59,6 @@ D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Ba
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.pdb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.exe
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.pdb
-D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojResolveAssemblyReference.cache
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuy.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuyTrans.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\PortalOne.xnb
@@ -99,3 +98,4 @@ C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csproj.CopyComplete
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.exe
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.pdb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
