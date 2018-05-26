@@ -38,6 +38,8 @@ namespace BasicEngine
         public static int _HalfScreenWidth = 400;
         public static int _HalfScreenHeight = 240;
 
+        private int[] _MousePos = new int[] { 0,0};
+
         #endregion Member Variables
 
         public Game1()
@@ -92,6 +94,12 @@ namespace BasicEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            MouseState state = Mouse.GetState();
+            _MousePos[0] = state.X;
+            _MousePos[1] = state.Y;
+            #if DEBUG
+            Console.WriteLine( "Mouse X pos, {0} Mouse Y Pos, {1}", _MousePos[0],_MousePos[1] );
+            #endif
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
