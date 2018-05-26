@@ -19,10 +19,10 @@ namespace BasicEngine
         protected Vector2 _PlayerCharacterDefaultCoordinates;
 
         protected List<Vector2> _LinkedLevels = new List<Vector2>();
-        protected List<TextureSprite> _Portals = new List<TextureSprite>();
+        protected List<SpriteTextureSprite> _Portals = new List<SpriteTextureSprite>();
         //protected string _NextLevelName;
 
-        protected List<Block> _Blocks = new List<Block>();
+        protected List<SpriteBlock> _Blocks = new List<SpriteBlock>();
         protected Texture2D _BlockTexture;
         #endregion Member Variables
 
@@ -33,7 +33,7 @@ namespace BasicEngine
         public List<Vector2> NextLevelCoordinates { get { return _LinkedLevels; } set { } }
         //public string NextLevelName { get { return _NextLevelName; } set { } }
 
-        public List<Block> Blocks { get { return _Blocks; } set { } }
+        public List<SpriteBlock> Blocks { get { return _Blocks; } set { } }
         #endregion Getters
 
 
@@ -54,7 +54,7 @@ namespace BasicEngine
                 Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("X").FirstChild.Value),
                 Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("Y").FirstChild.Value)));
 
-                _Portals.Add(new TextureSprite(Load<Texture2D>(linkedlevel.SelectSingleNode("PortalTexture").FirstChild.Value), _LinkedLevels[_LinkedLevels.Count - 1]));
+                _Portals.Add(new SpriteTextureSprite(Load<Texture2D>(linkedlevel.SelectSingleNode("PortalTexture").FirstChild.Value), _LinkedLevels[_LinkedLevels.Count - 1]));
             }
             
             #endregion Next Level
@@ -66,13 +66,13 @@ namespace BasicEngine
             
             #endregion Blocks
         }
-        private List<Block> GetBlocks(XmlNode rootNode)
+        private List<SpriteBlock> GetBlocks(XmlNode rootNode)
         {
-            List<Block> result = new List<Block>();
+            List<SpriteBlock> result = new List<SpriteBlock>();
 
             foreach (XmlNode block in rootNode.SelectSingleNode("Blocks").SelectNodes("Block"))
             {
-                result.Add(new Block(
+                result.Add(new SpriteBlock(
                     _BlockTexture,
                     new Vector2(
                         Int32.Parse(block.SelectSingleNode("DefaultCoordinates/X").FirstChild.Value),

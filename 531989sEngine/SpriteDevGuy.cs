@@ -10,9 +10,9 @@ using Microsoft.Xna.Framework.Input;
 namespace BasicEngine
     //Josh was here
 {
-    public class DevGuy : Mover
+    public class SpriteDevGuy : SpriteMover
     {
-        public DevGuy(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
+        public SpriteDevGuy(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
         {
 
         }

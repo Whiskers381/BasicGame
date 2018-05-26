@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    public class Mover : TextureSprite
+    public class SpriteMover : SpriteTextureSprite
     {
         #region MemberVariables
 
@@ -18,7 +18,7 @@ namespace BasicEngine
 
         #region Constructors
 
-        public Mover(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
+        public SpriteMover(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
         {
 
         }

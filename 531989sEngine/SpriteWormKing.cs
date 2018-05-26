@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEngine
 {
-    public class WormKing : TextureSprite
+    public class SpriteWormKing : SpriteTextureSprite
     {
         #region Member Variables
 
@@ -40,18 +40,18 @@ namespace BasicEngine
 
         #region Constructors
 
-        public WormKing(Texture2D texture, Vector2 defaultCoordinates, int Length, int partDelay, Color color) : base(texture, defaultCoordinates)//, int partDelay
+        public SpriteWormKing(Texture2D texture, Vector2 defaultCoordinates, int Length, int partDelay, Color color) : base(texture, defaultCoordinates)//, int partDelay
         {
             _length = Length;
             _partDelay = partDelay;
 
             _Color = color;
 
-            for (int i = 1; i <= _length; i++)
+            for (int LengthIndex = 1; LengthIndex <= _length; LengthIndex++)
             {
                 _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y), _Color));
 
-                for(int j = 0; j < _partDelay; j++)
+                for(int SegmentIndex = 0; SegmentIndex < _partDelay; SegmentIndex++)
                 {
                     _Movements.Add(new WormKingMovment(_RotationAngle, defaultCoordinates));
                 }
@@ -142,7 +142,7 @@ namespace BasicEngine
 
         #endregion Protected Methods
     }
-    public class WormKingPart : TextureSprite
+    public class WormKingPart : SpriteTextureSprite
     {
         protected float _RotationAngle;
 

@@ -9,9 +9,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEngine
 {
-    public class PlayerCharacter : TexturedMover
+    public class SpritePlayerCharacter : SpriteTexturedMover
     {
-        public PlayerCharacter(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates):
+        public SpritePlayerCharacter(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates):
             base(uptextures, downtextures, lefttextures, righttextures, defaultCoordinates)
         {
 

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BasicEngine
 {
-    public class TexturedMover : Mover
+    public class SpriteTexturedMover : SpriteMover
     {
         #region MemberVariables
 
@@ -27,7 +27,7 @@ namespace BasicEngine
 
         #region Constructors
 
-        public TexturedMover(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates) : base(righttextures[0], defaultCoordinates)
+        public SpriteTexturedMover(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates) : base(righttextures[0], defaultCoordinates)
         {
             _UpTextures = uptextures;
             _DownTextures = downtextures;

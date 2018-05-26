@@ -27,10 +27,15 @@ namespace BasicEngine
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
-            foreach (SpriteText text in _Texts)
+            /*foreach (SpriteText text in _Texts)
             {
                 text.Draw(spriteBatch);
+            }*/
+            for(ushort SpriteIndex = 0; SpriteIndex < _Texts.Count; SpriteIndex++)
+            {
+                _Texts[SpriteIndex].Draw(spriteBatch);
             }
+
             spriteBatch.End();
         }
 

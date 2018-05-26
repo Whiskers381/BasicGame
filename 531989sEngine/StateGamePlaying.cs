@@ -11,7 +11,7 @@ namespace BasicEngine
 {
     public class StateGamePlaying : State
     {
-        protected PlayerCharacter _PlayerCharacter;
+        protected SpritePlayerCharacter _PlayerCharacter;
 
         protected Dictionary<int, Level> _Levels;
 
@@ -20,7 +20,7 @@ namespace BasicEngine
 
         protected List<Sprite> _Sprites;
 
-        protected List<WormKing> _WormKings = new List<WormKing>();
+        protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
 
         public void ChangeLevel(Level level)
         {
@@ -35,7 +35,7 @@ namespace BasicEngine
 
             _CurrentLevel = _Levels[_Game.XmlContent.FirstLevel];
 
-            _PlayerCharacter = new PlayerCharacter(
+            _PlayerCharacter = new SpritePlayerCharacter(
                 _Game.XmlContent.PlayerCharacterUpTextures,
                 _Game.XmlContent.PlayerCharacterDownTextures,
                 _Game.XmlContent.PlayerCharacterLeftTextures,
@@ -44,13 +44,13 @@ namespace BasicEngine
 
             //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200), 20, 8));
             //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(300, 300), 40, 8, Color.Green));
-            _WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(400, 400), 10, 4, Color.GreenYellow));
+            _WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(400, 400), 10, 4, Color.GreenYellow));
 
-            _WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 500), 500, 8, Color.White));
+            _WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 500), 500, 8, Color.White));
 
-            _WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 0), 500, 8, Color.Blue));
+            _WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 0), 500, 8, Color.Blue));
 
-            foreach (WormKing wormKing in _WormKings)
+            foreach (SpriteWormKing wormKing in _WormKings)
             {
                 _Sprites.Add(wormKing);
             }
@@ -98,7 +98,7 @@ namespace BasicEngine
 
             _PlayerCharacter.Update(1.0f / 60.0f);
 
-            foreach(WormKing wormKing in _WormKings)
+            foreach(SpriteWormKing wormKing in _WormKings)
             {
                 wormKing.Update(1.0f / 60.0f);
                 wormKing.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);

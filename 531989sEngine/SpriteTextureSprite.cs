@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace BasicEngine
 {
-    public class TextureSprite : Sprite
+    public class SpriteTextureSprite : Sprite
     {
         #region MemberVariables
 
@@ -21,7 +21,7 @@ namespace BasicEngine
         #endregion
 
         #region Constructors
-        public TextureSprite(Texture2D texture, Vector2 defaultCoordinates) : base(defaultCoordinates)
+        public SpriteTextureSprite(Texture2D texture, Vector2 defaultCoordinates) : base(defaultCoordinates)
         {
             _CurrentTexture = texture;
 
@@ -35,7 +35,7 @@ namespace BasicEngine
 
         }
 
-        public bool IntersectsWith(TextureSprite pSprite)
+        public bool IntersectsWith(SpriteTextureSprite pSprite)
         {
             return _Rectangle.Intersects(pSprite._Rectangle);
         }

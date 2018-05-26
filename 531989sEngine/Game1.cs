@@ -43,7 +43,7 @@ namespace BasicEngine
         public Game1()
         {
             _Graphics = new GraphicsDeviceManager(this);
-            _Graphics.ToggleFullScreen();
+            //_Graphics.ToggleFullScreen();
 
             Content.RootDirectory = "Content";
         }

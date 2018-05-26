@@ -120,8 +120,11 @@ namespace BasicEngine
                     default:
                         Trace.WriteLine("***" + "No texture loading code for: " + state.Name + "***");
                         break;
+
+
                 }
             }
+
             //foreach spriteType in BlankGame.xml/Game/Textures.ChildNodes
             foreach (XmlNode spriteType in RootNode.SelectSingleNode("Textures").ChildNodes)
             {
