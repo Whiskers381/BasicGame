@@ -27,11 +27,13 @@ namespace BasicEngine
 
         private State _CurrentState;
         private State _NextState;
+        
         public void ChangeState(State state) 
         {
             _NextState = state;
         }
-
+        //Graphics related variables
+        public bool _ShouldBeFullScreen = false;
         public static int _ScreenWidth = 800;
         public static int _ScreenHeight = 480;
 
@@ -45,7 +47,6 @@ namespace BasicEngine
         public Game1()
         {
             _Graphics = new GraphicsDeviceManager(this);
-            //_Graphics.ToggleFullScreen();
 
             Content.RootDirectory = "Content";
         }
@@ -95,10 +96,23 @@ namespace BasicEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //The line below calls teh update method for the peripherals (keyboard, mouse...)
-            IoController.Update(this);
+            //This line allows the game to exit if the escape key is hit
+            if (IoController.Escape) { Exit(); }
 
-            if(_NextState != null)
+            //The line below calls the update method for the peripherals (keyboard, mouse...)
+            IoController.Update(this);
+            _ShouldBeFullScreen = IoController.FullScreenKey;
+            #region FullScreen Toggle logic
+            if (_Graphics.IsFullScreen == false && _ShouldBeFullScreen)
+            {
+                _Graphics.ToggleFullScreen();
+            }
+            else if (_Graphics.IsFullScreen == true && !_ShouldBeFullScreen)
+            {
+                _Graphics.ToggleFullScreen();
+            }
+            #endregion
+            if (_NextState != null)
             {
                 _CurrentState = _NextState;
 

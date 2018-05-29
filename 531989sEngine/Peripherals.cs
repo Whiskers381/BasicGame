@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
+using System.Threading;
 
 namespace BasicEngine
 {
@@ -19,8 +20,10 @@ namespace BasicEngine
         private bool CrouchKey = false;
         private bool SprintKey = false;
         private bool JumpKey = false;
+        
         //System
-        private bool Escape = false;
+        public bool Escape = false;
+        public bool FullScreenKey = false;
 
 
         //Member variables
@@ -41,7 +44,7 @@ namespace BasicEngine
             KeyboardUpdate(game);
             #region Debug writeouts
 #if DEBUG
-            Console.Write("Mouse Pos {0},{1} Current Keys down are", _MousePos[0], _MousePos[1]);
+            Console.Write("Mouse Pos {0},{1}.  Current Keys down are: ", _MousePos[0], _MousePos[1]);
             if(UpKey)
             { Console.Write(" W"); }
             if (LeftKey)
@@ -54,6 +57,10 @@ namespace BasicEngine
             { Console.Write(" Shift"); }
             if (CrouchKey)
             { Console.Write(" Ctrl"); }
+            if (JumpKey)
+            { Console.Write(" Space"); }
+            if (FullScreenKey)
+            { Console.Write(" FullScreen"); }
             Console.WriteLine();
 #endif
             #endregion
@@ -77,6 +84,10 @@ namespace BasicEngine
             if (_state.IsKeyDown(Keys.D)) { RightKey = true; } else { RightKey = false; }
             if (_state.IsKeyDown(Keys.LeftShift)) { SprintKey = true; } else { SprintKey = false; }
             if (_state.IsKeyDown(Keys.LeftControl)) { CrouchKey = true; } else { CrouchKey = false; }
+            if (_state.IsKeyDown(Keys.Space)) { JumpKey = true; } else { JumpKey = false; }
+            if (_state.IsKeyDown(Keys.F11) && FullScreenKey == false) { FullScreenKey = true; Thread.Sleep(100); }
+            else if(_state.IsKeyDown(Keys.F11) && FullScreenKey == true) { FullScreenKey = false; Thread.Sleep(100); }
+            
             #endregion
 
         }

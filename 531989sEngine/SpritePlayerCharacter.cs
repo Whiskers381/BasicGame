@@ -14,7 +14,6 @@ namespace BasicEngine
         public SpritePlayerCharacter(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates):
             base(uptextures, downtextures, lefttextures, righttextures, defaultCoordinates)
         {
-
         }
         public override void Update(float deltaTime)
         {
