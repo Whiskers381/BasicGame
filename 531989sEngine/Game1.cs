@@ -98,10 +98,8 @@ namespace BasicEngine
         {
             //This line allows the game to exit if the escape key is hit
             if (IoController.Escape) { Exit(); }
-
             //The line below calls the update method for the peripherals (keyboard, mouse...)
             IoController.Update(this);
-
             //Full screen handling
             #region FullScreen Toggle logic
             _ShouldBeFullScreen = IoController.FullScreenKey;

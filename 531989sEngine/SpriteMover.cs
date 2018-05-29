@@ -12,7 +12,7 @@ namespace BasicEngine
     {
         #region MemberVariables
 
-        protected int _MovmentSpeed = 250;//200-300 is a good idea
+        //protected int _MovmentSpeed = 250;//200-300 is a good idea
 
         #endregion
 
@@ -81,7 +81,7 @@ namespace BasicEngine
         //{
 
         //}
-        public virtual void MoveUp(float deltaTime)
+        /*public virtual void MoveUp(float deltaTime)
         {
             _CurrentY -= _MovmentSpeed * deltaTime;
         }
@@ -97,5 +97,6 @@ namespace BasicEngine
         {
             _CurrentX += _MovmentSpeed * deltaTime;
         }
+        */
     }
 }

@@ -17,7 +17,7 @@ namespace BasicEngine
 
         //Vector coords are depreciated from this file as they're implemented through the Physics classs
         //protected Vector2 _CurrentCoordinates = new Vector2(0, 0);
-        protected float _CurrentX
+        /*protected float _CurrentX
         {
             get
             {
@@ -38,7 +38,7 @@ namespace BasicEngine
             {
                 this._CurrentCoordinates.Y = value;
             }
-        }
+        }*/
         //Vector coords are depreciated from this file as they're implemented through the Physics classs
         //protected Vector2 _DefaultCoordinates = new Vector2(0, 0);
         protected float _DefaultX

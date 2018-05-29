@@ -8,18 +8,18 @@ using System.Threading;
 
 namespace BasicEngine
 {
-    class Peripherals
+    public class Peripherals
     {
 
         //Ignore these for now
         //Motion
-        private bool _UpKey = false;
-        private bool _LeftKey = false;
-        private bool _DownKey = false;
-        private bool _RightKey = false;
-        private bool _CrouchKey = false;
-        private bool _SprintKey = false;
-        private bool _JumpKey = false;
+        private bool _UpKey { get; set; } = false;
+        private bool _LeftKey { get; set; } = false;
+        private bool _DownKey { get; set; } = false;
+        private bool _RightKey { get; set; } = false;
+        private bool _CrouchKey { get; set; } = false;
+        private bool _SprintKey { get; set; } = false;
+        private bool _JumpKey { get; set; } = false;
         
         //System
         public bool Escape = false;
@@ -93,6 +93,55 @@ namespace BasicEngine
             
             #endregion
 
+        }
+        public bool GetUpKey
+        {
+            get
+            {
+                return _UpKey;
+            }
+        }
+        public bool GetLeftKey
+        {
+            get
+            {
+                return _LeftKey;
+            }
+        }
+        public bool GetDownKey
+        {
+            get
+            {
+                return _DownKey;
+            }
+        }
+        public bool GetRightKey
+        {
+            get
+            {
+                return _RightKey;
+            }
+        }
+        public bool GetCrouchKey
+        {
+            get
+            {
+                return _CrouchKey;
+            }
+        }
+        public bool GetSprintKey
+        {
+            get
+            {
+                return _SprintKey;
+            }
+        }
+        public bool GetJumpKey
+        {
+            get
+            {
+                return _JumpKey;
+            }
         }
     }
 }
