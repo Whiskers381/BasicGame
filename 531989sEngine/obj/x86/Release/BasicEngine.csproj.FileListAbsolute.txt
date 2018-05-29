@@ -69,3 +69,5 @@ D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Release\BasicEng
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Release\BasicEngine.exe
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Release\BasicEngine.pdb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Release\BasicEngine.csprojAssemblyReference.cache
+C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Release\BasicEngine.csprojAssemblyReference.cache
+C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Release\BasicEngine.exe.config

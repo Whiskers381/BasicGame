@@ -10,12 +10,13 @@ using System.Diagnostics;
 
 namespace BasicEngine
 {
-    public abstract class Sprite
+    public abstract class Sprite : Physics
     {
         #region Fields
-        protected Color _Color;
+        protected Color _Colour;
 
-        protected Vector2 _CurrentCoordinates = new Vector2(0, 0);
+        //Vector coords are depreciated from this file as they're implemented through the Physics classs
+        //protected Vector2 _CurrentCoordinates = new Vector2(0, 0);
         protected float _CurrentX
         {
             get
@@ -38,7 +39,8 @@ namespace BasicEngine
                 this._CurrentCoordinates.Y = value;
             }
         }
-        protected Vector2 _DefaultCoordinates = new Vector2(0, 0);
+        //Vector coords are depreciated from this file as they're implemented through the Physics classs
+        //protected Vector2 _DefaultCoordinates = new Vector2(0, 0);
         protected float _DefaultX
         {
             get
@@ -75,7 +77,7 @@ namespace BasicEngine
             _DefaultCoordinates = defaultCoordinates;
             Reset();
 
-            _Color = Color.White;
+            _Colour = Color.White;
         }
 
         public void Reset()

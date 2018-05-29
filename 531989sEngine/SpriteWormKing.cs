@@ -45,11 +45,11 @@ namespace BasicEngine
             _length = Length;
             _partDelay = partDelay;
 
-            _Color = color;
+            _Colour = color;
 
             for (int LengthIndex = 1; LengthIndex <= _length; LengthIndex++)
             {
-                _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y), _Color));
+                _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y), _Colour));
 
                 for(int SegmentIndex = 0; SegmentIndex < _partDelay; SegmentIndex++)
                 {
@@ -152,7 +152,7 @@ namespace BasicEngine
         }
         public WormKingPart(Texture2D texture, Vector2 defaultCoordinates, Color color) : base(texture, defaultCoordinates)
         {
-            _Color = color;
+            _Colour = color;
         }
 
         public void UpdateMovement(WormKingMovment movment)
@@ -169,7 +169,7 @@ namespace BasicEngine
         {
             _Rectangle.X = (int)Math.Round(_CurrentX);
             _Rectangle.Y = (int)Math.Round(_CurrentY);
-            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Color, _RotationAngle, new Vector2(16, 24), SpriteEffects.None, 0);
+            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Colour, _RotationAngle, new Vector2(16, 24), SpriteEffects.None, 0);
         }
     }
     public class WormKingMovment

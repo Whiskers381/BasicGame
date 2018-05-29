@@ -55,13 +55,13 @@ namespace BasicEngine
         }
         public SpriteText(string text, SpriteFont font, int xAdjust, int yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
         {
-            _Color = color;
+            _Colour = color;
         }
         public SpriteText(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates) : base(coordinates)
         {
             _Font = font;
             _Text = text;
-            _Color = Color.Red;
+            _Colour = Color.Red;
 
             switch (xAdjust)
             {
@@ -91,20 +91,20 @@ namespace BasicEngine
         }
         public SpriteText(string text, SpriteFont font, string xAdjust, string yAdjust, Vector2 coordinates, Color color) : this(text, font, xAdjust, yAdjust, coordinates)
         {
-            _Color = color;
+            _Colour = color;
         }
         private SpriteText(string text, SpriteFont font, Vector2 coordinates) : base(coordinates)
         {
             _Font = font;
             _Text = text;
-            _Color = Color.Red;
+            _Colour = Color.Red;
         }
 
         #endregion Constructors
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(_Font, _Text, new Vector2(_CurrentX, _CurrentY), _Color);
+            spriteBatch.DrawString(_Font, _Text, new Vector2(_CurrentX, _CurrentY), _Colour);
         }
 
         public override void Update(float deltaTime)

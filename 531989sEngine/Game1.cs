@@ -35,10 +35,10 @@ namespace BasicEngine
         public static int _ScreenWidth = 800;
         public static int _ScreenHeight = 480;
 
-        public static int _HalfScreenWidth = 400;
-        public static int _HalfScreenHeight = 240;
+        public static int _HalfScreenWidth = _ScreenWidth / 2;
+        public static int _HalfScreenHeight = _ScreenHeight / 2;
 
-        private int[] _MousePos = new int[] { 0,0};
+        Peripherals IoController = new Peripherals();
 
         #endregion Member Variables
 
@@ -59,7 +59,8 @@ namespace BasicEngine
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            //Initialize engine components:
+            
             base.Initialize();
         }
 
@@ -94,16 +95,8 @@ namespace BasicEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            MouseState state = Mouse.GetState();
-            _MousePos[0] = state.X;
-            _MousePos[1] = state.Y;
-            #if DEBUG
-            Console.WriteLine( "Mouse X pos, {0} Mouse Y Pos, {1}", _MousePos[0],_MousePos[1] );
-            #endif
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
+            //The line below calls teh update method for the peripherals (keyboard, mouse...)
+            IoController.Update(this);
 
             if(_NextState != null)
             {

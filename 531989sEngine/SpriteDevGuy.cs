@@ -24,11 +24,11 @@ namespace BasicEngine
         {
             //if (countCock < 10)
             //{
-            //    _Color = new Color(255, 255, 255, 255);
+            //    _Colour = new Color(255, 255, 255, 255);
             //}
             //if(countCock > 10)
             //{
-            //    _Color = new Color(255, 255, 255, 0);
+            //    _Colour = new Color(255, 255, 255, 0);
             //}
             //if (countCock > 20)
             //{
@@ -94,7 +94,7 @@ namespace BasicEngine
         {
             _Rectangle.X = (int)Math.Round(_CurrentX);
             _Rectangle.Y = (int)Math.Round(_CurrentY);
-            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Color, 0f, new Vector2(0, 0), SpriteEffects.None, 0);
+            spriteBatch.Draw(_CurrentTexture, _Rectangle, null, _Colour, 0f, new Vector2(0, 0), SpriteEffects.None, 0);
         }
     }
 }
