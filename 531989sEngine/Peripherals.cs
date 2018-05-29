@@ -13,13 +13,13 @@ namespace BasicEngine
 
         //Ignore these for now
         //Motion
-        private bool UpKey = false;
-        private bool LeftKey = false;
-        private bool DownKey = false;
-        private bool RightKey = false;
-        private bool CrouchKey = false;
-        private bool SprintKey = false;
-        private bool JumpKey = false;
+        private bool _UpKey = false;
+        private bool _LeftKey = false;
+        private bool _DownKey = false;
+        private bool _RightKey = false;
+        private bool _CrouchKey = false;
+        private bool _SprintKey = false;
+        private bool _JumpKey = false;
         
         //System
         public bool Escape = false;
@@ -42,22 +42,23 @@ namespace BasicEngine
             //Updates the mouse and keyboard
             MouseUpdate(game);
             KeyboardUpdate(game);
+
             #region Debug writeouts
 #if DEBUG
             Console.Write("Mouse Pos {0},{1}.  Current Keys down are: ", _MousePos[0], _MousePos[1]);
-            if(UpKey)
+            if(_UpKey)
             { Console.Write(" W"); }
-            if (LeftKey)
+            if (_LeftKey)
             { Console.Write(" A"); }
-            if (DownKey)
+            if (_DownKey)
             { Console.Write(" S"); }
-            if (RightKey)
+            if (_RightKey)
             { Console.Write(" D"); }
-            if (SprintKey)
+            if (_SprintKey)
             { Console.Write(" Shift"); }
-            if (CrouchKey)
+            if (_CrouchKey)
             { Console.Write(" Ctrl"); }
-            if (JumpKey)
+            if (_JumpKey)
             { Console.Write(" Space"); }
             if (FullScreenKey)
             { Console.Write(" FullScreen"); }
@@ -78,13 +79,15 @@ namespace BasicEngine
             KeyboardState _state = Keyboard.GetState();
             #region Key Detection
             if (_state.IsKeyDown(Keys.Escape)) { Escape = true; } else { Escape = false; }
-            if (_state.IsKeyDown(Keys.W)) { UpKey = true;}else { UpKey = false; }
-            if (_state.IsKeyDown(Keys.A)) { LeftKey = true; } else { LeftKey = false; }
-            if (_state.IsKeyDown(Keys.S)) { DownKey = true; } else { DownKey = false; }
-            if (_state.IsKeyDown(Keys.D)) { RightKey = true; } else { RightKey = false; }
-            if (_state.IsKeyDown(Keys.LeftShift)) { SprintKey = true; } else { SprintKey = false; }
-            if (_state.IsKeyDown(Keys.LeftControl)) { CrouchKey = true; } else { CrouchKey = false; }
-            if (_state.IsKeyDown(Keys.Space)) { JumpKey = true; } else { JumpKey = false; }
+            if (_state.IsKeyDown(Keys.W)) { _UpKey = true;}else { _UpKey = false; }
+            if (_state.IsKeyDown(Keys.A)) { _LeftKey = true; } else { _LeftKey = false; }
+            if (_state.IsKeyDown(Keys.S)) { _DownKey = true; } else { _DownKey = false; }
+            if (_state.IsKeyDown(Keys.D)) { _RightKey = true; } else { _RightKey = false; }
+            if (_state.IsKeyDown(Keys.LeftShift)) { _SprintKey = true; } else { _SprintKey = false; }
+            if (_state.IsKeyDown(Keys.LeftControl)) { _CrouchKey = true; } else { _CrouchKey = false; }
+            if (_state.IsKeyDown(Keys.Space)) { _JumpKey = true; } else { _JumpKey = false; }
+
+            //The the below statements if true they sleep for 100ms, this is to give the user enough time to release the key so the action doesn't keep toggling on and off
             if (_state.IsKeyDown(Keys.F11) && FullScreenKey == false) { FullScreenKey = true; Thread.Sleep(100); }
             else if(_state.IsKeyDown(Keys.F11) && FullScreenKey == true) { FullScreenKey = false; Thread.Sleep(100); }
             
