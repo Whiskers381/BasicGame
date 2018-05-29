@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SaveData>
+	<Player>
+		<Name>CyberPunkGuy</Name>
+		<Equipement>
+			<Permanent>
+				<GrapplingHook>False</GrapplingHook>
+			</Permanent>
+			<Temporary>
+				<Item>BadGuySuitOne</Item>
+				<Item>BadGuySuitPantsSeven</Item>
+			</Temporary>
+		</Equipement>
+		<Coordinates>
+			<X>10</X>
+			<Y>10</Y>
+		</Coordinates>
+	</Player>
+</SaveData>
