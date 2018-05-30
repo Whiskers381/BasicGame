@@ -23,6 +23,19 @@
 			</Coordinates>
 		</Level>
 	</LinkedLevels>
+	<Texts>
+		<Text>
+			<DefaultCoordinates>
+				<X>40</X>
+				<Y>40</Y>
+			</DefaultCoordinates>
+			<Text>Blah</Text>
+		</Text>
+	</Texts>
+	<BadGuys>
+	</BadGuys>
+	<Bosses>
+	</Bosses>
 	<Blocks>
 		<Block>
 			<DefaultCoordinates>

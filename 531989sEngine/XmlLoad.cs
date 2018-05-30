@@ -87,6 +87,7 @@ namespace BasicEngine
             LoadBaseFile("BlankGame");
             Trace.Unindent();
         }
+
         /// <summary>
         /// Loads the base game file from Xml
         /// </summary>
@@ -210,6 +211,7 @@ namespace BasicEngine
                     _BlockTexture));
             }
         }
+
         private List<Texture2D> GetTexture2Ds(XmlNode textureGroup)
         {
             List<Texture2D> result = new List<Texture2D>();
@@ -219,12 +221,14 @@ namespace BasicEngine
             }
             return result;
         }
+
         private XmlNode GetRootNode(string name)
         {
             XmlDocument document = new XmlDocument();
             document.Load(System.IO.Path.Combine("Xml", name + ".xml"));
             return document.FirstChild.NextSibling;
         }
+
         /// <summary>
         /// Gets a list of all text objects stored in xml
         /// </summary>
@@ -245,6 +249,7 @@ namespace BasicEngine
             }
             return result;
         }
+
         /// <summary>
         /// Gets Coordinates from "Coordinates" node
         /// </summary>

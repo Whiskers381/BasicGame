@@ -10,11 +10,13 @@ namespace BasicEngine
     public static class XmlTool
     {
         #region <AbstractionMethodsForDataWriting>
+
         public static XmlElement CreateEmptyNode(XmlDocument document, XmlElement Node, string Name)
         {
             Node.AppendChild(document.CreateElement(string.Empty, Name, string.Empty));
             return Node;
         }
+
         /// <summary>
         /// Creates and adds an element and value to a given node
         /// </summary>
@@ -24,6 +26,7 @@ namespace BasicEngine
             Node.SetAttribute(Name, Value);
             return Node;
         }
+
         /// <summary>
         /// Creates and adds an element and value to a given node
         /// </summary>
@@ -33,25 +36,36 @@ namespace BasicEngine
             Node.SelectSingleNode(Name).AppendChild(document.CreateTextNode(Value));
             return Node;
         }
+
         #endregion </AbstractionMethodsForDataWriting>
+
         #region <AbstractionMethodsForDataRetrieval>
+
         #region <All>
+
         #region <Attribute>
+
         public static int AttributeInt(XmlNode xmlNode, string attributeName)
         {
             return Int32.Parse(xmlNode.Attributes.GetNamedItem(attributeName).Value);
         }
+
         public static bool AttributeBool(XmlNode xmlNode, string attributeName)
         {
             return bool.Parse(xmlNode.Attributes.GetNamedItem(attributeName).Value);
         }
+
         #endregion </Attribute>
+
         #region <Value>
+
         public static ulong ULongValue(XmlNode xmlNode)
         {
             return ulong.Parse(xmlNode.FirstChild.Value);
         }
+
         #region <FromParent>
+
         public static string StringValueFromParent(XmlNode ParentNode, string NodeName)
         {
             try//The schema allows for the Description node to be empty so we have to accommodate for the impending "NullReferenceException" as a result here.
@@ -63,36 +77,49 @@ namespace BasicEngine
                 return "";
             }
         }
+
         public static int IntValueFromParent(XmlNode ParentNode, string NodeName)
         {
             return int.Parse(StringValueFromParent(ParentNode, NodeName));
         }
+
         public static ulong ULongValueFromParent(XmlNode ParentNode, string NodeName)
         {
             return ulong.Parse(StringValueFromParent(ParentNode, NodeName));
         }
+
         public static float FloatValueFromParent(XmlNode ParentNode, string NodeName)
         {
             return float.Parse(StringValueFromParent(ParentNode, NodeName));
         }
+
         public static bool BoolValueFromParent(XmlNode ParentNode, string NodeName)
         {
             return bool.Parse(StringValueFromParent(ParentNode, NodeName));
         }
+
         #endregion </FromParent>
+
         #endregion </Value>
+
         #endregion </All>
+
         #region <LogicNode>
+
         public static string Type(XmlNode xmlNode)
         {
             return xmlNode.LocalName;
         }
+
         public static int Id(XmlNode xmlNode)
         {
             return AttributeInt(xmlNode, "ID");
         }
+
         #endregion </LogicNode>
+
         #region <SpecialCase>
+
         public static float FloatValueWithSfCheck(XmlNode ParentNode, string NodeName)
         {
             string StringForm = StringValueFromParent(ParentNode, NodeName);
@@ -128,7 +155,9 @@ namespace BasicEngine
                 return float.Parse((float.Parse(a) * (10 ^ Int32.Parse(n))).ToString());
             }
         }
+
         #endregion </SpecialCase>
+
         #endregion </AbstractionMethodsForDataRetrieval>
     }
 }

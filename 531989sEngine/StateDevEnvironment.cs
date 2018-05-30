@@ -16,7 +16,7 @@ namespace BasicEngine
         public StateDevEnvironment(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
             _DevGuy = new SpriteDevGuy(content.Load<Texture2D>("DevGuy"), new Vector2(0,0));
-            _Sprites.Add(_DevGuy);
+            _AllSprites.Add(_DevGuy);
         }
         public override void Update(GameTime gameTime)
         {
