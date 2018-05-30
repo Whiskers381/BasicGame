@@ -295,8 +295,6 @@ namespace BasicEngine
                 _IsControllerBig = false;
             }
             #endregion
-
-
         }
         #region Auto getters
         #region Keyboard Getters

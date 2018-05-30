@@ -19,9 +19,7 @@ namespace BasicEngine
 
         protected int _MovementSpeed = 225;//200-300 is a good idea
         protected int _SprintSpeed = 450;//200-300 is a good idea
-        protected int _CurrentSpeed = 100;
-
-        
+        protected int _CurrentSpeed = 100;     
 
         #region Move Update
 
@@ -59,6 +57,10 @@ namespace BasicEngine
                 {
                     Sprint();
                 }
+                else if (PeripheralIO.GetIsControllerButtonX)
+                {
+                    Sprint();
+                }
                 else
                 {
                     StopSprint();
@@ -79,7 +81,6 @@ namespace BasicEngine
                 {
                     ControllerMoveY(PeripheralIO, deltaTime);
                 }
-
             }
         }
         #region Movement
@@ -117,14 +118,12 @@ namespace BasicEngine
         #region Controller Movement
         public void ControllerMoveX(Peripherals PeripheralIO, float deltaTime)
         {
-            Console.WriteLine(PeripheralIO.GetControllerLeftX);
-            _CurrentX += (_MovementSpeed * PeripheralIO.GetControllerLeftX ) * deltaTime;
+            _CurrentX += (_CurrentSpeed * PeripheralIO.GetControllerLeftX ) * deltaTime;
             Console.WriteLine("Moving X");
         }
         public void ControllerMoveY(Peripherals PeripheralIO, float deltaTime)
         {
-            Console.WriteLine(PeripheralIO.GetControllerLeftY);
-            _CurrentY -= (_MovementSpeed * PeripheralIO.GetControllerLeftY) * deltaTime;
+            _CurrentY -= (_CurrentSpeed * PeripheralIO.GetControllerLeftY) * deltaTime;
             Console.WriteLine("Moving Y");
         }
         #endregion
