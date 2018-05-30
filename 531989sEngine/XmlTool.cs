@@ -16,6 +16,10 @@ namespace BasicEngine
             Node.AppendChild(document.CreateElement(string.Empty, Name, string.Empty));
             return Node;
         }
+        public static XmlElement CreateEmptyNode(XmlDocument document, XmlNode Node, string Name)
+        {
+            return CreateEmptyNode(document, (XmlElement)Node, Name);
+        }
 
         /// <summary>
         /// Creates and adds an element and value to a given node
@@ -26,6 +30,10 @@ namespace BasicEngine
             Node.SetAttribute(Name, Value);
             return Node;
         }
+        public static XmlElement CreateAttribute(XmlDocument document, XmlNode Node, string Name, string Value)
+        {
+            return CreateAttribute(document, (XmlElement)Node, Name, Value);
+        }
 
         /// <summary>
         /// Creates and adds an element and value to a given node
@@ -35,6 +43,10 @@ namespace BasicEngine
             Node.AppendChild(document.CreateElement(string.Empty, Name, string.Empty));
             Node.SelectSingleNode(Name).AppendChild(document.CreateTextNode(Value));
             return Node;
+        }
+        public static XmlElement CreateTextNode(XmlDocument document, XmlNode Node, string Name, string Value)
+        {
+            return CreateTextNode(document, (XmlElement)Node, Name, Value);
         }
 
         #endregion </AbstractionMethodsForDataWriting>

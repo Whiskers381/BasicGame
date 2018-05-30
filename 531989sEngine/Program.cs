@@ -16,6 +16,7 @@ namespace BasicEngine
         {
             using (var game = new Game1())
                 game.Run();
+            //XmlWriting sadf = new XmlWriting();
         }
     }
 #endif
