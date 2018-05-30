@@ -88,7 +88,7 @@ namespace BasicEngine
                 //RotationAngle -= 0.5f;
 
             }
-            Move(_MovmentSpeed * deltaTime);
+            Move(_MovementSpeed * deltaTime);
 
             foreach (WormKingPart part in _Parts)
             {
