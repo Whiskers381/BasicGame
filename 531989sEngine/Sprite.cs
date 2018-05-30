@@ -13,34 +13,11 @@ namespace BasicEngine
     public abstract class Sprite : Physics
     {
         #region Fields
+
         protected Color _Colour;
 
-        //Vector coords are depreciated from this file as they're implemented through the Physics classs
-        //protected Vector2 _CurrentCoordinates = new Vector2(0, 0);
-        /*protected float _CurrentX
-        {
-            get
-            {
-                return this._CurrentCoordinates.X;
-            }
-            set
-            {
-                this._CurrentCoordinates.X = value;
-            }
-        }
-        protected float _CurrentY
-        {
-            get
-            {
-                return this._CurrentCoordinates.Y;
-            }
-            set
-            {
-                this._CurrentCoordinates.Y = value;
-            }
-        }*/
-        //Vector coords are depreciated from this file as they're implemented through the Physics classs
-        //protected Vector2 _DefaultCoordinates = new Vector2(0, 0);
+        protected Vector2 _PlayerCharacterCoordinates;
+
         protected float _DefaultX
         {
             get
@@ -88,6 +65,11 @@ namespace BasicEngine
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
+        }
+
+        public virtual void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
+        {
+            _PlayerCharacterCoordinates = new Vector2(playerCharacterCoordinates.X, playerCharacterCoordinates.Y);
         }
 
         public virtual void Update(float deltaTime)
