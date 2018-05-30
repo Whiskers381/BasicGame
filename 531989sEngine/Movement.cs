@@ -33,27 +33,27 @@ namespace BasicEngine
         {
             if(_IsPlayerControlled)
             {
-                if(PeripheralIO.GetUpKey)
+                if(PeripheralIO.GetUp)
                 {
                     //WMove up (or whatever its  2D game, maybe ladders)
                     MoveUp(deltaTime);
                 }
-                if (PeripheralIO.GetLeftKey)
+                if (PeripheralIO.GetLeft)
                 {
                     //Move Left
                     MoveLeft(deltaTime);
                 }
-                if (PeripheralIO.GetDownKey)
+                if (PeripheralIO.GetDown)
                 {
                     //WMove down (or whatever its  2D game, maybe ladders)
                     MoveDown(deltaTime);
                 }
-                if (PeripheralIO.GetRightKey)
+                if (PeripheralIO.GetRight)
                 {
                     //Move Right
                     MoveRight(deltaTime);
                 }
-                if (PeripheralIO.GetSprintKey)
+                if (PeripheralIO.GetSprint)
                 {
                     Sprint();
                 }
@@ -65,21 +65,13 @@ namespace BasicEngine
                 {
                     StopSprint();
                 }
-                if (PeripheralIO.GetCrouchKey)
+                if (PeripheralIO.GetCrouch)
                 {
                     //Crouch
                 }
-                if (PeripheralIO.GetJumpKey)
+                if (PeripheralIO.GetJump)
                 {
                     //Jump
-                }
-                if (PeripheralIO.GetIsControllerLeftX)
-                {
-                    ControllerMoveX(PeripheralIO, deltaTime);
-                }
-                if (PeripheralIO.GetIsControllerLeftY)
-                {
-                    ControllerMoveY(PeripheralIO, deltaTime);
                 }
             }
         }

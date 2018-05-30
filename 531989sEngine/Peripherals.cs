@@ -11,56 +11,40 @@ namespace BasicEngine
     public class Peripherals
     {
         #region Is Key downs
-        #region System Keys
+        #region System
         public bool Escape = false;
         public bool FullScreenKey = false;
+        public bool IsControllerPad = false;
         #endregion
-        #region Keyboard mapping
+        #region Action mapping
+        //Front side actions
         //Motion
-        private bool _UpKey { get; set; } = false;
-        private bool _LeftKey { get; set; } = false;
-        private bool _DownKey { get; set; } = false;
-        private bool _RightKey { get; set; } = false;
-        private bool _CrouchKey { get; set; } = false;
-        private bool _SprintKey { get; set; } = false;
-        private bool _JumpKey { get; set; } = false;
+        private bool _Up { get; set; } = false;
+        private bool _Down { get; set; } = false;
+        private bool _Left { get; set; } = false;
+        private bool _Right { get; set; } = false;
+        //Motion modifiers
+        private bool _Sprint { get; set; } = false;
+        private bool _Jump { get; set; } = false;
+        private bool _Crouch { get; set; } = false;
+        //Actions
+        private bool _UserAction { get; set; } = false;
+        private bool _Reload { get; set; } = false;
+
         #endregion
         #region Controller mapping
+        
         private float _ControllerLeftX { get; set; } = 0;
         private float _ControllerLeftY { get; set; } = 0;
         private float _ControllerRightX { get; set; } = 0;
         private float _ControllerRightY { get; set; } = 0;
 
-        //Analogue sticks
-        private bool _IsControllerLeftX { get; set; } = false;
-        private bool _IsControllerLeftY { get; set; } = false;
-        private bool _IsControllerRightX { get; set; } = false;
-        private bool _IsControllerRightY { get; set; } = false;
-        private bool _IsControllerLeftClick { get; set; } = false;
-        private bool _IsControllerRightClick { get; set; } = false;
 
         //Lettered Buttons
         private bool _IsControllerXButton { get; set; } = false;
         private bool _IsControllerAButton { get; set; } = false;
         private bool _IsControllerYButton { get; set; } = false;
         private bool _IsControllerBButton { get; set; } = false;
-
-        //Triggers
-        private bool _IsControllerLeftShoulder { get; set; } = false;
-        private bool _IsControllerLeftTrigger { get; set; } = false;
-        private bool _IsControllerRightShoulder { get; set; } = false;
-        private bool _IsControllerRightTrigger { get; set; } = false;
-
-        //D Pad
-        private bool _IsControllerDDown { get; set; } = false;
-        private bool _IsControllerDLeft { get; set; } = false;
-        private bool _IsControllerDRight { get; set; } = false;
-        private bool _IsControllerDUp { get; set; } = false;
-
-        //Misc Center buttons
-        private bool _IsControllerBack { get; set; } = false;
-        private bool _IsControllerBig { get; set; } = false;
-        private bool _IsControllerStart { get; set; } = false;
         #endregion
         #region Functional
 
@@ -82,7 +66,7 @@ namespace BasicEngine
         public void MouseUpdate(Game1 game)
         {
             MouseState state = Mouse.GetState();
-            #region Mouse Decection
+            #region Mouse Detection
             _MousePos[0] = state.X;
             _MousePos[1] = state.Y;
             #endregion
@@ -91,20 +75,24 @@ namespace BasicEngine
         {
             KeyboardState _state = Keyboard.GetState();
             #region Key Detection
+            
+
+            if (_state.IsKeyDown(Keys.W)) { _Up = true;}else { _Up = false; }
+            if (_state.IsKeyDown(Keys.A)) { _Left = true; } else { _Left = false; }
+            if (_state.IsKeyDown(Keys.S)) { _Down = true; } else { _Down = false; }
+            if (_state.IsKeyDown(Keys.D)) { _Right = true; } else { _Right = false; }
+            if (_state.IsKeyDown(Keys.LeftShift)) { _Sprint = true; } else { _Sprint = false; }
+            if (_state.IsKeyDown(Keys.LeftControl)) { _Crouch = true; } else { _Crouch = false; }
+            if (_state.IsKeyDown(Keys.Space)) { _Jump = true; } else { _Jump = false; }
+
+            //System actions
             if (_state.IsKeyDown(Keys.Escape)) { Escape = true; } else { Escape = false; }
-            if (_state.IsKeyDown(Keys.W)) { _UpKey = true;}else { _UpKey = false; }
-            if (_state.IsKeyDown(Keys.A)) { _LeftKey = true; } else { _LeftKey = false; }
-            if (_state.IsKeyDown(Keys.S)) { _DownKey = true; } else { _DownKey = false; }
-            if (_state.IsKeyDown(Keys.D)) { _RightKey = true; } else { _RightKey = false; }
-            if (_state.IsKeyDown(Keys.LeftShift)) { _SprintKey = true; } else { _SprintKey = false; }
-            if (_state.IsKeyDown(Keys.LeftControl)) { _CrouchKey = true; } else { _CrouchKey = false; }
-            if (_state.IsKeyDown(Keys.Space)) { _JumpKey = true; } else { _JumpKey = false; }
-
-
             //The the below statements if true they sleep for 150ms, this is to give the user enough time to release the key so the action doesn't keep toggling on and off
             if (_state.IsKeyDown(Keys.F11) && FullScreenKey == false) { FullScreenKey = true; Thread.Sleep(150); }
             else if(_state.IsKeyDown(Keys.F11) && FullScreenKey == true) { FullScreenKey = false; Thread.Sleep(150); }
+
             
+
             #endregion
 
         }
@@ -120,50 +108,47 @@ namespace BasicEngine
             #region Analogue sticks
             if (_ControllerLeftX != 0)
             {
-                _IsControllerLeftX = true;
-            }
-            else
-            {
-                _IsControllerLeftX = false;
+                    if(_ControllerLeftX > 0)
+                    {
+                        //move right
+                        _Right = true;
+                    }
+                    else if(_ControllerLeftX < 0)
+                    {
+                        //move left
+                        _Left = true;
+                    }
             }
             if (_ControllerLeftY != 0)
             {
-                _IsControllerLeftY = true;
-            }
-            else
-            {
-                _IsControllerLeftY = false;
-            }
-            if (_state.IsButtonDown(Buttons.LeftThumbstickDown))
-            {
-
-            }
-            else
-            {
-
-            }
-            if (_state.IsButtonDown(Buttons.RightThumbstickDown))
-            {
-
-            }
-            else
-            {
-
+                if (_ControllerLeftY > 0)
+                {
+                    //move up
+                    _Up = true;
+                }
+                else if (_ControllerLeftY < 0)
+                {
+                    //move down
+                    _Down = true;
+                }
             }
             #endregion
             #region Lettered buttons
+            
             if (_state.IsButtonDown(Buttons.A))
             {
-                _IsControllerAButton = true;
+                
+                _Reload = true;
 
             }
             else
             {
-                _IsControllerAButton = false;
+                
+                _Reload = false;
             }
             if (_state.IsButtonDown(Buttons.X))
             {
-                _IsControllerXButton = true;
+                
             }
             else
             {
@@ -171,11 +156,11 @@ namespace BasicEngine
             }
             if (_state.IsButtonDown(Buttons.Y))
             {
-                _IsControllerYButton = true;
+                _Jump = true;
             }
             else
             {
-                _IsControllerYButton = false;
+                _Jump = false;
             }
             if (_state.IsButtonDown(Buttons.B))
             {
@@ -189,178 +174,143 @@ namespace BasicEngine
             #region Dpad buttons
             if (_state.IsButtonDown(Buttons.DPadDown))
             {
-                _IsControllerDDown = true;
+                _Crouch = true;
             }
             else
             {
-                _IsControllerDDown = false;
+                _Crouch = false;
             }
             if (_state.IsButtonDown(Buttons.DPadLeft))
             {
-                _IsControllerDLeft = true;
             }
             else
             {
-                _IsControllerDLeft = true;
             }
             if (_state.IsButtonDown(Buttons.DPadRight))
             {
-                _IsControllerDRight = true;
             }
             else
             {
-                _IsControllerDRight = true;
             }
             if (_state.IsButtonDown(Buttons.DPadUp))
             {
-                _IsControllerDUp = true;
             }
             else
             {
-                _IsControllerDUp = true;
             }
             #endregion
             #region Triggers
             if (_state.IsButtonDown(Buttons.LeftShoulder))
             {
-                _IsControllerLeftShoulder = true;
             }
             else
             {
-                _IsControllerLeftShoulder = false;
             }
             if (_state.IsButtonDown(Buttons.RightShoulder))
             {
-                _IsControllerRightShoulder = true;
             }
             else
             {
-                _IsControllerRightShoulder = false;
             }
             if (_state.IsButtonDown(Buttons.LeftTrigger))
             {
-                _IsControllerLeftTrigger = true;
             }
             else
             {
-                _IsControllerLeftTrigger = false;
             }
             if (_state.IsButtonDown(Buttons.RightTrigger))
             {
-                _IsControllerRightTrigger = true;
             }
             else
             {
-                _IsControllerRightTrigger = false;
             }
             #endregion
             #region Misc Center buttons
             if (_state.IsButtonDown(Buttons.Start))
             {
-                _IsControllerStart = true;
             }
             else
             {
-                _IsControllerStart = false;
             }
             if (_state.IsButtonDown(Buttons.Back))
             {
-                _IsControllerBack = true;
             }
             else
             {
-                _IsControllerBack = false;
             }
             if (_state.IsButtonDown(Buttons.BigButton))
             {
-                _IsControllerBig = true;
             }
             else
             {
-                _IsControllerBig = false;
-            }
+            }    
             #endregion
+
         }
-
-
 
         #region Auto getters
         #region Keyboard Getters
         //Keyboard Getters
-        public bool GetUpKey
+        public bool GetUp
         {
             get
             {
-                return _UpKey;
+                return _Up;
             }
         }
-        public bool GetLeftKey
+        public bool GetLeft
         {
             get
             {
-                return _LeftKey;
+                return _Left;
             }
         }
-        public bool GetDownKey
+        public bool GetDown
         {
             get
             {
-                return _DownKey;
+                return _Down;
             }
         }
-        public bool GetRightKey
+        public bool GetRight
         {
             get
             {
-                return _RightKey;
+                return _Right;
             }
         }
-        public bool GetCrouchKey
+        public bool GetCrouch
         {
             get
             {
-                return _CrouchKey;
+                return _Crouch;
             }
         }
-        public bool GetSprintKey
+        public bool GetSprint
         {
             get
             {
-                return _SprintKey;
+                return _Sprint;
             }
         }
-        public bool GetJumpKey
+        public bool GetJump
         {
             get
             {
-                return _JumpKey;
+                return _Jump;
             }
         }
         //Functions
-        //public bool GetUserAction
-        //{
-        //    get
-        //    {
-        //        return _UserAction;
-        //    }
-        //}
+        public bool GetUserAction
+        {
+            get
+            {
+                return _UserAction;
+            }
+        }
         #endregion
         #region Controller Getters
         #region Analogue stick getters
-        public bool GetIsControllerLeftX
-        {
-            get
-            {
-                return _IsControllerLeftX;
-            }
-        }
-        public bool GetIsControllerLeftY
-        {
-            get
-            {
-                return _IsControllerLeftY;
-            }
-        }
         public float GetControllerLeftX
         {
             get
@@ -375,20 +325,6 @@ namespace BasicEngine
                 return _ControllerLeftY;
             }
         }
-        public bool GetIsControllerRightX
-        {
-            get
-            {
-                return _IsControllerRightX;
-            }
-        }
-        public bool GetIsControllerRightY
-        {
-            get
-            {
-                return _IsControllerRightY;
-            }
-        }
         public float GetControllerRightX
         {
             get
@@ -401,20 +337,6 @@ namespace BasicEngine
             get
             {
                 return _ControllerRightY;
-            }
-        }
-        public bool GetControllerLeftClick
-        {
-            get
-            {
-                return _IsControllerLeftClick;
-            }
-        }
-        public bool GetControllerRightClick
-        {
-            get
-            {
-                return _IsControllerRightClick;
             }
         }
 
@@ -446,89 +368,6 @@ namespace BasicEngine
             get
             {
                 return _IsControllerBButton;
-            }
-        }
-        #endregion
-        #region Dpad Getters
-        public bool GetIsControllerDPadLeft
-        {
-            get
-            {
-                return _IsControllerDLeft;
-            }
-        }
-        public bool GetIsControllerDPadRight
-        {
-            get
-            {
-                return _IsControllerDRight;
-            }
-        }
-        public bool GetIsControllerDPadUp
-        {
-            get
-            {
-                return _IsControllerDUp;
-            }
-        }
-        public bool GetIsControllerDPadDown
-        {
-            get
-            {
-                return _IsControllerDDown;
-            }
-        }
-        #endregion
-        #region Trigger Getters
-        public bool GetControllerLeftShoulder
-        {
-            get
-            {
-                return _IsControllerLeftShoulder;
-            }
-        }
-        public bool GetControllerRightShoulder
-        {
-            get
-            {
-                return _IsControllerRightShoulder;
-            }
-        }
-        public bool GetControllerLeftTrigger
-        {
-            get
-            {
-                return _IsControllerLeftTrigger;
-            }
-        }
-        public bool GetControllerRightTrigger
-        {
-            get
-            {
-                return _IsControllerRightTrigger;
-            }
-        }
-        #endregion
-        #region Misc Center Buttons
-        public bool GetControllerBack
-        {
-            get
-            {
-                return _IsControllerBack;
-            }
-        }
-        public bool GetControllerBig
-        {
-            get
-            {
-                return _IsControllerBig;
-            }
-        }
-        public bool GetControllerStart
-        {
-            get
-            {
-                return _IsControllerStart;
             }
         }
         #endregion
