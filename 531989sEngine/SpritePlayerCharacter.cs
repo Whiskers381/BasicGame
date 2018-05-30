@@ -21,6 +21,7 @@ namespace BasicEngine
         public void Update(Peripherals IoController,float deltaTime)
         {
             Move(IoController, deltaTime);
+            //Add reloading and User action
         }
     }
 }

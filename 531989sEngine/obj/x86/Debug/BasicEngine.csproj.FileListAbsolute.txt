@@ -62,6 +62,8 @@ D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngin
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuy.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuyTrans.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\PortalOne.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BadGuyOne.xnb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BB_Block.xnb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BlockOne.xnb
@@ -73,6 +75,7 @@ C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x8
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\PortalOne.xnb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\UssDallas.xnb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\WormKingPart.xnb
+C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.pdb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -93,11 +96,7 @@ C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x8
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
-C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csproj.CoreCompileInputs.cache
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csproj.CopyComplete
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.exe
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.pdb
-D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
-C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config
-D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config
