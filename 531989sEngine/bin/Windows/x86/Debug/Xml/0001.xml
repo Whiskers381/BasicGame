@@ -5,13 +5,24 @@
 		<X>40</X>
 		<Y>40</Y>
 	</PlayerDefaultCoordinates>
-	<NextLevel>
-		<Name>0002</Name>
-		<Coordinates>
-			<X>4000</X>
-			<Y>300</Y>
-		</Coordinates>
-	</NextLevel>
+	<LinkedLevels>
+		<Level>
+			<Name>0001</Name>
+			<PortalTexture>PortalOne</PortalTexture>
+			<Coordinates>
+				<X>400</X>
+				<Y>400</Y>
+			</Coordinates>
+		</Level>
+		<Level>
+			<Name>0002</Name>
+			<PortalTexture>PortalOne</PortalTexture>
+			<Coordinates>
+				<X>500</X>
+				<Y>500</Y>
+			</Coordinates>
+		</Level>
+	</LinkedLevels>
 	<Blocks>
 		<Block>
 			<DefaultCoordinates>

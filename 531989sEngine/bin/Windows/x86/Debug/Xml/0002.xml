@@ -7,35 +7,19 @@
 	</PlayerDefaultCoordinates>
 	<LinkedLevels>
 		<Level>
-			<Name>0005</Name>
+			<Name>0001</Name>
 			<PortalTexture>PortalOne</PortalTexture>
 			<Coordinates>
-				<X>4000</X>
-				<Y>300</Y>
+				<X>400</X>
+				<Y>400</Y>
 			</Coordinates>
 		</Level>
 		<Level>
-			<Name>0003</Name>
+			<Name>0002</Name>
 			<PortalTexture>PortalOne</PortalTexture>
 			<Coordinates>
-				<X>4000</X>
-				<Y>300</Y>
-			</Coordinates>
-		</Level>
-		<Level>
-			<Name>0004</Name>
-			<PortalTexture>PortalOne</PortalTexture>
-			<Coordinates>
-				<X>4000</X>
-				<Y>300</Y>
-			</Coordinates>
-		</Level>
-		<Level>
-			<Name>0005</Name>
-			<PortalTexture>PortalOne</PortalTexture>
-			<Coordinates>
-				<X>4000</X>
-				<Y>300</Y>
+				<X>500</X>
+				<Y>500</Y>
 			</Coordinates>
 		</Level>
 	</LinkedLevels>

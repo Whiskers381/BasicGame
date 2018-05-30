@@ -124,6 +124,9 @@
 	</Textures>
 	<Levels>
 		<Level>
+			<Name>0001</Name>
+		</Level>
+		<Level>
 			<Name>0002</Name>
 		</Level>
 	</Levels>
