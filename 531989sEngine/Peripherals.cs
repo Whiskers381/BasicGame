@@ -10,9 +10,11 @@ namespace BasicEngine
 {
     public class Peripherals
     {
-        //System
+        #region Is Key downs
+        #region System Keys
         public bool Escape = false;
         public bool FullScreenKey = false;
+        #endregion
         #region Keyboard mapping
         //Motion
         private bool _UpKey { get; set; } = false;
@@ -28,7 +30,6 @@ namespace BasicEngine
         private float _ControllerLeftY { get; set; } = 0;
         private float _ControllerRightX { get; set; } = 0;
         private float _ControllerRightY { get; set; } = 0;
-        //private GamePadDeadZone _ControllerDeadZone { get; set; } = 2;
 
         //Analogue sticks
         private bool _IsControllerLeftX { get; set; } = false;
@@ -61,42 +62,23 @@ namespace BasicEngine
         private bool _IsControllerBig { get; set; } = false;
         private bool _IsControllerStart { get; set; } = false;
         #endregion
+        #region Functional
 
+        #endregion
+        #endregion
 
-        //Member variables
+        #region Member variables
         private int[] _MousePos = new int[] { 0, 0 };
+        #endregion
 
-        
         public void Update(Game1 game)
         {
             //Updates the mouse and keyboard and controller
             MouseUpdate(game);
             KeyboardUpdate(game);
             ControllerUpdate(game);
-
-            #region Debug writeouts
-#if DEBUG
-            Console.Write("Mouse Pos {0},{1}.  Current Keys down are: ", _MousePos[0], _MousePos[1]);
-            if(_UpKey)
-            { Console.Write(" W"); }
-            if (_LeftKey)
-            { Console.Write(" A"); }
-            if (_DownKey)
-            { Console.Write(" S"); }
-            if (_RightKey)
-            { Console.Write(" D"); }
-            if (_SprintKey)
-            { Console.Write(" Shift"); }
-            if (_CrouchKey)
-            { Console.Write(" Ctrl"); }
-            if (_JumpKey)
-            { Console.Write(" Space"); }
-            if (FullScreenKey)
-            { Console.Write(" FullScreen"); }
-            Console.WriteLine();
-#endif
-            #endregion
         }
+
         public void MouseUpdate(Game1 game)
         {
             MouseState state = Mouse.GetState();
@@ -118,6 +100,7 @@ namespace BasicEngine
             if (_state.IsKeyDown(Keys.LeftControl)) { _CrouchKey = true; } else { _CrouchKey = false; }
             if (_state.IsKeyDown(Keys.Space)) { _JumpKey = true; } else { _JumpKey = false; }
 
+
             //The the below statements if true they sleep for 150ms, this is to give the user enough time to release the key so the action doesn't keep toggling on and off
             if (_state.IsKeyDown(Keys.F11) && FullScreenKey == false) { FullScreenKey = true; Thread.Sleep(150); }
             else if(_state.IsKeyDown(Keys.F11) && FullScreenKey == true) { FullScreenKey = false; Thread.Sleep(150); }
@@ -132,6 +115,7 @@ namespace BasicEngine
             _ControllerLeftY = _state.ThumbSticks.Left.Y;
             _ControllerRightX = _state.ThumbSticks.Right.X;
             _ControllerRightY = _state.ThumbSticks.Right.Y;
+
 
             #region Analogue sticks
             if (_ControllerLeftX != 0)
@@ -171,6 +155,7 @@ namespace BasicEngine
             if (_state.IsButtonDown(Buttons.A))
             {
                 _IsControllerAButton = true;
+
             }
             else
             {
@@ -296,6 +281,9 @@ namespace BasicEngine
             }
             #endregion
         }
+
+
+
         #region Auto getters
         #region Keyboard Getters
         //Keyboard Getters
@@ -346,6 +334,14 @@ namespace BasicEngine
             get
             {
                 return _JumpKey;
+            }
+        }
+        //Functions
+        public bool GetUserAction
+        {
+            get
+            {
+                return _UserAction;
             }
         }
         #endregion
