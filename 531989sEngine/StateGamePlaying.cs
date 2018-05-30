@@ -21,13 +21,13 @@ namespace BasicEngine
 
         protected List<Sprite> _AllSprites;
         protected List<Sprite> _SpritesWithUpdate;
-
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
 
         public void ChangeLevel(Level level)
         {
             _AllSprites = level.AllSprites;
             _SpritesWithUpdate = level.SpritesWithUpdate;
+            _WormKings = level.WormKings;
 
             _AllSprites.Add(_PlayerCharacter);
             _SpritesWithUpdate.Add(_PlayerCharacter);
@@ -51,12 +51,12 @@ namespace BasicEngine
                 _Game.XmlContent.PlayerCharacterRightTextures,
                 _CurrentLevel.PlayerCharacterDefaultCoordinates,ref game.IoController);
 
-            
-            foreach (Sprite block in _CurrentLevel.Blocks)
-            {
-                _AllSprites.Add(block);
-            }
-            _AllSprites.Add(_PlayerCharacter);
+            ChangeLevel(_Levels[_Game.XmlContent.FirstLevel]);
+
+            //foreach (Sprite block in _CurrentLevel.Blocks)
+            //{
+            //    _AllSprites.Add(block);
+            //}
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -87,13 +87,14 @@ namespace BasicEngine
                 _NextLevel = null;
             }
 
-            _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;//new Vector2(_WormKing._Parts[19].CurrentX, _WormKing._Parts[19].CurrentY)
+            _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;
             _PlayerCharacter.Update(_IoController, 1.0f / 60.0f);
-            //_PlayerCharacter.Update(1.0f / 60.0f);
+
+
 
             foreach(SpriteWormKing wormKing in _WormKings)
             {
-                wormKing.Update(1.0f / 60.0f);
+                //wormKing.Update(1.0f / 60.0f);
                 wormKing.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);
             }
         }

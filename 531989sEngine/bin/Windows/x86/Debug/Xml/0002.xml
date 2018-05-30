@@ -35,6 +35,16 @@
 	<BadGuys>
 	</BadGuys>
 	<Bosses>
+		<WormKing>
+			<Name>BigBoiii</Name>
+			<Texture>WormKingPart</Texture>
+			<DefaultCoordinates>
+				<X>100</X>
+				<Y>100</Y>
+			</DefaultCoordinates>
+			<Length>20</Length>
+			<PartDelay>8</PartDelay>
+		</WormKing>
 	</Bosses>
 	<Blocks>
 		<Block>

@@ -15,6 +15,7 @@ namespace BasicEngine
     public class Level : ContentManager
     {
         #region Member Variables
+
         protected string _Name;
         protected Vector2 _PlayerCharacterDefaultCoordinates;
 
@@ -23,11 +24,11 @@ namespace BasicEngine
 
         protected List<Sprite> _AllSprites = new List<Sprite>();
         protected List<Sprite> _SpritesWithUpdate = new List<Sprite>();
-
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
 
         protected List<SpriteBlock> _Blocks = new List<SpriteBlock>();
         protected Texture2D _BlockTexture;
+
         #endregion Member Variables
 
         #region Getters
@@ -38,6 +39,7 @@ namespace BasicEngine
 
         public List<Sprite> AllSprites { get { return _AllSprites; } set { } }
         public List<Sprite> SpritesWithUpdate { get { return _SpritesWithUpdate; } set { } }
+        public List<SpriteWormKing> WormKings { get { return _WormKings; } set { } }
 
         public List<SpriteBlock> Blocks { get { return _Blocks; } set { } }
         #endregion Getters

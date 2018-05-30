@@ -25,13 +25,11 @@ namespace BasicEngine
         //protected int _MovmentSpeed = 200;//200-300 is a good idea
         public float _RotationAngle = 0;
 
-        protected Vector2 _PlayerCharacterCoordinates;
-
         #endregion Member Variables
 
         #region Setters
 
-        public void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
+        public override void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
         {
             _PlayerCharacterCoordinates = new Vector2(playerCharacterCoordinates.X + 8,playerCharacterCoordinates.Y + 16);
         }
