@@ -45,11 +45,11 @@ namespace BasicEngine
 
             //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200), 20, 8));
             //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(300, 300), 40, 8, Color.Green));
-            _WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(400, 400), 10, 4, Color.GreenYellow));
+            //_WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(400, 400), 10, 4, Color.GreenYellow));
 
-            _WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 500), 500, 8, Color.White));
+            //_WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 500), 500, 8, Color.White));
 
-            _WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 0), 500, 8, Color.Blue));
+            //_WormKings.Add(new SpriteWormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 0), 500, 8, Color.Blue));
 
             foreach (SpriteWormKing wormKing in _WormKings)
             {

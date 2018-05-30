@@ -47,16 +47,23 @@ namespace BasicEngine
 
             #region Next Level
 
+            Trace.WriteLine("Loading LinkedLevels for " + Name + "...");
+            Trace.Indent();
+
             //_NextLevelName = rootNode.SelectSingleNode("NextLevel").SelectSingleNode("Name").FirstChild.Value;
-            foreach(XmlNode linkedlevel in rootNode.SelectSingleNode("LinkedLevels").ChildNodes)
+            foreach (XmlNode linkedlevel in rootNode.SelectSingleNode("LinkedLevels").ChildNodes)
             {
+                Trace.WriteLine(linkedlevel.SelectSingleNode("Name").FirstChild.Value);
+
                 _LinkedLevels.Add(new Vector2(
                 Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("X").FirstChild.Value),
                 Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("Y").FirstChild.Value)));
 
                 _Portals.Add(new SpriteTextureSprite(Load<Texture2D>(linkedlevel.SelectSingleNode("PortalTexture").FirstChild.Value), _LinkedLevels[_LinkedLevels.Count - 1]));
             }
-            
+
+            Trace.Unindent();
+
             #endregion Next Level
 
             #region Blocks

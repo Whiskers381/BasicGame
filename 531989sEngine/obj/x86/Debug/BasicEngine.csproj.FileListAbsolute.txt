@@ -100,3 +100,4 @@ C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.pdb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config

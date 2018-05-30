@@ -24,7 +24,7 @@ namespace BasicEngine
         private string _RootDirectory;
 
         protected Dictionary<int, Level> _Levels = new Dictionary<int, Level>();
-        protected int _FirstLevel;
+        protected int _FirstLevel = 1;
 
         protected Dictionary<string, SpriteFont> _Fonts = new Dictionary<string, SpriteFont>();
 
@@ -120,8 +120,6 @@ namespace BasicEngine
                     default:
                         Trace.WriteLine("***" + "No texture loading code for: " + state.Name + "***");
                         break;
-
-
                 }
             }
 
@@ -203,15 +201,8 @@ namespace BasicEngine
 
             }
 
-            bool FirstPass = true;
             foreach (XmlNode level in RootNode.SelectSingleNode("Levels"))
             {
-                if(FirstPass)
-                {
-                    _FirstLevel = int.Parse(level.SelectSingleNode("Name").FirstChild.Value);
-                    FirstPass = false;
-                }
-
                 _Levels.Add(
                     int.Parse(level.SelectSingleNode("Name").FirstChild.Value),
                     new Level(_ServiceProvider, _RootDirectory,
