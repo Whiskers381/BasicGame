@@ -46,7 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Peripherals.cs" />
-    <Compile Include="Physics.cs" />
+    <Compile Include="Movement.cs" />
     <Compile Include="SpriteBlock.cs" />
     <Compile Include="Camera2d.cs" />
     <Compile Include="StateDevEnvironment.cs" />

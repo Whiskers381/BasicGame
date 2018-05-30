@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace BasicEngine
 {
-    public abstract class Sprite : Physics
+    public abstract class Sprite : Movement
     {
         #region Fields
 
