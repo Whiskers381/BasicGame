@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace BasicEngine
 {
@@ -14,6 +15,7 @@ namespace BasicEngine
         protected SpritePlayerCharacter _PlayerCharacter;
 
         protected Dictionary<int, Level> _Levels;
+        protected List<SpritePortal> _Portals;
         protected Level _CurrentLevel;
         protected Level _NextLevel;
 
@@ -25,11 +27,15 @@ namespace BasicEngine
 
         public void ChangeLevel(Level level)
         {
+            _PlayerCharacter.CurrentCoordinates = level.PlayerCharacterDefaultCoordinates;
+
             _AllSprites = level.AllSprites;
             _SpritesWithUpdate = level.SpritesWithUpdate;
             _WormKings = level.WormKings;
 
             _AllSprites.Add(_PlayerCharacter);
+
+            _Portals = level.Portals;
 
             _NextLevel = level;
         }
@@ -81,13 +87,24 @@ namespace BasicEngine
         {
             if (_NextLevel != null)
             {
+                ChangeLevel(_NextLevel);
                 _CurrentLevel = _NextLevel;
+
+                
 
                 _NextLevel = null;
             }
 
             _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;
             _PlayerCharacter.Update(_IoController, 1.0f / 60.0f);
+
+            foreach(SpritePortal portal in _Portals)
+            {
+                if(_PlayerCharacter.IntersectsWith(portal))
+                {
+                    _NextLevel = _Levels[portal.LinkedLevelName];
+                }
+            }
 
 
 

@@ -21,12 +21,19 @@ namespace BasicEngine
         #endregion
 
         #region Constructors
+
+        public SpriteTextureSprite() : base()
+        {
+
+        }
+
         public SpriteTextureSprite(Texture2D texture, Vector2 defaultCoordinates) : base(defaultCoordinates)
         {
             _CurrentTexture = texture;
 
             _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
         }
+
         #endregion
 
         

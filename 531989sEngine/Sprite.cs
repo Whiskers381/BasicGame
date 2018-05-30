@@ -41,13 +41,18 @@ namespace BasicEngine
             }
         }
 
-        public Vector2 CurrentCoordinates { get { return _CurrentCoordinates; } set { } }
-        public float CurrentX { get { return _CurrentX; } set { } }
-        public float CurrentY { get { return _CurrentY; } set { } }
+        public Vector2 CurrentCoordinates { get { return _CurrentCoordinates; } set { _CurrentCoordinates = value; } }
+        public float CurrentX { get { return _CurrentX; } }
+        public float CurrentY { get { return _CurrentY; } }
 
         #endregion Fields
 
         #region Methods
+
+        public Sprite()
+        {
+
+        }
 
         public Sprite(Vector2 defaultCoordinates)
         {

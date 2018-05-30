@@ -37,6 +37,10 @@ namespace BasicEngine
         #endregion Setters
 
         #region Constructors
+        public SpriteWormKing() : base()
+        {
+
+        }
 
         public SpriteWormKing(Texture2D texture, Vector2 defaultCoordinates, int Length, int partDelay, Color color) : base(texture, defaultCoordinates)//, int partDelay
         {

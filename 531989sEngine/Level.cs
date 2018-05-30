@@ -20,11 +20,12 @@ namespace BasicEngine
         protected Vector2 _PlayerCharacterDefaultCoordinates;
 
         protected List<Vector2> _LinkedLevels = new List<Vector2>();
-        protected List<SpriteTextureSprite> _Portals = new List<SpriteTextureSprite>();
+        protected List<SpritePortal> _Portals = new List<SpritePortal>();
 
         protected List<Sprite> _AllSprites = new List<Sprite>();
         protected List<Sprite> _SpritesWithUpdate = new List<Sprite>();
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
+        
 
         protected List<SpriteBlock> _Blocks = new List<SpriteBlock>();
         protected Texture2D _BlockTexture;
@@ -36,6 +37,7 @@ namespace BasicEngine
         public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } set { } }
 
         public List<Vector2> NextLevelCoordinates { get { return _LinkedLevels; } set { } }
+        public List<SpritePortal> Portals { get { return _Portals; } set { } }
 
         public List<Sprite> AllSprites { get { return _AllSprites; } set { } }
         public List<Sprite> SpritesWithUpdate { get { return _SpritesWithUpdate; } set { } }
@@ -67,7 +69,13 @@ namespace BasicEngine
                 Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("X").FirstChild.Value),
                 Int32.Parse(linkedlevel.SelectSingleNode("Coordinates").SelectSingleNode("Y").FirstChild.Value)));
 
-                _Portals.Add(new SpriteTextureSprite(Load<Texture2D>(linkedlevel.SelectSingleNode("PortalTexture").FirstChild.Value), _LinkedLevels[_LinkedLevels.Count - 1]));
+                SpritePortal portal = new SpritePortal(
+                    Load<Texture2D>(linkedlevel.SelectSingleNode("PortalTexture").FirstChild.Value),
+                    _LinkedLevels[_LinkedLevels.Count - 1],
+                    Int32.Parse(linkedlevel.SelectSingleNode("Name").FirstChild.Value));
+
+                _Portals.Add(portal);
+                _AllSprites.Add(portal);
             }
 
             Trace.Unindent();
@@ -84,21 +92,25 @@ namespace BasicEngine
 
             foreach(XmlNode boss in rootNode.SelectSingleNode("Bosses").ChildNodes)
             {
+                SpriteWormKing wormKing = new SpriteWormKing();
                 switch(boss.Name)
                 {
                     case "WormKing":
-                        _WormKings.Add(new SpriteWormKing(
+                        wormKing = new SpriteWormKing(
                             Load<Texture2D>(boss.SelectSingleNode("Texture").FirstChild.Value),
                             GetDefaultXmlCoordinates(boss),
                             Int32.Parse(boss.SelectSingleNode("Length").FirstChild.Value),
                             Int32.Parse(boss.SelectSingleNode("PartDelay").FirstChild.Value),
                             Color.White
-                            ));
+                            );
                         break;
                     default:
                         Trace.WriteLine("***" + "No loading code for: " + boss.Name + "***");
                         break;
                 }
+                _WormKings.Add(wormKing);
+                _AllSprites.Add(wormKing);
+                _SpritesWithUpdate.Add(wormKing);
             }
 
 
@@ -119,12 +131,6 @@ namespace BasicEngine
             foreach (SpriteBlock block in _Blocks)
             {
                 _AllSprites.Add(block);
-            }
-
-            foreach (SpriteWormKing wormKing in _WormKings)
-            {
-                _AllSprites.Add(wormKing);
-                _SpritesWithUpdate.Add(wormKing);
             }
         }
 

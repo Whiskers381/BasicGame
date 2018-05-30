@@ -49,6 +49,7 @@
     <Compile Include="Movement.cs" />
     <Compile Include="SpriteBlock.cs" />
     <Compile Include="Camera2d.cs" />
+    <Compile Include="SpritePortal.cs" />
     <Compile Include="StateDevEnvironment.cs" />
     <Compile Include="SpriteDevGuy.cs" />
     <Compile Include="Game1.cs" />

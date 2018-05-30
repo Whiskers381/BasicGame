@@ -10,10 +10,14 @@ namespace BasicEngine
 {
     public class SpritePortal : SpriteTextureSprite
     {
-        //This looks redundant but all sprites must have their own class so that later on extra behavour and texture garbage can be added
-        public SpritePortal(Texture2D texture, Vector2 defaultCoordinates) : base(texture, defaultCoordinates)
-        {
+        protected int _LinkedLevelName;
 
+        public int LinkedLevelName { get { return _LinkedLevelName; } set { } }
+
+        //This looks redundant but all sprites must have their own class so that later on extra behavour and texture garbage can be added
+        public SpritePortal(Texture2D texture, Vector2 defaultCoordinates, int linkedLevelName) : base(texture, defaultCoordinates)
+        {
+            _LinkedLevelName = linkedLevelName;
         }
     }
 }
