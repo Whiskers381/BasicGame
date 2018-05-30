@@ -20,7 +20,11 @@ namespace BasicEngine
 
         protected List<Vector2> _LinkedLevels = new List<Vector2>();
         protected List<SpriteTextureSprite> _Portals = new List<SpriteTextureSprite>();
-        //protected string _NextLevelName;
+
+        protected List<Sprite> _AllSprites = new List<Sprite>();
+        protected List<Sprite> _SpritesWithUpdate = new List<Sprite>();
+
+        protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
 
         protected List<SpriteBlock> _Blocks = new List<SpriteBlock>();
         protected Texture2D _BlockTexture;
@@ -31,7 +35,9 @@ namespace BasicEngine
         public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } set { } }
 
         public List<Vector2> NextLevelCoordinates { get { return _LinkedLevels; } set { } }
-        //public string NextLevelName { get { return _NextLevelName; } set { } }
+
+        public List<Sprite> AllSprites { get { return _AllSprites; } set { } }
+        public List<Sprite> SpritesWithUpdate { get { return _SpritesWithUpdate; } set { } }
 
         public List<SpriteBlock> Blocks { get { return _Blocks; } set { } }
         #endregion Getters
@@ -66,13 +72,60 @@ namespace BasicEngine
 
             #endregion Next Level
 
+            #region BadGuys
+
+
+
+            #endregion BadGuys
+
+            #region Bosses
+
+            foreach(XmlNode boss in rootNode.SelectSingleNode("Bosses").ChildNodes)
+            {
+                switch(boss.Name)
+                {
+                    case "WormKing":
+                        _WormKings.Add(new SpriteWormKing(
+                            Load<Texture2D>(boss.SelectSingleNode("Texture").FirstChild.Value),
+                            GetDefaultXmlCoordinates(boss),
+                            Int32.Parse(boss.SelectSingleNode("Length").FirstChild.Value),
+                            Int32.Parse(boss.SelectSingleNode("PartDelay").FirstChild.Value),
+                            Color.White
+                            ));
+                        break;
+                    default:
+                        Trace.WriteLine("***" + "No loading code for: " + boss.Name + "***");
+                        break;
+                }
+            }
+
+
+            #endregion Bosses
+
             #region Blocks
 
             _BlockTexture = blockTexture;
             _Blocks = GetBlocks(rootNode);
-            
+
             #endregion Blocks
+
+            //foreach (Sprite text in _Texts)
+            //{
+            //    _AllSprites.Add(text);
+            //}
+
+            foreach (SpriteBlock block in _Blocks)
+            {
+                _AllSprites.Add(block);
+            }
+
+            foreach (SpriteWormKing wormKing in _WormKings)
+            {
+                _AllSprites.Add(wormKing);
+                _SpritesWithUpdate.Add(wormKing);
+            }
         }
+
         private List<SpriteBlock> GetBlocks(XmlNode rootNode)
         {
             List<SpriteBlock> result = new List<SpriteBlock>();
@@ -89,6 +142,23 @@ namespace BasicEngine
             }
 
             return result;
+        }
+        /// <summary>
+        /// Gets Coordinates from "Coordinates" node
+        /// </summary>
+        /// <param name="ParentNode">Parent of "Coordinates" node</param>
+        /// <returns></returns>
+        private Vector2 GetDefaultXmlCoordinates(XmlNode ParentNode)
+        {
+            return new Vector2(
+                int.Parse(ParentNode.SelectSingleNode("DefaultCoordinates/X").FirstChild.Value),
+                int.Parse(ParentNode.SelectSingleNode("DefaultCoordinates/Y").FirstChild.Value));
+        }
+        private Vector2 GetXmlCoordinates(XmlNode ParentNode)
+        {
+            return new Vector2(
+                int.Parse(ParentNode.SelectSingleNode("Coordinates/X").FirstChild.Value),
+                int.Parse(ParentNode.SelectSingleNode("Coordinates/Y").FirstChild.Value));
         }
     }
 }

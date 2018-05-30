@@ -22,7 +22,7 @@ namespace BasicEngine
         protected int _length;
         protected int _partDelay;
 
-        protected int _MovmentSpeed = 200;//200-300 is a good idea
+        //protected int _MovmentSpeed = 200;//200-300 is a good idea
         public float _RotationAngle = 0;
 
         protected Vector2 _PlayerCharacterCoordinates;
