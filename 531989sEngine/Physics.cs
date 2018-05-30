@@ -17,8 +17,8 @@ namespace BasicEngine
         protected float _CurrentX { get { return _CurrentCoordinates.X; } set { _CurrentCoordinates.X = value; } }
         protected float _CurrentY { get { return _CurrentCoordinates.Y; } set { _CurrentCoordinates.Y = value; } }
 
-        protected int _MovmentSpeed = 250;//200-300 is a good idea
-        protected int _SprintSpeed = 350;//200-300 is a good idea
+        protected int _MovementSpeed = 225;//200-300 is a good idea
+        protected int _SprintSpeed = 450;//200-300 is a good idea
         protected int _CurrentSpeed = 100;
 
         
@@ -57,8 +57,11 @@ namespace BasicEngine
                 }
                 if (PeripheralIO.GetSprintKey)
                 {
-                    Console.WriteLine("Sprinting");
                     Sprint();
+                }
+                else
+                {
+                    StopSprint();
                 }
                 if (PeripheralIO.GetCrouchKey)
                 {
@@ -68,11 +71,11 @@ namespace BasicEngine
                 {
                     //Jump
                 }
-                if (PeripheralIO.GetIsControllerX)
+                if (PeripheralIO.GetIsControllerLeftX)
                 {
                     ControllerMoveX(PeripheralIO, deltaTime);
                 }
-                if (PeripheralIO.GetIsControllerY)
+                if (PeripheralIO.GetIsControllerLeftY)
                 {
                     ControllerMoveY(PeripheralIO, deltaTime);
                 }
@@ -106,18 +109,22 @@ namespace BasicEngine
             _CurrentSpeed = _SprintSpeed;
             Console.WriteLine("Sprinting");
         }
+        public void StopSprint()
+        {
+            _CurrentSpeed = _MovementSpeed ;
+        }
         #endregion
         #region Controller Movement
         public void ControllerMoveX(Peripherals PeripheralIO, float deltaTime)
         {
-            Console.WriteLine(PeripheralIO.GetControllerX);
-            _CurrentX += (_MovmentSpeed * PeripheralIO.GetControllerX ) * deltaTime;
+            Console.WriteLine(PeripheralIO.GetControllerLeftX);
+            _CurrentX += (_MovementSpeed * PeripheralIO.GetControllerLeftX ) * deltaTime;
             Console.WriteLine("Moving X");
         }
         public void ControllerMoveY(Peripherals PeripheralIO, float deltaTime)
         {
-            Console.WriteLine(PeripheralIO.GetControllerY);
-            _CurrentY -= (_MovmentSpeed * PeripheralIO.GetControllerY) * deltaTime;
+            Console.WriteLine(PeripheralIO.GetControllerLeftY);
+            _CurrentY -= (_MovementSpeed * PeripheralIO.GetControllerLeftY) * deltaTime;
             Console.WriteLine("Moving Y");
         }
         #endregion
