@@ -11,30 +11,16 @@ namespace BasicEngine
 {
     public class SpritePlayerCharacter : SpriteTexturedMover
     {
-        public SpritePlayerCharacter(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates):
+        
+
+        public SpritePlayerCharacter(List<Texture2D> uptextures, List<Texture2D> downtextures, List<Texture2D> lefttextures, List<Texture2D> righttextures, Vector2 defaultCoordinates, ref Peripherals IoController) :
             base(uptextures, downtextures, lefttextures, righttextures, defaultCoordinates)
         {
             _IsPlayerControlled = true;
         }
-        public override void Update(float deltaTime)
+        public void Update(Peripherals IoController,float deltaTime)
         {
-            KeyboardState keys = Keyboard.GetState();
-            if(keys.IsKeyDown(Keys.W))
-            {
-                MoveUp(deltaTime);
-            }
-            if (keys.IsKeyDown(Keys.S))
-            {
-                MoveDown(deltaTime);
-            }
-            if (keys.IsKeyDown(Keys.A))
-            {
-                MoveLeft(deltaTime);
-            }
-            if (keys.IsKeyDown(Keys.D))
-            {
-                MoveRight(deltaTime);
-            }
+            Move(IoController, deltaTime);
         }
     }
 }
