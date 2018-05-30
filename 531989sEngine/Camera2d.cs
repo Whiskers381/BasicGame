@@ -95,14 +95,14 @@ namespace BasicEngine
 
         public Matrix get_transformation(GraphicsDevice graphicsDevice)
         {
-            if (_CurrentCoordinates.X < 0)
-            {
-                _CurrentCoordinates.X = 0;
-            }
-            if (_CurrentCoordinates.Y > 800)
-            {
-                _CurrentCoordinates.Y = 0;
-            }
+            //if (_CurrentCoordinates.X < 0)
+            //{
+            //    _CurrentCoordinates.X = 0;
+            //}
+            //if (_CurrentCoordinates.Y > 800)
+            //{
+            //    _CurrentCoordinates.Y = 0;
+            //}
             _Transform = Matrix.CreateTranslation(new Vector3(-_CurrentCoordinates.X, -_CurrentCoordinates.Y, 0)) * Matrix.CreateRotationZ(Rotation) * Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) * Matrix.CreateTranslation(new Vector3(graphicsDevice.Viewport.Width * 0.5f, graphicsDevice.Viewport.Height * 0.5f, 0));
 
             return _Transform;

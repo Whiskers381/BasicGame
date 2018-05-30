@@ -97,6 +97,11 @@ namespace BasicEngine
                 //wormKing.Update(1.0f / 60.0f);
                 wormKing.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);
             }
+
+            foreach(Sprite sprite in _SpritesWithUpdate)
+            {
+                sprite.Update(1.0f / 60.0f);
+            }
         }
     }
 }
