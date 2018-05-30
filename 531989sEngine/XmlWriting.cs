@@ -45,5 +45,19 @@ namespace BasicEngine
 
             //_Document.Save(Path.Combine(OutPutPath, OutputName));
         }
+
+        public void NewSavePlayersGame()
+        {
+            XmlDocument document = new XmlDocument();
+            document.InsertBefore(_Document.CreateXmlDeclaration("1.0", "utf-8", null), _Document.DocumentElement);
+
+            document.AppendChild(document.CreateElement(string.Empty, "Level", string.Empty));//RootNode
+            XmlNode rootNode = document.FirstChild.NextSibling;
+        }
+
+        public void SavePlayersGame()
+        {
+
+        }
     }
 }
