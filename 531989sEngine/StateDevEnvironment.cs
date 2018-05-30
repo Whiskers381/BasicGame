@@ -20,8 +20,16 @@ namespace BasicEngine
         }
         public override void Update(GameTime gameTime)
         {
-            _DevGuy.Update(1f/60f);
-            base.Update(gameTime);
+            if (_NextLevel != null)
+            {
+                _CurrentLevel = _NextLevel;
+
+                _NextLevel = null;
+            }
+
+            _Camera2D.Pos = _DevGuy.CurrentCoordinates;
+
+            _DevGuy.Update(_IoController, 1.0f / 60.0f);
         }
     }
 }

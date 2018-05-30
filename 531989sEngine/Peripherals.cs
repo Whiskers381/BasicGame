@@ -337,13 +337,13 @@ namespace BasicEngine
             }
         }
         //Functions
-        public bool GetUserAction
-        {
-            get
-            {
-                return _UserAction;
-            }
-        }
+        //public bool GetUserAction
+        //{
+        //    get
+        //    {
+        //        return _UserAction;
+        //    }
+        //}
         #endregion
         #region Controller Getters
         #region Analogue stick getters

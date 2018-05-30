@@ -19,8 +19,8 @@ namespace BasicEngine
 {
     public class XmlWriting
     {
-        XmlDocument _Document;
-        XmlNode _RootNode;
+        //XmlDocument _Document;
+        //XmlNode _RootNode;
 
 
 
@@ -65,9 +65,10 @@ namespace BasicEngine
 
             //return ParentNode.AppendChild(Node);
 
-            SavePlayersGame("0001", new Vector2(0,0), "CyberPunkGuy");
+            
         }
 
+        //SavePlayersGame("0001", new Vector2(0,0), "CyberPunkGuy");
         public void SavePlayersGame(string CurrentLevelName, Vector2 CurrentPlayerCoordinates, string PlayersName)
         {
             string outPutPath = Path.Combine("XML", "SaveGames");

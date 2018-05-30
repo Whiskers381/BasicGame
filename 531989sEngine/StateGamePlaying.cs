@@ -30,7 +30,6 @@ namespace BasicEngine
             _WormKings = level.WormKings;
 
             _AllSprites.Add(_PlayerCharacter);
-            _SpritesWithUpdate.Add(_PlayerCharacter);
 
             _NextLevel = level;
         }
