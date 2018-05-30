@@ -27,7 +27,7 @@ namespace BasicEngine
 
         #region Event handlers
 
-        public virtual void StopMoveing()
+        /*public virtual void StopMoveing()
         {
 
         }
@@ -74,7 +74,7 @@ namespace BasicEngine
         public virtual void StopMoveingRight()
         {
 
-        }
+        }*/
         #endregion
 
         //public override void Update(float deltaTime)

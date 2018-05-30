@@ -40,7 +40,7 @@ namespace BasicEngine
         public static int _HalfScreenWidth = _ScreenWidth / 2;
         public static int _HalfScreenHeight = _ScreenHeight / 2;
 
-        Peripherals IoController = new Peripherals();
+        public Peripherals IoController = new Peripherals();
 
         #endregion Member Variables
 
@@ -98,8 +98,10 @@ namespace BasicEngine
         {
             //This line allows the game to exit if the escape key is hit
             if (IoController.Escape) { Exit(); }
+
             //The line below calls the update method for the peripherals (keyboard, mouse...)
             IoController.Update(this);
+
             //Full screen handling
             #region FullScreen Toggle logic
             _ShouldBeFullScreen = IoController.FullScreenKey;
@@ -134,7 +136,6 @@ namespace BasicEngine
 
             base.Update(gameTime);
         }
-
         #endregion
 
         #region Draw
@@ -153,5 +154,11 @@ namespace BasicEngine
         }
 
         #endregion
+
+        //Getters
+        public ref Peripherals GetIO()
+        {
+            return ref IoController;
+        }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/WormKingPart.png</SourceFile>
-  <SourceTime>2018-05-06T05:19:17.1961467+01:00</SourceTime>
-  <DestFile>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/bin/Windows/WormKingPart.xnb</DestFile>
-  <DestTime>2018-05-30T00:04:51.9937739+01:00</DestTime>
+  <SourceFile>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/WormKingPart.png</SourceFile>
+  <SourceTime>2018-05-25T19:33:08.5761743+01:00</SourceTime>
+  <DestFile>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/bin/Windows/WormKingPart.xnb</DestFile>
+  <DestTime>2018-05-30T00:39:51.5161626+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

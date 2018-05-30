@@ -17,7 +17,7 @@ namespace BasicEngine
 
         protected Level _CurrentLevel;
         protected Level _NextLevel;
-
+        protected Peripherals _IoController;
         protected List<Sprite> _Sprites;
 
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
@@ -29,6 +29,7 @@ namespace BasicEngine
 
         public StateGamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
+            _IoController = game.IoController;
             _Sprites = new List<Sprite>();
 
             _Levels = _Game.XmlContent.Levels;
@@ -40,7 +41,7 @@ namespace BasicEngine
                 _Game.XmlContent.PlayerCharacterDownTextures,
                 _Game.XmlContent.PlayerCharacterLeftTextures,
                 _Game.XmlContent.PlayerCharacterRightTextures,
-                _CurrentLevel.PlayerCharacterDefaultCoordinates);
+                _CurrentLevel.PlayerCharacterDefaultCoordinates,ref game.IoController);
 
             //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(200, 200), 20, 8));
             //_WormKings.Add(new WormKing(content.Load<Texture2D>("WormKingPart"), new Vector2(300, 300), 40, 8, Color.Green));
@@ -95,8 +96,8 @@ namespace BasicEngine
             }
 
             _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;//new Vector2(_WormKing._Parts[19].CurrentX, _WormKing._Parts[19].CurrentY)
-
-            _PlayerCharacter.Update(1.0f / 60.0f);
+            _PlayerCharacter.Update(_IoController, 1.0f / 60.0f);
+            //_PlayerCharacter.Update(1.0f / 60.0f);
 
             foreach(SpriteWormKing wormKing in _WormKings)
             {
