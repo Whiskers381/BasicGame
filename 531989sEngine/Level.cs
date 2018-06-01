@@ -203,15 +203,10 @@ namespace BasicEngine
                 rootNode.SelectSingleNode("PlayerDefaultCoordinates"),
                 "Y", _PlayerCharacterDefaultCoordinates.Y.ToString());
 
-            XmlTool.CreateEmptyNode(document, rootNode, "LinkedLevels");
+            XmlElement linkedLevelNode = XmlTool.CreateEmptyNode(document, rootNode, "LinkedLevels");
             foreach(SpritePortal portal in _Portals)
             {
-
-
-
-                //XmlTool.CreateEmptyNode(document, rootNode, "Level");
-
-                //XmlTool.CreateTextNode(document, rootNode, "Name", portal.LinkedLevelName.ToString());
+                 linkedLevelNode.AppendChild(portal.ToXml(document, rootNode.SelectSingleNode("LinkedLevels")));
             }
 
 

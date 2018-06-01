@@ -4,16 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/joshuaempyre__arcade_music_loop.wav</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/BB_Block.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/MessageFont.spritefont</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/UssDallas.spritefont</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/PlayerCharacter.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/BlockOne.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/BadGuyOne.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/WormKingPart.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/DevGuy.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/DevGuyTrans.png</File>
-    <File>C:/Users/Hakaru/Documents/Programming/Git/BasicGame/531989sEngine/Content/PortalOne.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/joshuaempyre__arcade_music_loop.wav</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/BB_Block.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/MessageFont.spritefont</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/UssDallas.spritefont</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/PlayerCharacter.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/BlockOne.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/BadGuyOne.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/WormKingPart.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/DevGuy.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/DevGuyTrans.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/PortalOne.png</File>
   </SourceFiles>
 </SourceFileCollection>

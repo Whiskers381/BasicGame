@@ -14,17 +14,16 @@ namespace BasicEngine
         #region MemberVariables
 
         #region Texture Stuff
+
         protected Texture2D _CurrentTexture;
+
+        protected string _TextureName;
+
         #endregion
 
         #endregion
 
         #region Constructors
-
-        public SpriteTextureSprite() : base()
-        {
-
-        }
 
         public SpriteTextureSprite(Texture2D texture, Vector2 defaultCoordinates) : base(defaultCoordinates)
         {
@@ -33,9 +32,27 @@ namespace BasicEngine
             _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
         }
 
+        
+
+        //public SpriteTextureSprite(Texture2D texture, Vector2 defaultCoordinates, string textureName = null) : base(defaultCoordinates)
+        //{
+
+
+        //    _CurrentTexture = texture;
+
+        //    _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
+        //}
+
+        public SpriteTextureSprite() : base()
+        {
+
+        }
+
+
+
         #endregion
 
-        
+
         public override void Update(float deltaTime)
         {
 

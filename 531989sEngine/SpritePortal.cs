@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Xml;
 
 namespace BasicEngine
 {
-    public class SpritePortal : SpriteTextureSprite
+    public class SpritePortal : SpriteTextureSprite, IDerivedFromXml
     {
         protected int _LinkedLevelName;
 
@@ -18,6 +19,24 @@ namespace BasicEngine
         public SpritePortal(Texture2D texture, Vector2 defaultCoordinates, int linkedLevelName) : base(texture, defaultCoordinates)
         {
             _LinkedLevelName = linkedLevelName;
+        }
+
+        public override XmlNode ToXml(XmlDocument document, XmlNode ParentNode)
+        {
+             XmlElement node = XmlTool.CreateEmptyNode(document, ParentNode, "Level");
+            XmlTool.CreateTextNode(document, node, "Name", _LinkedLevelName.ToString());
+
+            XmlTool.CreateEmptyNode(document, node, "Coordinates");
+            XmlTool.CreateTextNode(
+                document,
+                node.SelectSingleNode("Coordinates"),
+                "X", _DefaultX.ToString());
+            XmlTool.CreateTextNode(
+                document,
+                node.SelectSingleNode("Coordinates"),
+                "Y", _DefaultY.ToString());
+
+            return ParentNode.AppendChild(node);
         }
     }
 }
