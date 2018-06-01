@@ -77,10 +77,14 @@ namespace BasicEngine
         //        }
         //        else
         //        {
-        //            return instance._SomeThingOfTypeSomeThing;
+        //            return instance._Foo;
         //        }
         //    }
         //}
+        //  I remember thinking that static's only meaningful purpose was to help separate utility methods into the classes they
+        //  logically belonged to or for global constants but instance control is where static flashes it's true power level from under it's
+        //  unsuspecting plain trench coat.
+        //  8/8 would static again!
 
         #endregion Getters
 
