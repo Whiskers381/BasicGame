@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEngine
 {
-    public class SpriteWormKing : SpriteTextureSprite
+    public class SpriteWormKing : SpriteTextureSprite, IBadGuy
     {
         #region Member Variables
 
@@ -22,6 +22,8 @@ namespace BasicEngine
         protected int _length;
         protected int _partDelay;
 
+        protected Vector2 _PlayerCharacterCoordinates;
+
         //protected int _MovmentSpeed = 200;//200-300 is a good idea
         public float _RotationAngle = 0;
 
@@ -29,7 +31,7 @@ namespace BasicEngine
 
         #region Setters
 
-        public override void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
+        public void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
         {
             _PlayerCharacterCoordinates = new Vector2(playerCharacterCoordinates.X + 8,playerCharacterCoordinates.Y + 16);
         }

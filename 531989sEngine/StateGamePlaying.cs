@@ -24,6 +24,7 @@ namespace BasicEngine
         protected List<Sprite> _AllSprites;
         protected List<Sprite> _SpritesWithUpdate;
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
+        protected List<IBadGuy> _badGuys = new List<IBadGuy>();
 
         public void ChangeLevel(Level level)
         {
@@ -32,6 +33,7 @@ namespace BasicEngine
             _AllSprites = level.AllSprites;
             _SpritesWithUpdate = level.SpritesWithUpdate;
             _WormKings = level.WormKings;
+            _badGuys = level.BadGuys;
 
             _AllSprites.Add(_PlayerCharacter);
 
@@ -107,12 +109,16 @@ namespace BasicEngine
             }
 
 
-
-            foreach(SpriteWormKing wormKing in _WormKings)
+            foreach(IBadGuy badGuy in _badGuys)
             {
-                //wormKing.Update(1.0f / 60.0f);
-                wormKing.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);
+                badGuy.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);
             }
+
+            //foreach(SpriteWormKing wormKing in _WormKings)
+            //{
+            //    //wormKing.Update(1.0f / 60.0f);
+            //    wormKing.UpdatePlayerCharacterCoordinates(_PlayerCharacter.CurrentCoordinates);
+            //}
 
             foreach(Sprite sprite in _SpritesWithUpdate)
             {

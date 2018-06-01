@@ -10,13 +10,11 @@ using System.Diagnostics;
 
 namespace BasicEngine
 {
-    public abstract class Sprite : Movement
+    public abstract class Sprite : Movement, IDerivedFromXml
     {
         #region Fields
 
         protected Color _Colour;
-
-        protected Vector2 _PlayerCharacterCoordinates;
 
         protected float _DefaultX
         {
@@ -72,12 +70,12 @@ namespace BasicEngine
             throw new NotImplementedException();
         }
 
-        public virtual void UpdatePlayerCharacterCoordinates(Vector2 playerCharacterCoordinates)
+        public virtual void Update(float deltaTime)
         {
-            _PlayerCharacterCoordinates = new Vector2(playerCharacterCoordinates.X, playerCharacterCoordinates.Y);
+            throw new NotImplementedException();
         }
 
-        public virtual void Update(float deltaTime)
+        public virtual XmlNode ToXml(XmlDocument document, XmlNode parentNode)
         {
             throw new NotImplementedException();
         }

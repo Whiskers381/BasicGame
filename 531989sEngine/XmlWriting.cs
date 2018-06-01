@@ -68,8 +68,16 @@ namespace BasicEngine
             
         }
 
+        public void SaveLevels(List<Level> levels)
+        {
+            foreach(Level level in levels)
+            {
+                level.ToXml();
+            }
+        }
+
         //SavePlayersGame("0001", new Vector2(0,0), "CyberPunkGuy");
-        public void SavePlayersGame(string CurrentLevelName, Vector2 CurrentPlayerCoordinates, string PlayersName)
+        public static void SavePlayersGame(string CurrentLevelName, Vector2 CurrentPlayerCoordinates, string PlayersName)
         {
             string outPutPath = Path.Combine("XML", "SaveGames");
             string outputName = "SaveGame" + 0002 + ".xml";
@@ -88,7 +96,7 @@ namespace BasicEngine
 
             XmlTool.CreateEmptyNode(document, rootNode.SelectSingleNode("Player"), "Coordinates");
             XmlTool.CreateTextNode(document, rootNode.SelectSingleNode("Player/Coordinates"), "X", CurrentPlayerCoordinates.X.ToString());
-            XmlTool.CreateTextNode(document, rootNode.SelectSingleNode("Player/Coordinates"), "Y", CurrentPlayerCoordinates.X.ToString());
+            XmlTool.CreateTextNode(document, rootNode.SelectSingleNode("Player/Coordinates"), "Y", CurrentPlayerCoordinates.Y.ToString());
 
 
             if (!Directory.Exists(outPutPath))

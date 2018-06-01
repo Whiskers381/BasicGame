@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+#region Using
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +11,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
+using System.IO;
 using System.Xml;
+
+#endregion Using
 
 namespace BasicEngine
 {
@@ -25,6 +31,8 @@ namespace BasicEngine
         protected List<Sprite> _AllSprites = new List<Sprite>();
         protected List<Sprite> _SpritesWithUpdate = new List<Sprite>();
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
+
+        protected List<IBadGuy> _BadGuys = new List<IBadGuy>();
         
 
         protected List<SpriteBlock> _Blocks = new List<SpriteBlock>();
@@ -33,17 +41,18 @@ namespace BasicEngine
         #endregion Member Variables
 
         #region Getters
-        public string Name { get { return _Name; } set { } }
-        public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } set { } }
+        public string Name { get { return _Name; } }
+        public Vector2 PlayerCharacterDefaultCoordinates { get { return _PlayerCharacterDefaultCoordinates; } }
 
-        public List<Vector2> NextLevelCoordinates { get { return _LinkedLevels; } set { } }
-        public List<SpritePortal> Portals { get { return _Portals; } set { } }
+        public List<Vector2> NextLevelCoordinates { get { return _LinkedLevels; } }
+        public List<SpritePortal> Portals { get { return _Portals; }}
 
-        public List<Sprite> AllSprites { get { return _AllSprites; } set { } }
-        public List<Sprite> SpritesWithUpdate { get { return _SpritesWithUpdate; } set { } }
-        public List<SpriteWormKing> WormKings { get { return _WormKings; } set { } }
+        public List<Sprite> AllSprites { get { return _AllSprites; } }
+        public List<Sprite> SpritesWithUpdate { get { return _SpritesWithUpdate; } }
+        public List<SpriteWormKing> WormKings { get { return _WormKings; } }
+        public List<IBadGuy> BadGuys { get { return _BadGuys; } }
 
-        public List<SpriteBlock> Blocks { get { return _Blocks; } set { } }
+        public List<SpriteBlock> Blocks { get { return _Blocks; } }
         #endregion Getters
 
 
@@ -108,6 +117,7 @@ namespace BasicEngine
                         Trace.WriteLine("***" + "No loading code for: " + boss.Name + "***");
                         break;
                 }
+                _BadGuys.Add(wormKing);
                 _WormKings.Add(wormKing);
                 _AllSprites.Add(wormKing);
                 _SpritesWithUpdate.Add(wormKing);
@@ -167,6 +177,54 @@ namespace BasicEngine
             return new Vector2(
                 int.Parse(ParentNode.SelectSingleNode("Coordinates/X").FirstChild.Value),
                 int.Parse(ParentNode.SelectSingleNode("Coordinates/Y").FirstChild.Value));
+        }
+
+        public XmlDocument ToXml()
+        {
+            string outPutPath = Path.Combine("XML", "SavedLevels");
+            string outputName = Name + ".xml";
+
+            XmlDocument document = new XmlDocument();
+
+            document.InsertBefore(document.CreateXmlDeclaration("1.0", "utf-8", null), document.DocumentElement);
+
+            document.AppendChild(document.CreateElement(string.Empty, "Level", string.Empty));//RootNode
+            XmlNode rootNode = document.FirstChild.NextSibling;
+
+            XmlTool.CreateTextNode(document, rootNode, "Name", Name);
+
+            XmlTool.CreateEmptyNode(document, rootNode, "PlayerDefaultCoordinates");
+            XmlTool.CreateTextNode(
+                document,
+                rootNode.SelectSingleNode("PlayerDefaultCoordinates"),
+                "X", _PlayerCharacterDefaultCoordinates.X.ToString());
+            XmlTool.CreateTextNode(
+                document,
+                rootNode.SelectSingleNode("PlayerDefaultCoordinates"),
+                "Y", _PlayerCharacterDefaultCoordinates.Y.ToString());
+
+            XmlTool.CreateEmptyNode(document, rootNode, "LinkedLevels");
+            foreach(SpritePortal portal in _Portals)
+            {
+
+
+
+                //XmlTool.CreateEmptyNode(document, rootNode, "Level");
+
+                //XmlTool.CreateTextNode(document, rootNode, "Name", portal.LinkedLevelName.ToString());
+            }
+
+
+
+
+
+
+
+
+
+
+
+            return document;
         }
     }
 }
