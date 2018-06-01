@@ -15,7 +15,6 @@ namespace BasicEngine
 
         #region Texture Stuff
         protected Texture2D _CurrentTexture;
-        protected Rectangle _Rectangle;
         #endregion
 
         #endregion
@@ -40,11 +39,6 @@ namespace BasicEngine
         public override void Update(float deltaTime)
         {
 
-        }
-
-        public bool IntersectsWith(SpriteTextureSprite pSprite)
-        {
-            return _Rectangle.Intersects(pSprite._Rectangle);
         }
 
         public virtual void UpdateCameraPosition(Vector2 NoneCares) { }

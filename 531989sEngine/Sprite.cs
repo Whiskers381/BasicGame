@@ -15,6 +15,9 @@ namespace BasicEngine
         #region Fields
 
         protected Color _Colour;
+        protected Rectangle _Rectangle;
+        public Rectangle Rectangle { get { return _Rectangle; } }
+
 
         protected float _DefaultX
         {
@@ -40,8 +43,9 @@ namespace BasicEngine
         }
 
         public Vector2 CurrentCoordinates { get { return _CurrentCoordinates; } set { _CurrentCoordinates = value; } }
-        public float CurrentX { get { return _CurrentX; } }
-        public float CurrentY { get { return _CurrentY; } }
+        public float CurrentX { get { return _CurrentX; } set { _CurrentX = value; } }
+        public float CurrentY { get { return _CurrentY; } set { _CurrentY = value; } }
+
 
         #endregion Fields
 
@@ -65,6 +69,11 @@ namespace BasicEngine
             _CurrentCoordinates = _DefaultCoordinates;
         }
 
+        public bool IntersectsWith(Sprite pSprite)
+        {
+            return _Rectangle.Intersects(pSprite._Rectangle);
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
@@ -79,6 +88,7 @@ namespace BasicEngine
         {
             throw new NotImplementedException();
         }
+
 
         #endregion Methods
     }

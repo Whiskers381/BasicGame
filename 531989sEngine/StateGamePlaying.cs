@@ -25,6 +25,7 @@ namespace BasicEngine
         protected List<Sprite> _SpritesWithUpdate;
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
         protected List<IBadGuy> _badGuys = new List<IBadGuy>();
+        protected List<SpriteBlock> _Blocks;
 
 
         public void ChangeLevel(Level level)
@@ -35,6 +36,8 @@ namespace BasicEngine
             _SpritesWithUpdate = level.SpritesWithUpdate;
             _WormKings = level.WormKings;
             _badGuys = level.BadGuys;
+
+            _Blocks = level.Blocks;
 
             _AllSprites.Add(_PlayerCharacter);
 
@@ -99,10 +102,17 @@ namespace BasicEngine
                 _NextLevel = null;
             }
 
-            /*for(int CollisionTargetIndex = 0; CollisionTargetIndex < _AllSprites.Count; CollisionTargetIndex++)
+            for(int CollisionTargetIndex = 0; CollisionTargetIndex < _Blocks.Count; CollisionTargetIndex++)
             {
-                if (_PlayerCharacter.IntersectsWith(_AllSprites[CollisionTargetIndex]))
-            }*/
+                if (_PlayerCharacter.IntersectsWith(_Blocks[CollisionTargetIndex]))
+                {
+                    _PlayerCharacter.CurrentY = _Blocks[CollisionTargetIndex].CurrentY + _PlayerCharacter.Rectangle.Height;
+                }
+                else
+                {
+                    Console.WriteLine("No collision");
+                }
+            }
 
 
             _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;
