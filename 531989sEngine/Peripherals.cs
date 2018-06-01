@@ -244,6 +244,7 @@ namespace BasicEngine
             #region Misc Center buttons
             if (_state.IsButtonDown(Buttons.Start))
             {
+                Escape = true;
             }
             else
             {
