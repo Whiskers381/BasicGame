@@ -80,27 +80,22 @@ namespace BasicEngine
         public void MoveUp(float deltaTime)
         {
             _CurrentY -= _CurrentSpeed * deltaTime;
-            Console.WriteLine("Moving up");
         }
         public void MoveDown(float deltaTime)
         {
             _CurrentY += _CurrentSpeed * deltaTime;
-            Console.WriteLine("Moving Down");
         }
         public void MoveLeft(float deltaTime)
         {
             _CurrentX -= _CurrentSpeed * deltaTime;
-            Console.WriteLine("Moving Left");
         }
         public void MoveRight(float deltaTime)
         {
             _CurrentX += _CurrentSpeed * deltaTime;
-            Console.WriteLine("Moving Right");
         }
         public void Sprint()
         {
             _CurrentSpeed = _SprintSpeed;
-            Console.WriteLine("Sprinting");
         }
         public void StopSprint()
         {
@@ -111,12 +106,10 @@ namespace BasicEngine
         public void ControllerMoveX(Peripherals PeripheralIO, float deltaTime)
         {
             _CurrentX += (_CurrentSpeed * PeripheralIO.GetControllerLeftX ) * deltaTime;
-            Console.WriteLine("Moving X");
         }
         public void ControllerMoveY(Peripherals PeripheralIO, float deltaTime)
         {
             _CurrentY -= (_CurrentSpeed * PeripheralIO.GetControllerLeftY) * deltaTime;
-            Console.WriteLine("Moving Y");
         }
         #endregion
         #endregion
