@@ -67,6 +67,21 @@ namespace BasicEngine
 
         public Texture2D BlockTexture { get { return _BlockTexture; } set { } }
 
+        //public static SomeThing Foo
+        //{
+        //    get
+        //    {
+        //        if (instance.SomeThing == null)
+        //        {
+        //            throw new Exception("Fuck");
+        //        }
+        //        else
+        //        {
+        //            return instance._SomeThingOfTypeSomeThing;
+        //        }
+        //    }
+        //}
+
         #endregion Getters
 
         /// <summary>
@@ -75,7 +90,7 @@ namespace BasicEngine
         /// </summary>
         /// <param name="serviceProvider">Pass in Content.ServiceProvider from Game1</param>
         /// <param name="rootDirectory">Pass in Content.RootDirectory from Game1</param>
-        public XmlLoad(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
+        protected XmlLoad(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
         {
             _ServiceProvider = serviceProvider;
             _RootDirectory = rootDirectory;
