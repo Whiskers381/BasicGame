@@ -137,17 +137,9 @@ namespace BasicEngine
             {
                 _Sprint = true;
             }
-            else if (_state.Buttons.LeftStick == ButtonState.Released)
-            {
-                _Sprint = false;
-            }
             if (_state.Buttons.RightStick == ButtonState.Pressed)
             {
                 //Right stick clicked
-            }
-            else if (_state.Buttons.RightStick == ButtonState.Released)
-            {
-                //Right stick not clicked
             }
             #endregion
             #region Lettered buttons
@@ -156,33 +148,13 @@ namespace BasicEngine
             {
                 _UserAction = true;
             }
-            else
-            {
-                _UserAction = false;
-            }
             if (_state.IsButtonDown(Buttons.X))
             {
                 
             }
-            else
-            {
-                _IsControllerXButton = false;
-            }
-            if (_state.IsButtonDown(Buttons.Y))
-            {
-                _Jump = true;
-            }
-            else
-            {
-                _Jump = false;
-            }
             if (_state.IsButtonDown(Buttons.B))
             {
                 _IsControllerBButton = true;
-            }
-            else
-            {
-                _IsControllerBButton = false;
             }
             #endregion
             #region Dpad buttons
@@ -190,26 +162,13 @@ namespace BasicEngine
             {
                 _Crouch = true;
             }
-            else
-            {
-                _Crouch = false;
-            }
             if (_state.IsButtonDown(Buttons.DPadLeft))
-            {
-            }
-            else
             {
             }
             if (_state.IsButtonDown(Buttons.DPadRight))
             {
             }
-            else
-            {
-            }
             if (_state.IsButtonDown(Buttons.DPadUp))
-            {
-            }
-            else
             {
             }
             #endregion
@@ -217,27 +176,14 @@ namespace BasicEngine
             if (_state.IsButtonDown(Buttons.LeftShoulder))
             {
             }
-            else
-            {
-            }
             if (_state.IsButtonDown(Buttons.RightShoulder))
             {
                 _Reload = true;
             }
-            else
-            {
-                _Reload = false;
-            }
             if (_state.IsButtonDown(Buttons.LeftTrigger))
             {
             }
-            else
-            {
-            }
             if (_state.IsButtonDown(Buttons.RightTrigger))
-            {
-            }
-            else
             {
             }
             #endregion
@@ -246,21 +192,12 @@ namespace BasicEngine
             {
                 Escape = true;
             }
-            else
-            {
-            }
             if (_state.IsButtonDown(Buttons.Back))
-            {
-            }
-            else
             {
             }
             if (_state.IsButtonDown(Buttons.BigButton))
             {
-            }
-            else
-            {
-            }    
+            }   
             #endregion
 
         }
