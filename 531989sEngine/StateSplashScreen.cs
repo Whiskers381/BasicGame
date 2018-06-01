@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
@@ -39,16 +40,18 @@ namespace BasicEngine
             spriteBatch.End();
         }
 
-        public override void PostUpdate(GameTime gameTime)
+        public override void PostUpdate(GameTime gameTime,ref Peripherals IoController)
         {
 
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime,ref Peripherals IoController)
         {
-            if (_Duration >= _DurationLimit || Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if(_Duration >= _DurationLimit || IoController.GetUserAction)
             {
+                
                 _Game.ChangeState(new StateStartScreen(_Content, _Game, _GraphicsDevice, _Camera2D));
+                Thread.Sleep(150);
             }
             else
             {

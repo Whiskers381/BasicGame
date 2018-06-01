@@ -80,12 +80,12 @@ namespace BasicEngine
             spriteBatch.End();
         }
 
-        public override void PostUpdate(GameTime gameTime)
+        public override void PostUpdate(GameTime gameTime,ref Peripherals IoController)
         {
 
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime,ref Peripherals IoController)
         {
             if (_NextLevel != null)
             {

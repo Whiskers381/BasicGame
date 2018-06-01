@@ -84,6 +84,7 @@ namespace BasicEngine
             if (_state.IsKeyDown(Keys.LeftShift)) { _Sprint = true; } else { _Sprint = false; }
             if (_state.IsKeyDown(Keys.LeftControl)) { _Crouch = true; } else { _Crouch = false; }
             if (_state.IsKeyDown(Keys.Space)) { _Jump = true; } else { _Jump = false; }
+            if (_state.IsKeyDown(Keys.F)) { _UserAction = true; } else { _UserAction = false; }
 
             //System actions
             if (_state.IsKeyDown(Keys.Escape)) { Escape = true; } else { Escape = false; }
