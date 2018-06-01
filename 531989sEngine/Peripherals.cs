@@ -133,9 +133,25 @@ namespace BasicEngine
                     _Down = true;
                 }
             }
+            if(_state.Buttons.LeftStick == ButtonState.Pressed)
+            {
+                _Sprint = true;
+            }
+            else if (_state.Buttons.LeftStick == ButtonState.Released)
+            {
+                _Sprint = false;
+            }
+            if (_state.Buttons.RightStick == ButtonState.Pressed)
+            {
+                //Right stick clicked
+            }
+            else if (_state.Buttons.RightStick == ButtonState.Released)
+            {
+                //Right stick not clicked
+            }
             #endregion
             #region Lettered buttons
-            
+
             if (_state.IsButtonDown(Buttons.A))
             {
                 _UserAction = true;
