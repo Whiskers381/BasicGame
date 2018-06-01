@@ -22,6 +22,8 @@ namespace BasicEngine
         protected int _length;
         protected int _partDelay;
 
+        
+
         protected Vector2 _PlayerCharacterCoordinates;
 
         //protected int _MovmentSpeed = 200;//200-300 is a good idea

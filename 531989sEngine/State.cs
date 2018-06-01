@@ -24,6 +24,8 @@ namespace BasicEngine
 
         protected List<SpriteText> _Texts;
 
+        protected Color _BackgroundColour;
+
 
 
         #endregion Fields
@@ -39,7 +41,7 @@ namespace BasicEngine
             _Texts = new List<SpriteText>();
         }
 
-        public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+        public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch,ref Color BackgroundColour);
 
         public abstract void PostUpdate(GameTime gameTime,ref Peripherals IoController);
 

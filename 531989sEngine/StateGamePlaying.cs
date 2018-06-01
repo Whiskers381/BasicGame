@@ -26,6 +26,7 @@ namespace BasicEngine
         protected List<SpriteWormKing> _WormKings = new List<SpriteWormKing>();
         protected List<IBadGuy> _badGuys = new List<IBadGuy>();
 
+
         public void ChangeLevel(Level level)
         {
             _PlayerCharacter.CurrentCoordinates = level.PlayerCharacterDefaultCoordinates;
@@ -40,6 +41,7 @@ namespace BasicEngine
             _Portals = level.Portals;
 
             _NextLevel = level;
+
         }
 
         public StateGamePlaying(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
@@ -66,9 +68,9 @@ namespace BasicEngine
             //}
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch,ref Color BackgroundColour)
         {
-            _GraphicsDevice.Clear(new Color(0, 50, 50));
+            _GraphicsDevice.Clear(BackgroundColour);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
@@ -97,8 +99,15 @@ namespace BasicEngine
                 _NextLevel = null;
             }
 
+            /*for(int CollisionTargetIndex = 0; CollisionTargetIndex < _AllSprites.Count; CollisionTargetIndex++)
+            {
+                if (_PlayerCharacter.IntersectsWith(_AllSprites[CollisionTargetIndex]))
+            }*/
+
+
             _Camera2D.Pos = _PlayerCharacter.CurrentCoordinates;
             _PlayerCharacter.Update(_IoController, 1.0f / 60.0f);
+
 
             foreach(SpritePortal portal in _Portals)
             {

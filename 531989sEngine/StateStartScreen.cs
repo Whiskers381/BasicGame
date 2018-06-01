@@ -17,9 +17,9 @@ namespace BasicEngine
             _Texts = _Game.XmlContent.StartScreenText;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch,ref Color BackgroundColour)
         {
-            _GraphicsDevice.Clear(new Color(0, 50, 50));
+            _GraphicsDevice.Clear(BackgroundColour);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 

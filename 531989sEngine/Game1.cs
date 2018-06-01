@@ -40,7 +40,11 @@ namespace BasicEngine
         public static int _HalfScreenWidth = _ScreenWidth / 2;
         public static int _HalfScreenHeight = _ScreenHeight / 2;
 
+        private Color _BackgroundColour = new Color(25, 25, 25);
+
         public Peripherals IoController = new Peripherals();
+
+        private Random _Rand = new Random();
 
         #endregion Member Variables
 
@@ -61,7 +65,6 @@ namespace BasicEngine
         {
             // TODO: Add your initialization logic here
             //Initialize engine components:
-            
             base.Initialize();
         }
 
@@ -146,19 +149,11 @@ namespace BasicEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            _CurrentState.Draw(gameTime, _SpriteBatch);
+            _CurrentState.Draw(gameTime, _SpriteBatch, ref _BackgroundColour);
 
             base.Draw(gameTime);
         }
 
         #endregion
-
-        //Getters
-        public ref Peripherals GetIO()
-        {
-            return ref IoController;
-        }
     }
 }
