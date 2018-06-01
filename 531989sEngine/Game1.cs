@@ -131,8 +131,8 @@ namespace BasicEngine
                 _NextState = null;
             }
 
-            _CurrentState.Update(gameTime);
-            _CurrentState.PostUpdate(gameTime);
+            _CurrentState.Update(gameTime,ref IoController);
+            _CurrentState.PostUpdate(gameTime,ref IoController);
 
             base.Update(gameTime);
         }

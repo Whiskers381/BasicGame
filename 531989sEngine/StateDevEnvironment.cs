@@ -18,7 +18,7 @@ namespace BasicEngine
             _DevGuy = new SpriteDevGuy(content.Load<Texture2D>("DevGuy"), new Vector2(0,0));
             _AllSprites.Add(_DevGuy);
         }
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime,ref Peripherals IoController)
         {
             if (_NextLevel != null)
             {
