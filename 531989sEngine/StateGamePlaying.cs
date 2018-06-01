@@ -104,9 +104,28 @@ namespace BasicEngine
 
             for(int CollisionTargetIndex = 0; CollisionTargetIndex < _Blocks.Count; CollisionTargetIndex++)
             {
+
+
                 if (_PlayerCharacter.IntersectsWith(_Blocks[CollisionTargetIndex]))
                 {
-                    _PlayerCharacter.CurrentY = _Blocks[CollisionTargetIndex].CurrentY + _PlayerCharacter.Rectangle.Height;
+                    if (_Blocks[CollisionTargetIndex].CurrentY > _PlayerCharacter.CurrentY)
+                    {
+                        _PlayerCharacter.CurrentY = _PlayerCharacter.CurrentY - 2;
+                    }
+                    else if (_Blocks[CollisionTargetIndex].Rectangle.Height < _PlayerCharacter.CurrentY)
+                    {
+                        _PlayerCharacter.CurrentY = _PlayerCharacter.CurrentY +2;
+                    }
+
+                    if (_PlayerCharacter.CurrentX > _Blocks[CollisionTargetIndex].CurrentX)
+                    {
+                        _PlayerCharacter.CurrentX = _PlayerCharacter.CurrentX + 10;
+                    }
+                    else if (_PlayerCharacter.CurrentX < _Blocks[CollisionTargetIndex].CurrentX)
+                    {
+                        _PlayerCharacter.CurrentX = _PlayerCharacter.CurrentX - 10;
+                    }
+
                 }
                 else
                 {

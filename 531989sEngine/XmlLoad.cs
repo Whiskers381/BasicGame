@@ -94,7 +94,7 @@ namespace BasicEngine
         /// </summary>
         /// <param name="serviceProvider">Pass in Content.ServiceProvider from Game1</param>
         /// <param name="rootDirectory">Pass in Content.RootDirectory from Game1</param>
-        protected XmlLoad(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
+        public XmlLoad(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
         {
             _ServiceProvider = serviceProvider;
             _RootDirectory = rootDirectory;
