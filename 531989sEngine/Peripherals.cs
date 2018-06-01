@@ -138,14 +138,11 @@ namespace BasicEngine
             
             if (_state.IsButtonDown(Buttons.A))
             {
-                
-                _Reload = true;
-
+                _UserAction = true;
             }
             else
             {
-                
-                _Reload = false;
+                _UserAction = false;
             }
             if (_state.IsButtonDown(Buttons.X))
             {
@@ -209,9 +206,11 @@ namespace BasicEngine
             }
             if (_state.IsButtonDown(Buttons.RightShoulder))
             {
+                _Reload = true;
             }
             else
             {
+                _Reload = false;
             }
             if (_state.IsButtonDown(Buttons.LeftTrigger))
             {
