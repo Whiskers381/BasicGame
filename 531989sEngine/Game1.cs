@@ -74,7 +74,7 @@ namespace BasicEngine
             _SpriteBatch = new SpriteBatch(GraphicsDevice);
 
 
-            XmlContent.Load(Content.ServiceProvider, Content.RootDirectory);
+            //XmlContent.Load(Content.ServiceProvider, Content.RootDirectory);
             //_XmlContent = new XmlLoad(Content.ServiceProvider, Content.RootDirectory);
 
             _CurrentState = new StateSplashScreen(Content, this, GraphicsDevice, _Camera2D);

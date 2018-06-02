@@ -49,6 +49,43 @@ namespace BasicEngine
 
         #region Getters
 
+        public static Dictionary<string, SpriteFont> Fonts
+        {
+            get
+            {
+                return _Instance._Fonts;
+            }
+            set { }
+        }
+
+        #region SplashScreen stuff
+
+        public static List<SpriteText> SplashScreenText
+        {
+            get
+            {
+                return _Instance._SplashScreenText;
+            }
+            set { }
+        }
+
+        #endregion SplashScreen stuff
+
+        #region StartScreen stuff
+
+        public static List<SpriteText> StartScreenText
+        {
+            get
+            {
+                return _Instance._StartScreenText;
+            }
+            set { }
+        }
+
+        #endregion StartScreen stuff
+
+        #region GamePlayingState Stuff
+
         public static Dictionary<int, Level> Levels
         {
             get
@@ -66,14 +103,19 @@ namespace BasicEngine
             }
             set{ }
         }
-        public static Dictionary<string, SpriteFont> Fonts
+
+        public static Texture2D BlockTexture
         {
             get
             {
-                return _Instance._Fonts;
+                return _Instance._BlockTexture;
             }
             set { }
         }
+
+
+        #region PlayerCharacter
+
         public static List<Texture2D> PlayerCharacterUpTextures
         {
             get
@@ -109,6 +151,10 @@ namespace BasicEngine
             { }
         }
 
+        #endregion PlayerCharacter
+
+        #region BadGuyOne
+
         public static List<Texture2D> BadGuyOneUpTextures
         {
             get
@@ -142,46 +188,10 @@ namespace BasicEngine
             set { }
         }
 
-        public static List<SpriteText> SplashScreenText
-        {
-            get
-            {
-                return _Instance._SplashScreenText;
-            }
-            set { }
-        }
-        public static List<SpriteText> StartScreenText
-        {
-            get
-            {
-                return _Instance._StartScreenText;
-            }
-            set { }
-        }
+        #endregion BadGuyOne
 
-        public static Texture2D BlockTexture
-        {
-            get
-            {
-                return _Instance._BlockTexture;
-            }
-            set { }
-        }
+        #endregion GamePlayingState Stuff
 
-        //public static SomeThing Foo
-        //{
-        //    get
-        //    {
-        //        if (instance.SomeThing == null)
-        //        {
-        //            throw new Exception("Fuck");
-        //        }
-        //        else
-        //        {
-        //            return instance._Foo;
-        //        }
-        //    }
-        //}
         //  I remember thinking that static's only meaningful purpose was to help separate utility methods into the classes they
         //  logically belonged to or for global constants but instance control is where static flashes it's true power level from under it's
         //  unsuspecting plain trench coat.
