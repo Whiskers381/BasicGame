@@ -49,6 +49,28 @@ namespace BasicEngine
             return CreateTextNode(document, (XmlElement)Node, Name, Value);
         }
 
+        /// <summary>
+        /// Creates and adds a set of 2D coordinates to the given node in the format: "[Node]/[Name]/{X/[Value] || Y/[Value]}"
+        /// </summary>
+        public static XmlElement CreateCoordinateNode(XmlDocument document, XmlElement parentNode, string name, int x, int y)
+        {
+            XmlElement node =  CreateEmptyNode(document, parentNode, name);
+            CreateTextNode(
+                document,
+                parentNode.SelectSingleNode("PlayerDefaultCoordinates"),
+                "X", x.ToString());
+            CreateTextNode(
+                document,
+                parentNode.SelectSingleNode("PlayerDefaultCoordinates"),
+                "Y", y.ToString());
+
+            return parentNode;
+        }
+        public static XmlElement CreateCoordinateNode(XmlDocument document, XmlNode Node, string Name, int x, int y)
+        {
+            return CreateCoordinateNode(document, Node, Name, x, y);
+        }
+
         #endregion </AbstractionMethodsForDataWriting>
 
         #region <AbstractionMethodsForDataRetrieval>

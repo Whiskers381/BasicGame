@@ -32,16 +32,16 @@ namespace BasicEngine
             _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
         }
 
-        
-
-        //public SpriteTextureSprite(Texture2D texture, Vector2 defaultCoordinates, string textureName = null) : base(defaultCoordinates)
-        //{
 
 
-        //    _CurrentTexture = texture;
+        public SpriteTextureSprite(Texture2D texture, Vector2 defaultCoordinates, string textureName) : base(defaultCoordinates)
+        {
+            _TextureName = textureName;
 
-        //    _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
-        //}
+            _CurrentTexture = texture;
+
+            _Rectangle = new Rectangle((int)_CurrentX, (int)_CurrentY, texture.Width, texture.Height);
+        }
 
         public SpriteTextureSprite() : base()
         {

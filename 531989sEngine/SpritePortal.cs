@@ -23,7 +23,7 @@ namespace BasicEngine
 
         public override XmlNode ToXml(XmlDocument document, XmlNode ParentNode)
         {
-             XmlElement node = XmlTool.CreateEmptyNode(document, ParentNode, "Level");
+            XmlElement node = XmlTool.CreateEmptyNode(document, ParentNode, "Level");
             XmlTool.CreateTextNode(document, node, "Name", _LinkedLevelName.ToString());
 
             XmlTool.CreateEmptyNode(document, node, "Coordinates");

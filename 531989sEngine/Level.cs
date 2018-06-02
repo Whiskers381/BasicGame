@@ -110,7 +110,8 @@ namespace BasicEngine
                             GetDefaultXmlCoordinates(boss),
                             Int32.Parse(boss.SelectSingleNode("Length").FirstChild.Value),
                             Int32.Parse(boss.SelectSingleNode("PartDelay").FirstChild.Value),
-                            Color.White
+                            Color.White,
+                            boss.SelectSingleNode("Texture").FirstChild.Value
                             );
                         break;
                     default:
@@ -209,15 +210,14 @@ namespace BasicEngine
                  linkedLevelNode.AppendChild(portal.ToXml(document, rootNode.SelectSingleNode("LinkedLevels")));
             }
 
+            XmlTool.CreateEmptyNode(document, rootNode, "BadGuys");
 
+            XmlTool.CreateEmptyNode(document, rootNode, "Bosses");
 
-
-
-
-
-
-
-
+            foreach(SpriteWormKing wormKing in _WormKings)
+            {
+                wormKing.ToXml(document, rootNode.SelectSingleNode("Bosses"));
+            }
 
             return document;
         }

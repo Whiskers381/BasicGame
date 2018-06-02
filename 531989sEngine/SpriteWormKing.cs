@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Xml;
 
 #endregion Using
 
 namespace BasicEngine
 {
-    public class SpriteWormKing : SpriteTextureSprite, IBadGuy
+    public class SpriteWormKing : SpriteTextureSprite, IBadGuy, IDerivedFromXml
     {
         #region Member Variables
 
         public List<WormKingPart> _Parts = new List<WormKingPart>();//this isn't meant to be public but i wanted the camra to folow the worm for now and cba making a temp getter
         protected List<WormKingMovment> _Movements = new List<WormKingMovment>();
-        protected int _length;
-        protected int _partDelay;
+        protected int _Length;
+        protected int _PartDelay;
 
         
 
@@ -46,18 +47,19 @@ namespace BasicEngine
 
         }
 
-        public SpriteWormKing(Texture2D texture, Vector2 defaultCoordinates, int Length, int partDelay, Color color) : base(texture, defaultCoordinates)//, int partDelay
+        public SpriteWormKing(Texture2D texture, Vector2 defaultCoordinates, int Length, int partDelay, Color color, string textureName):
+            base(texture, defaultCoordinates, textureName)//, int partDelay
         {
-            _length = Length;
-            _partDelay = partDelay;
+            _Length = Length;
+            _PartDelay = partDelay;
 
             _Colour = color;
 
-            for (int LengthIndex = 1; LengthIndex <= _length; LengthIndex++)
+            for (int LengthIndex = 1; LengthIndex <= _Length; LengthIndex++)
             {
                 _Parts.Add(new WormKingPart(texture, new Vector2(_DefaultCoordinates.X, _DefaultCoordinates.Y), _Colour));
 
-                for(int SegmentIndex = 0; SegmentIndex < _partDelay; SegmentIndex++)
+                for(int SegmentIndex = 0; SegmentIndex < _PartDelay; SegmentIndex++)
                 {
                     _Movements.Add(new WormKingMovment(_RotationAngle, defaultCoordinates));
                 }
@@ -109,9 +111,9 @@ namespace BasicEngine
 
         protected void UpdateMovmentOfParts()
         {
-            for (int i = 0; i < _length; i++)
+            for (int i = 0; i < _Length; i++)
             {
-                _Parts[i].UpdateMovement(_Movements[i * _partDelay]);
+                _Parts[i].UpdateMovement(_Movements[i * _PartDelay]);
             }
             _Movements.RemoveAt(0);
             _Movements.Add(new WormKingMovment(_RotationAngle, _CurrentCoordinates));
@@ -147,6 +149,25 @@ namespace BasicEngine
         }
 
         #endregion Protected Methods
+
+        #region Public Methods
+
+        public override XmlNode ToXml(XmlDocument document, XmlNode parentNode)
+        {
+            XmlNode node = XmlTool.CreateEmptyNode(document, parentNode, "WormKing");
+
+            XmlTool.CreateTextNode(document, node, "Texture", _TextureName);
+
+            XmlTool.CreateCoordinateNode(document, node, "DefaultCoordinates", (int)_DefaultX, (int)_DefaultY);
+
+            XmlTool.CreateTextNode(document, node, "Length", _Length.ToString());
+
+            XmlTool.CreateTextNode(document, node, "Length", _PartDelay.ToString());
+
+            return node;
+        }
+
+        #endregion Public Methods
     }
     public class WormKingPart : SpriteTextureSprite
     {
