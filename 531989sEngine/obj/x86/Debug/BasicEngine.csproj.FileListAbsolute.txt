@@ -62,7 +62,6 @@ D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngin
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuy.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\DevGuyTrans.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\PortalOne.xnb
-D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\BasicEngine.exe.config
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BadGuyOne.xnb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BB_Block.xnb
@@ -101,3 +100,4 @@ C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.exe
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.pdb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
