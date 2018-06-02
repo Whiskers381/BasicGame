@@ -14,7 +14,7 @@ namespace BasicEngine
     {
         public StateStartScreen(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
-            _Texts = _Game.XmlContent.StartScreenText;
+            _Texts = XmlContent.StartScreenText;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch,ref Color BackgroundColour)

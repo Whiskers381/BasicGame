@@ -59,7 +59,7 @@
     <Compile Include="StateGamePlaying.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Level.cs" />
-    <Compile Include="XmlLoad.cs" />
+    <Compile Include="XmlContent.cs" />
     <Compile Include="SpriteMover.cs" />
     <Compile Include="SpriteTexturedMover.cs" />
     <Compile Include="SpritePlayerCharacter.cs" />

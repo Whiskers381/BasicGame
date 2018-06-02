@@ -52,18 +52,18 @@ namespace BasicEngine
             _IoController = game.IoController;
             _AllSprites = new List<Sprite>();
 
-            _Levels = _Game.XmlContent.Levels;
+            _Levels = XmlContent.Levels;
 
-            _CurrentLevel = _Levels[_Game.XmlContent.FirstLevel];
+            _CurrentLevel = _Levels[XmlContent.FirstLevel];
 
             _PlayerCharacter = new SpritePlayerCharacter(
-                _Game.XmlContent.PlayerCharacterUpTextures,
-                _Game.XmlContent.PlayerCharacterDownTextures,
-                _Game.XmlContent.PlayerCharacterLeftTextures,
-                _Game.XmlContent.PlayerCharacterRightTextures,
+                XmlContent.PlayerCharacterUpTextures,
+                XmlContent.PlayerCharacterDownTextures,
+                XmlContent.PlayerCharacterLeftTextures,
+                XmlContent.PlayerCharacterRightTextures,
                 _CurrentLevel.PlayerCharacterDefaultCoordinates,ref game.IoController);
 
-            ChangeLevel(_Levels[_Game.XmlContent.FirstLevel]);
+            ChangeLevel(_Levels[XmlContent.FirstLevel]);
 
             //foreach (Sprite block in _CurrentLevel.Blocks)
             //{

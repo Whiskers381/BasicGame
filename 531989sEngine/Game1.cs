@@ -22,9 +22,6 @@ namespace BasicEngine
 
         Camera2d _Camera2D = new Camera2d();
 
-        private XmlLoad _XmlContent;
-        public XmlLoad XmlContent { get { return _XmlContent; } set { } }
-
         private State _CurrentState;
         private State _NextState;
         
@@ -76,7 +73,9 @@ namespace BasicEngine
         {
             _SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _XmlContent = new XmlLoad(Content.ServiceProvider, Content.RootDirectory);
+
+            XmlContent.Load(Content.ServiceProvider, Content.RootDirectory);
+            //_XmlContent = new XmlLoad(Content.ServiceProvider, Content.RootDirectory);
 
             _CurrentState = new StateSplashScreen(Content, this, GraphicsDevice, _Camera2D);
         }

@@ -18,7 +18,7 @@ namespace BasicEngine
 
         public StateSplashScreen(ContentManager content, Game1 game, GraphicsDevice graphicsDevice, Camera2d camera2D) : base(content, game, graphicsDevice, camera2D)
         {
-            _Texts = _Game.XmlContent.SplashScreenText;
+            _Texts = XmlContent.SplashScreenText;
             _Camera2D.Pos = new Vector2(400, 240);
         }
 

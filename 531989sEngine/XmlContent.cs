@@ -16,9 +16,11 @@ using System.Diagnostics;
 
 namespace BasicEngine
 {
-    public class XmlLoad : ContentManager
+    public class XmlContent : ContentManager
     {
         #region MemberVariables
+
+        private static XmlContent _Instance;
 
         private IServiceProvider _ServiceProvider;
         private string _RootDirectory;
@@ -47,25 +49,124 @@ namespace BasicEngine
 
         #region Getters
 
-        public Dictionary<int, Level> Levels { get { return _Levels; } set { } }
-        public int FirstLevel { get { return _FirstLevel; } set { } }
+        public static Dictionary<int, Level> Levels
+        {
+            get
+            {
+                return _Instance._Levels;
+            }
+            set
+            { }
+        }
+        public static int FirstLevel
+        {
+            get
+            {
+                return _Instance._FirstLevel;
+            }
+            set{ }
+        }
+        public static Dictionary<string, SpriteFont> Fonts
+        {
+            get
+            {
+                return _Instance._Fonts;
+            }
+            set { }
+        }
+        public static List<Texture2D> PlayerCharacterUpTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterUpTextures;
+            }
+            set { }
 
-        public Dictionary<string, SpriteFont> Fonts { get { return _Fonts; } set { } }
+        }
+        public static List<Texture2D> PlayerCharacterDownTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterDownTextures;
+            }
+            set { }
+        }
+        public static List<Texture2D> PlayerCharacterLeftTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterLeftTextures;
+            }
+            set { }
+        }
+        public static List<Texture2D> PlayerCharacterRightTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterRightTextures;
+            }
+            set
+            { }
+        }
 
-        public List<Texture2D> PlayerCharacterUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
-        public List<Texture2D> PlayerCharacterDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
-        public List<Texture2D> PlayerCharacterLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
-        public List<Texture2D> PlayerCharacterRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
+        public static List<Texture2D> BadGuyOneUpTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterUpTextures;
+            }
+            set { }
+        }
+        public static List<Texture2D> BadGuyOneDownTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterDownTextures;
+            }
+            set { }
+        }
+        public static List<Texture2D> BadGuyOneLeftTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterLeftTextures;
+            }
+            set { }
+        }
+        public static List<Texture2D> BadGuyOneRightTextures
+        {
+            get
+            {
+                return _Instance._PlayerCharacterRightTextures;
+            }
+            set { }
+        }
 
-        public List<Texture2D> BadGuyOneUpTextures { get { return _PlayerCharacterUpTextures; } set { } }
-        public List<Texture2D> BadGuyOneDownTextures { get { return _PlayerCharacterDownTextures; } set { } }
-        public List<Texture2D> BadGuyOneLeftTextures { get { return _PlayerCharacterLeftTextures; } set { } }
-        public List<Texture2D> BadGuyOneRightTextures { get { return _PlayerCharacterRightTextures; } set { } }
+        public static List<SpriteText> SplashScreenText
+        {
+            get
+            {
+                return _Instance._SplashScreenText;
+            }
+            set { }
+        }
+        public static List<SpriteText> StartScreenText
+        {
+            get
+            {
+                return _Instance._StartScreenText;
+            }
+            set { }
+        }
 
-        public List<SpriteText> SplashScreenText { get { return _SplashScreenText; } set { } }
-        public List<SpriteText> StartScreenText { get { return _StartScreenText; } set { } }
-
-        public Texture2D BlockTexture { get { return _BlockTexture; } set { } }
+        public static Texture2D BlockTexture
+        {
+            get
+            {
+                return _Instance._BlockTexture;
+            }
+            set { }
+        }
 
         //public static SomeThing Foo
         //{
@@ -88,13 +189,18 @@ namespace BasicEngine
 
         #endregion Getters
 
+        public static void Load(IServiceProvider serviceProvider, string rootDirectory)
+        {
+            _Instance =  new XmlContent(serviceProvider, rootDirectory);
+        }
+
         /// <summary>
         /// Handles All xml loading starting with the base file
         /// also has getters for all the information loaded.
         /// </summary>
         /// <param name="serviceProvider">Pass in Content.ServiceProvider from Game1</param>
         /// <param name="rootDirectory">Pass in Content.RootDirectory from Game1</param>
-        public XmlLoad(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
+        private XmlContent(IServiceProvider serviceProvider, string rootDirectory) : base(serviceProvider, rootDirectory)
         {
             _ServiceProvider = serviceProvider;
             _RootDirectory = rootDirectory;
