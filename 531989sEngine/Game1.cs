@@ -73,7 +73,6 @@ namespace BasicEngine
         {
             _SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-
             XmlContent.Load(Content.ServiceProvider, Content.RootDirectory);
 
             _CurrentState = new StateSplashScreen(Content, this, GraphicsDevice, _Camera2D);
@@ -105,24 +104,26 @@ namespace BasicEngine
 
             //Full screen handling
             #region FullScreen Toggle logic
+
             _ShouldBeFullScreen = IoController.FullScreenKey;
             if (_Graphics.IsFullScreen == false && _ShouldBeFullScreen)
             {
                 //Makes is fullscreen
                 _Graphics.ToggleFullScreen();
-                _Graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
-                _Graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
-                _Graphics.ApplyChanges();
-
+                //_Graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+                //_Graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+                //_Graphics.ApplyChanges();
             }
             else if (_Graphics.IsFullScreen == true && !_ShouldBeFullScreen)
             {
                 //Makes it not fullscreen
                 _Graphics.ToggleFullScreen();
-                _Graphics.PreferredBackBufferWidth = _ScreenWidth;
-                _Graphics.PreferredBackBufferHeight = _ScreenHeight;
-                _Graphics.ApplyChanges();
+                //_Graphics.PreferredBackBufferWidth = _ScreenWidth;
+                //_Graphics.PreferredBackBufferHeight = _ScreenHeight;
+                //_Graphics.ApplyChanges();
             }
+
+
             #endregion
 
             if (_NextState != null)
@@ -137,6 +138,7 @@ namespace BasicEngine
 
             base.Update(gameTime);
         }
+
         #endregion
 
         #region Draw

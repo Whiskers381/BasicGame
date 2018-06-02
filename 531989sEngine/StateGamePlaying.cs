@@ -75,7 +75,7 @@ namespace BasicEngine
         {
             _GraphicsDevice.Clear(BackgroundColour);
 
-            spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, _Camera2D.get_transformation(_GraphicsDevice));
 
             foreach (Sprite sprite in _AllSprites)
             {
