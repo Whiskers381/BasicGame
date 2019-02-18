@@ -66,7 +66,7 @@ namespace BasicEngine
 
         public Camera2d()
         {
-            _Zoom = 1.0f;
+            _Zoom = 2.2f;
             _Rotation = 0.0f;
             _CurrentCoordinates = Vector2.Zero;
         }

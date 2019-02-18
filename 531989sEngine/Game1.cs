@@ -50,9 +50,9 @@ namespace BasicEngine
             _Graphics = new GraphicsDeviceManager(this);
 
             //_Graphics.ToggleFullScreen();
-            //_Graphics.PreferredBackBufferHeight = 1080;
-            //_Graphics.PreferredBackBufferWidth = 1920;
-            //Window.IsBorderless = true;
+            _Graphics.PreferredBackBufferHeight = 1080;
+            _Graphics.PreferredBackBufferWidth = 1920;
+            Window.IsBorderless = true;
 
             Content.RootDirectory = "Content";
         }
