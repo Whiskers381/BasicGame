@@ -4,7 +4,6 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/joshuaempyre__arcade_music_loop.wav</File>
     <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/BB_Block.png</File>
     <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/MessageFont.spritefont</File>
     <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/UssDallas.spritefont</File>
@@ -15,5 +14,10 @@
     <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/DevGuy.png</File>
     <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/DevGuyTrans.png</File>
     <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/PortalOne.png</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/Music/GamiTuneNormalized.mp3</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/Music/joshuaempyre__arcade_music_loop.wav</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/Music/SomeShitNormalized.mp3</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/Music/UndergroundBackup.mp3</File>
+    <File>D:/Documents/Uni/Goof/BasicGame/BasicGame/531989sEngine/Content/Music/SomeShitNormalizedAreYouHappyXNA.wav</File>
   </SourceFiles>
 </SourceFileCollection>

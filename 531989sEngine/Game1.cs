@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 using System.Xml;
 
 namespace BasicEngine
@@ -43,6 +44,9 @@ namespace BasicEngine
 
         private Random _Rand = new Random();
 
+        SoundEffect GameMusic;
+        SoundEffectInstance GameMusicInstance;
+
         #endregion Member Variables
 
         public Game1()
@@ -79,6 +83,13 @@ namespace BasicEngine
             _SpriteBatch = new SpriteBatch(GraphicsDevice);
 
             XmlContent.Load(Content.ServiceProvider, Content.RootDirectory);
+
+            GameMusic = Content.Load<SoundEffect>(@"Music/SomeShitNormalizedAreYouHappyXNA");
+
+            GameMusicInstance = GameMusic.CreateInstance();
+            GameMusicInstance.IsLooped = true;
+            GameMusicInstance.Play();
+            SoundEffect.MasterVolume = 0.2f;
 
             _CurrentState = new StateSplashScreen(Content, this, GraphicsDevice, _Camera2D);
         }

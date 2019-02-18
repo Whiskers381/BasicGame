@@ -13,12 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin joshuaempyre__arcade_music_loop.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:joshuaempyre__arcade_music_loop.wav
-
 #begin BB_Block.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -128,4 +122,34 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:PortalOne.png
+
+#begin Music/GamiTuneNormalized.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/GamiTuneNormalized.mp3
+
+#begin Music/joshuaempyre__arcade_music_loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/joshuaempyre__arcade_music_loop.wav
+
+#begin Music/SomeShitNormalized.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/SomeShitNormalized.mp3
+
+#begin Music/UndergroundBackup.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/UndergroundBackup.mp3
+
+#begin Music/SomeShitNormalizedAreYouHappyXNA.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/SomeShitNormalizedAreYouHappyXNA.wav
 

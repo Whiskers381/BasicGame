@@ -28,7 +28,6 @@ D:\Documents\Uni\Goof\531989sEngine\531989sEngine\bin\Windows\x86\Debug\Content\
 D:\Documents\Uni\Goof\531989sEngine\531989sEngine\bin\Windows\x86\Debug\Content\MessageFont.xnb
 D:\Documents\Uni\Goof\531989sEngine\531989sEngine\bin\Windows\x86\Debug\Content\UssDallas.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\BB_Block.xnb
-D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\joshuaempyre__arcade_music_loop.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\MessageFont.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\UssDallas.xnb
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -101,3 +100,11 @@ C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.pdb
 C:\Users\Hakaru\Documents\Programming\Git\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
 D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\obj\x86\Debug\BasicEngine.csprojAssemblyReference.cache
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\GamiTuneNormalized.wma
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\GamiTuneNormalized.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\joshuaempyre__arcade_music_loop.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\SomeShitNormalized.wma
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\SomeShitNormalized.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\UndergroundBackup.wma
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\UndergroundBackup.xnb
+D:\Documents\Uni\Goof\BasicGame\BasicGame\531989sEngine\bin\Windows\x86\Debug\Content\Music\SomeShitNormalizedAreYouHappyXNA.xnb
