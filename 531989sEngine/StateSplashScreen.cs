@@ -47,7 +47,8 @@ namespace BasicEngine
 
         public override void Update(GameTime gameTime,ref Peripherals IoController)
         {
-            if(_Duration >= _DurationLimit || IoController.GetUserAction)
+            KeyboardState keyboard = Keyboard.GetState();
+            if (_Duration >= _DurationLimit || keyboard.IsKeyDown(Keys.Enter))
             {
                 
                 _Game.ChangeState(new StateStartScreen(_Content, _Game, _GraphicsDevice, _Camera2D));

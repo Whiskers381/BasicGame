@@ -42,7 +42,7 @@ namespace BasicEngine
             {
                 _Game.ChangeState(new StateDevEnvironment(_Content, _Game, _GraphicsDevice, _Camera2D));
             }
-            if(IoController.GetUserAction)
+            if(keyboard.IsKeyDown(Keys.D1) || keyboard.IsKeyDown(Keys.Space))
             {
                 _Game.ChangeState(new StateGamePlaying(_Content, _Game, _GraphicsDevice, _Camera2D));
                 Thread.Sleep(150);
